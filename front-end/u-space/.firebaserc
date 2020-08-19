@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "u-space-drive": {
+      "hosting": {
+        "u-space": [
+          "u-space-drive"
+        ]
+      }
+    }
+  }
+}
