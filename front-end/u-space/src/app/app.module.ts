@@ -11,12 +11,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FileFormatComponent } from './components/file-format/file-format.component';
 
+
+import { ThumbnailsComponent } from './components/thumbnails/thumbnails.component';
+import {MatCardModule} from '@angular/material/card';
+
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 
 // FireBase Section
-import { AngularFireModule } from '@angular/fire';
-import { AngularFireAuthModule  } from '@angular/fire/auth';
+
 import { environment } from 'src/environments/environment';
 
 @NgModule({
@@ -29,9 +32,7 @@ import { environment } from 'src/environments/environment';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireModule,
-    AngularFireAuthModule,
+
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
@@ -40,6 +41,9 @@ import { environment } from 'src/environments/environment';
     BrowserAnimationsModule,
     MatIconModule,
     MatListModule,
+    MatCardModule,
+    MatInputModule,
+    ThumbnailsComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
