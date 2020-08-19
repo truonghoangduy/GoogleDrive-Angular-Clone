@@ -9,5 +9,4 @@ export interface Folder{
 }
 export interface Section {
   name: string;
-
   }
