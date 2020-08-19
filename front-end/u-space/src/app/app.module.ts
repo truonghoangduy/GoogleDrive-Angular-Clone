@@ -19,6 +19,7 @@ import { MatListModule } from '@angular/material/list';
 // FireBase Section
 
 import { environment } from 'src/environments/environment';
+import { ThumbnailsHeadComponent } from './components/thumbnails-head/thumbnails-head.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { environment } from 'src/environments/environment';
     ThumbnailsComponent,
     NavbarComponent,
     SidebarComponent,
+    ThumbnailsHeadComponent,
   ],
   imports: [
     BrowserModule,
