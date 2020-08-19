@@ -10,10 +10,19 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { FileFormatComponent } from './components/file-format/file-format.component';
+
+import {MatIconModule} from '@angular/material/icon';
+import {MatListModule} from '@angular/material/list';
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent
+]
+@NgModule({
+  declarations: [
+    AppComponent,
+    FileFormatComponent
   ],
   imports: [
     BrowserModule,
@@ -23,9 +32,10 @@ import {MatInputModule} from '@angular/material/input';
     MatButtonModule,
     MatIconModule,
     MatFormFieldModule,
-    MatInputModule
-
-
+    MatInputModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
