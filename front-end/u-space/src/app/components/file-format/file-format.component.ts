@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FileFolderxService} from '../../services/file-folderx.service'
-import {Section} from '../../models/file'
+import {Section} from '../../models/folder'
 
 @Component({
   selector: 'app-file-format',
@@ -11,7 +11,6 @@ export class FileFormatComponent implements OnInit {
   folders: Section[] = [
     {
       name: 'Photos',
-
     },
     {
       name: 'Recipes',
@@ -22,16 +21,7 @@ export class FileFormatComponent implements OnInit {
 
     }
   ];
-  notes: Section[] = [
-    {
-      name: 'Vacation Itinerary',
 
-    },
-    {
-      name: 'Kitchen Remodel',
-
-    }
-  ];
 
 
 

@@ -9,12 +9,16 @@ import { FileFormatComponent } from './components/file-format/file-format.compon
 
 import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
+import { ThumbnailsComponent } from './components/thumbnails/thumbnails.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatInputModule} from '@angular/material/input';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    FileFormatComponent
+    FileFormatComponent,
+    ThumbnailsComponent
   ],
   imports: [
     BrowserModule,
@@ -22,6 +26,8 @@ import {MatListModule} from '@angular/material/list';
     BrowserAnimationsModule,
     MatIconModule,
     MatListModule,
+    MatCardModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
