@@ -1,19 +1,40 @@
-<mat-toolbar class="example">
-    <span>My App</span>
+<mat-toolbar class="mat-elevation-z6">
+    <span>USpace</span>
 
-    <mat-form-field class="example-full-width" style="position: relative;text-align: center;">
-        <mat-icon style="position: absolute; top: 14px;">search</mat-icon>
+    <mat-form-field class="example-full-width" style="position: relative;">
+        <div>
+            <mat-icon style="position: absolute; top: 12px;left: -25px;">search</mat-icon>
+        </div>
+
         <mat-label> </mat-label>
         <input matInput placeholder="Type name file" class="input">
     </mat-form-field>
     <div>
-        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>apps</mat-icon>
-    </button>
+        <button mat-icon-button class="example-icon favorite-icon" [matMenuTriggerFor]="menu" aria-label="Example icon-button with heart icon">
+          <mat-icon>apps</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+            <mat-icon>slideshow</mat-icon>
+            <span>UTube</span>
+          </button>
+            <button mat-menu-item>
+            <mat-icon>email</mat-icon>
+            <span>Umail</span>
+          </button>
+            <button mat-menu-item>
+            <mat-icon>calendar_today</mat-icon>
+            <span>UCalendar</span>
+          </button>
+            <button mat-menu-item>
+            <mat-icon>voice_chat</mat-icon>
+            <span>UMeet</span>
+          </button>
 
-        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-      <mat-icon>account_circle</mat-icon>
-    </button>
+        </mat-menu>
+
+        <button *ngIf="auth.user==null" mat-raised-button (click)="this.auth.loginGoogle() ">Sign in with Google</button>
+        <button *ngIf="auth.user!=null" mat-raised-button (click)="this.auth.Logout() "><mat-icon>account_circle</mat-icon></button>
     </div>
 
 </mat-toolbar>

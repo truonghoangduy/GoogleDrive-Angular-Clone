@@ -7,7 +7,7 @@ import {Section} from '../../../app/models/folder.model'
   styleUrls: ['./file-format.component.scss']
 })
 export class FileFormatComponent implements OnInit {
-  folders: Section[] = [
+  folders= [
     {
       name: 'Photos',
     },
