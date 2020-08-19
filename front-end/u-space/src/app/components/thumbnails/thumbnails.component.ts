@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {File}  from '../../models/file.model'
+import { Component, OnInit} from '@angular/core';
+import {File}  from '../../models/file.model';
+
 
 @Component({
   selector: 'app-thumbnails',
@@ -16,8 +17,6 @@ export class ThumbnailsComponent implements OnInit {
       icon : '',
       name: 'Shiba-inu',
     }
-
-
   ];
 
   constructor() { }

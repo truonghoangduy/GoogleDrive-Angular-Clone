@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FileFolderxService} from '../../services/file-folderx.service'
-import {Section} from '../../models/folder'
+import {Section} from '../../../app/models/folder.model'
 
 @Component({
   selector: 'app-file-format',

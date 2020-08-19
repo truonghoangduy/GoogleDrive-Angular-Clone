@@ -26,7 +26,8 @@ import { environment } from 'src/environments/environment';
   declarations: [
     AppComponent,
     FileFormatComponent,
-    NavbarComponent
+    NavbarComponent,
+    ThumbnailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +44,8 @@ import { environment } from 'src/environments/environment';
     MatListModule,
     MatCardModule,
     MatInputModule,
-    ThumbnailsComponent,
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
