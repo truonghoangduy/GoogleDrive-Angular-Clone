@@ -1,7 +1,7 @@
 <mat-list-item>
     <div mat-subheader>Files</div>
     <mat-card *ngFor="let files of files" class="example-card">
-        <img src={{files.pictureURL}} style="width: 180px;height: auto;">
+        <a href={{files.pictureURL}} style="width: 180px;height: auto;"></a>
         <mat-list-item>
             <mat-icon mat-list-icon>{{files.icon}}</mat-icon>
             <mat-card-title mat-line>{{files.name}}</mat-card-title>
