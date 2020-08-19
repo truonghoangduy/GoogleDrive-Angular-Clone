@@ -3,39 +3,48 @@
         
         <button class="New">NEW</button>
         <ul class="B" style="margin-top: 15px;">           
-             <li>
-               <div class="list-hover" style="background-color: #EFEFEF;">
-                    <button class="list" id="MS" style="position: relative;">                   
-                            <mat-icon style="position: absolute; top: 4px; left: 7px;">
-                                favorite</mat-icon>                       
-                              <p>My Space</p>                   
-                    </button>
-               </div>
-            </li>
-            <li>
+            <li style="display: flex; flex-direction: row;">
+                <div  style="background-color:#EFEFEF" class="list-hover">
+                    <button class="list" id="MS" >
+                        <mat-icon style="margin-top: 7px;">perm_media</mat-icon>  
+                            <p style="display: inline-block; margin-left: 15px; margin-bottom: 25px; font-size: 15px;">My Space</p>  
+                    </button>             
+                </div>
+            </li>           
+            <li style="display: flex; flex-direction: row;">
                 <div  style="background-color:#EFEFEF" class="list-hover">
                     <button class="list" id="R">
-                        <mat-icon>favorite</mat-icon>  
-                            <Span>Recent</Span>  
+                        <mat-icon style="margin-top: 7px;">history</mat-icon>  
+                            <p style="display: inline-block; margin-left: 15px; margin-bottom: 25px; font-size: 15px;">Recent</p>  
                     </button>             
                 </div>
             </li>
 
             <li style="display: flex; flex-direction: row;">
                 <div  style="background-color:#EFEFEF" class="list-hover">
-                    <button class="list" id="S" style="width: 100%; margin-left: 15px;">
-                        <mat-icon style="margin-top: 7px;">favorite</mat-icon>  
+                    <button class="list" id="S">
+                        <mat-icon style="margin-top: 7px;">folder_shared</mat-icon>  
                             <p style="display: inline-block; margin-left: 15px; margin-bottom: 25px; font-size: 15px;">Share</p>  
                     </button>             
                 </div>
             </li>
             
-            <div></div>
-            <div></div>
-            
-            
-            <li><button class="list" id="P">Pin</button></li>
-            <li><button class="list" id="RB">Recycle Bin</button></li>
+            <li style="display: flex; flex-direction: row;">
+                <div  style="background-color:#EFEFEF" class="list-hover">
+                    <button class="list" id="P">
+                        <mat-icon style="margin-top: 7px;">push_pin</mat-icon>  
+                            <p style="display: inline-block; margin-left: 15px; margin-bottom: 25px; font-size: 15px;">Pin</p>  
+                    </button>             
+                </div>
+            </li>
+            <li style="display: flex; flex-direction: row;">
+                <div  style="background-color:#EFEFEF" class="list-hover">
+                    <button class="list" id="RB">
+                        <mat-icon style="margin-top: 7px;">delete</mat-icon>  
+                            <p style="display: inline-block; margin-left: 15px; margin-bottom: 25px; font-size: 15px;">Recycle Bin</p>  
+                    </button>             
+                </div>
+            </li>              
         </ul>
     </mat-drawer>
   </mat-drawer-container>

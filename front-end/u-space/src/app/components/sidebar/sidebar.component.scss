@@ -29,7 +29,15 @@ li{
     border-left-style: solid;
     border-left-color: #3B5998;
     border-left-width: 5px;
+    cursor: pointer;
     // background-color: hotpink;
+    
+}
+
+.list-hover:focus{
+    border-left-style: solid;
+    background-color: #3B5998;
+    border-left-width: 5px;
 }
 .New{
     width: 90%;
@@ -44,6 +52,8 @@ li{
     border-radius: 7px;
     border-width: 1px;
     outline: none;
+    width: 100%; 
+    margin-left: 15px;
 }
 #R{
     width: 80%;
@@ -51,6 +61,8 @@ li{
     border-radius: 7px;
     border-width: 1px;
     outline: none;
+    width: 100%;
+    margin-left: 15px;
 }
 #S{
     width: 80%;
@@ -58,6 +70,8 @@ li{
     border-radius: 7px;
     border-width: 1px; 
     outline: none;
+    width: 100%; 
+    margin-left: 15px;
 }
 #P{
     width: 80%;
@@ -65,6 +79,8 @@ li{
     border-radius: 7px;
     border-width: 1px;
    outline: none;
+   width: 100%; 
+   margin-left: 15px;
 }
 #RB{
     width: 80%;
@@ -72,5 +88,7 @@ li{
     border-radius: 7px;
     border-width: 1px;
     outline: none;
+    width: 100%; 
+    margin-left: 15px;
 }
 
