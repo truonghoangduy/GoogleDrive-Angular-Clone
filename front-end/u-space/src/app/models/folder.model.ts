@@ -7,3 +7,7 @@ export interface Folder{
 
     // PATH Implentation will be update
 }
+export interface Section {
+  name: string;
+
+  }

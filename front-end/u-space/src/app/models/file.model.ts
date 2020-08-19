@@ -4,7 +4,9 @@ export interface File {
     volume: string,
     createDate: string,
     owner: string,
+    icon :string,
+
 
     // PATH Implentation will be update
-
 }
+
