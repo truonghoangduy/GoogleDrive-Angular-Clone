@@ -15,7 +15,7 @@ import { FileFormatComponent } from './components/file-format/file-format.compon
 import { ThumbnailsComponent } from './components/thumbnails/thumbnails.component';
 import {MatCardModule} from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
-
+import {MatMenuModule} from '@angular/material/menu';
 // FireBase Section
 
 import { environment } from 'src/environments/environment';
@@ -43,6 +43,7 @@ import { environment } from 'src/environments/environment';
     MatListModule,
     MatCardModule,
     MatInputModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
