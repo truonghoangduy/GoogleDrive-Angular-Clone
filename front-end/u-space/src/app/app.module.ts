@@ -20,6 +20,8 @@ import {MatMenuModule} from '@angular/material/menu';
 
 import { environment } from 'src/environments/environment';
 import { ThumbnailsHeadComponent } from './components/thumbnails-head/thumbnails-head.component';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,9 @@ import { ThumbnailsHeadComponent } from './components/thumbnails-head/thumbnails
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule,
+    AngularFireAuthModule,
     MatSidenavModule,
     MatToolbarModule,
     MatButtonModule,
