@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {File}  from '../../models/file'
+import {File}  from '../../models/file.model'
 
 @Component({
   selector: 'app-thumbnails',

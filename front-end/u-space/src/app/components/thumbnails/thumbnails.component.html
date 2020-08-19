@@ -2,10 +2,11 @@
     <div mat-subheader>Files</div>
     <mat-card *ngFor="let files of files" class="example-card">
         <a href={{files.pictureURL}} style="width: 180px;height: auto;"></a>
+        path.extname({{files.pictureURL}};
         <mat-list-item>
             <mat-icon mat-list-icon>{{files.icon}}</mat-icon>
             <mat-card-title mat-line>{{files.name}}</mat-card-title>
         </mat-list-item>
     </mat-card>
-
 </mat-list-item>
+<script src="../thumbnails//change icon.js"></script>
