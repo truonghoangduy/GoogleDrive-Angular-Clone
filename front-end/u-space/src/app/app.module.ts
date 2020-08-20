@@ -27,6 +27,8 @@ import { ListShareComponent } from './components/share-file/list-share/list-shar
 
 import {  AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -57,6 +59,7 @@ import { AngularFireModule } from '@angular/fire';
     MatMenuModule,
     FolderUiModule,
     MatDividerModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
