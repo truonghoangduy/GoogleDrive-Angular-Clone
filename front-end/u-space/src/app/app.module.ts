@@ -18,15 +18,17 @@ import {MatMenuModule} from '@angular/material/menu';
 // FireBase Section
 
 import { environment } from 'src/environments/environment';
-import { AngularFireModule } from '@angular/fire';
-import { AngularFireAuthModule } from '@angular/fire/auth';
+
 import { FolderUiModule } from './modules/folder-ui/folder-ui.module';
 import {MatDividerModule} from '@angular/material/divider';
+import { ThumbnailsHeadComponent } from './components/thumbnails-head/thumbnails-head.component';
 import { BySOComponent } from './components/share-file/by-so/by-so.component';
 import { ListShareComponent } from './components/share-file/list-share/list-share.component';
 
-
-
+import {  AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireModule } from '@angular/fire';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -57,6 +59,7 @@ import { ListShareComponent } from './components/share-file/list-share/list-shar
     MatMenuModule,
     FolderUiModule,
     MatDividerModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

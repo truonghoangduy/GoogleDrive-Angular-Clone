@@ -1,5 +1,10 @@
-<mat-toolbar class="mat-elevation-z6" style="background-color: white; border-bottom-style: solid;border-color: whitesmoke;border-width: 2px;">
-    <span>USpace</span>
+<mat-toolbar class="mat-elevation-z6" color="pirmary" style="background-color: white; border-bottom-style: solid;border-color: whitesmoke;border-width: 2px;">
+
+    <div class="logo_name">
+        <img src="../../../assets/logo.png" alt="logo" class="logo">
+        <span class="logo_name">USpace</span>
+    </div>
+
 
     <mat-form-field class="example-full-width" style="position: relative;">
         <div>
@@ -13,28 +18,22 @@
         <button mat-icon-button class="example-icon favorite-icon" [matMenuTriggerFor]="menu" aria-label="Example icon-button with heart icon">
           <mat-icon>apps</mat-icon>
         </button>
-        <mat-menu #menu="matMenu">
-            <button mat-menu-item>
-            <mat-icon>slideshow</mat-icon>
-            <span>UTube</span>
-          </button>
-            <button mat-menu-item>
-            <mat-icon>email</mat-icon>
-            <span>Umail</span>
-          </button>
-            <button mat-menu-item>
-            <mat-icon>calendar_today</mat-icon>
-            <span>UCalendar</span>
-          </button>
-            <button mat-menu-item>
-            <mat-icon>voice_chat</mat-icon>
-            <span>UMeet</span>
-          </button>
 
-        </mat-menu>
 
         <button *ngIf="auth.user==null" mat-raised-button (click)="this.auth.loginGoogle() ">Sign in with Google</button>
-        <button *ngIf="auth.user!=null" mat-raised-button (click)="this.auth.Logout() "><mat-icon>account_circle</mat-icon></button>
+        <button class="khung_avatar" *ngIf="auth.user!=null" mat-raised-button [matMenuTriggerFor]="menu">
+          <img *ngIf="auth.user!=null" class="avatar" [src]='auth.user.photoURL'>
+          
+        </button>
+
+
     </div>
 
 </mat-toolbar>
+
+<mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="this.auth.Logout()">
+<mat-icon>login</mat-icon>
+<span>Logout</span>
+</button>
+</mat-menu>
