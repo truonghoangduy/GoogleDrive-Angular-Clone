@@ -1,0 +1,55 @@
+<mat-drawer-container class="example-container">
+    <mat-drawer mode="side" opened class="sidebar" style="background-color: #f5f5f5;">
+        <div class="btn1">
+            <button class="New">
+                <mat-icon style="margin-top: 7px;">add_box</mat-icon>
+                <p>NEW</p>
+            </button>
+        </div>
+        <ul class="B" style="margin-top: 15px;">
+            <li style="display: flex; flex-direction: row;">
+                <div class="list-hover">
+                    <button class="list" id="S">
+                        <mat-icon style="margin-top: 7px;">perm_media</mat-icon>
+                        <p>My Space</p>
+                    </button>
+                </div>
+            </li>
+            <li style="display: flex; flex-direction: row;">
+                <div class="list-hover">
+                    <button class="list" id="S">
+                        <mat-icon style="margin-top: 7px;">history</mat-icon>
+                        <p>Recent</p>
+                    </button>
+                </div>
+            </li>
+
+            <li style="display: flex; flex-direction: row;">
+                <div class="list-hover">
+                    <button class="list" id="S">
+                        <mat-icon style="margin-top: 7px;">folder_shared</mat-icon>
+                        <p>Share</p>
+                    </button>
+                </div>
+            </li>
+
+            <li style="display: flex; flex-direction: row;">
+                <div class="list-hover">
+                    <button class="list" id="S">
+                        <mat-icon style="margin-top: 7px;">push_pin</mat-icon>
+                        <p>Pin</p>
+                    </button>
+                </div>
+            </li>
+            <li style="display: flex; flex-direction: row;">
+                <div class="list-hover">
+                    <button class="list" id="S">
+                        <mat-icon style="margin-top: 7px;">delete</mat-icon>
+                        <p>Recycle Bin</p>
+                    </button>
+                </div>
+            </li>
+        </ul>
+    </mat-drawer>
+    <router-outlet></router-outlet>
+</mat-drawer-container>
