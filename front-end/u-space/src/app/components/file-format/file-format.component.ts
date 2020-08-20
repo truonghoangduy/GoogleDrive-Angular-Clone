@@ -8,7 +8,7 @@ import { Folder } from 'src/app/models/folder.model';
 })
 export class FileFormatComponent implements OnInit {
   
-  @Input() folder:Folder = null;
+  @Input() folders:Folder = null;
 
   constructor() { }
 
