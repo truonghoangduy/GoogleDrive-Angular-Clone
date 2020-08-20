@@ -20,6 +20,7 @@ import {MatMenuModule} from '@angular/material/menu';
 
 import { environment } from 'src/environments/environment';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +38,6 @@ import { environment } from 'src/environments/environment';
     MatToolbarModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule,
     BrowserAnimationsModule,
     MatIconModule,
     MatListModule,
