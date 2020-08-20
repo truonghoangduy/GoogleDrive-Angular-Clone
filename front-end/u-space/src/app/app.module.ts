@@ -34,11 +34,10 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
   declarations: [
     AppComponent,
     NavbarComponent,
-    NavbarComponent,
     SidebarComponent,
     BySOComponent,
     ListShareComponent,
-
+    SignInComponent
   ],
   imports:[
     BrowserModule,
