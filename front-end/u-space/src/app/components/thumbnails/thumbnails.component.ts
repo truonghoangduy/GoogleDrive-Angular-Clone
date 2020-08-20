@@ -12,7 +12,7 @@ export class ThumbnailsComponent implements OnInit {
     {
       pictureURL :"https://material.angular.io/assets/img/examples/shiba2.jpg",
       volume :'',
-      createDate: '',
+      createDate: new Date (),
       owner:'',
       icon : '',
       name: 'Shiba-inu',
