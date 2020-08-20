@@ -1,0 +1,22 @@
+.example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+}
+
+.ex {
+    display: flex;
+    flex: 5px;
+}
+
+.example-card {
+    max-width: 220px;
+    min-height: 190px;
+}
+
+.example-form {
+    max-width: 150px;
+}
+
+.example-full-width {
+    width: 100%;
+}

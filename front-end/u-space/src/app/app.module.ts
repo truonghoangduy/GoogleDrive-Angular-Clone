@@ -16,12 +16,19 @@ import { ThumbnailsComponent } from './components/thumbnails/thumbnails.componen
 import {MatCardModule} from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatDividerModule} from '@angular/material/divider';
+
 // FireBase Section
 
 import { environment } from 'src/environments/environment';
 import { ThumbnailsHeadComponent } from './components/thumbnails-head/thumbnails-head.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { BySOComponent } from './components/share-file/by-so/by-so.component';
+import { ListShareComponent } from './components/share-file/list-share/list-share.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -32,8 +39,11 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     NavbarComponent,
     SidebarComponent,
     ThumbnailsHeadComponent,
+    BySOComponent,
+    ListShareComponent,
+
   ],
-  imports: [
+  imports:[
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -50,7 +60,8 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     MatListModule,
     MatCardModule,
     MatInputModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDividerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
