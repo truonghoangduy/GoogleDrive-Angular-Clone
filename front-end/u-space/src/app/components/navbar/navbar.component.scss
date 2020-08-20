@@ -6,3 +6,14 @@
     .example-full-width {
         width: 40%;
     }
+    
+    .logo {
+        width: 60px;
+        height: 57px;
+    }
+    
+    .logo_name {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
