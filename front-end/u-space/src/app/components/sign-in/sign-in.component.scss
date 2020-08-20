@@ -1,0 +1,54 @@
+.example-container .mat-form-field+.mat-form-field {
+    margin-left: 8px;
+}
+
+.example-right-align {
+    text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+    display: none;
+}
+
+input.example-right-align {
+    -moz-appearance: textfield;
+}
+
+.email {
+    position: relative;
+}
+
+.email .icon {
+    position: absolute;
+    top: 0px;
+    right: -4px;
+}
+
+.container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.Hinh {
+    width: 330px;
+    height: 169px;
+    margin-left: -36px;
+    margin-bottom: 95px;
+}
+
+.email {
+    width: 236px;
+}
+
+.khung {
+    background-color: white;
+}
+
+.login {
+    display: flex;
+    justify-content: space-between;
+}

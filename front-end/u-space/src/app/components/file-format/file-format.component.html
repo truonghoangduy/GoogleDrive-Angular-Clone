@@ -1,11 +1,10 @@
-<mat-list>
-    <div mat-subheader>Folders</div>
-
-    <div style="width: 160px;height: auto;display: flex;">
-        <mat-list-item class="folder" *ngFor="let folder of folders">
-
-            <mat-icon mat-list-icon>folder</mat-icon>
-            <div mat-line>{{folder.name}}</div>
-        </mat-list-item>
-    </div>
-</mat-list>
+<div *ngIf="folders != null">
+    <mat-list style="padding: 0;">
+        <div style="width: 245px;height: auto;display: flex;">
+            <mat-list-item class="folder">
+                <mat-icon mat-list-icon>folder</mat-icon>
+                <div mat-line>{{folders.name}}</div>
+            </mat-list-item>
+        </div>
+    </mat-list>
+</div>

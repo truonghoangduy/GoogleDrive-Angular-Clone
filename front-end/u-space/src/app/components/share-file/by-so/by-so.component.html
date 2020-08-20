@@ -1,0 +1,21 @@
+<mat-card class="example-card">
+    <mat-card-header>
+        <mat-icon mat-list-icon>account_box</mat-icon>
+        <mat-card-title>User Name</mat-card-title>
+    </mat-card-header>
+
+    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <mat-divider></mat-divider>
+    <mat-card-content>
+        <mat-list role="list">
+            <mat-list>
+                <mat-list-item *ngFor="let files of files">
+                    <mat-icon mat-list-icon>{{files.icon}}</mat-icon>
+                    <div mat-line>{{files.name}}</div>
+                    <div mat-line> {{files.createDate|date}} </div>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+            </mat-list>
+        </mat-list>
+    </mat-card-content>
+</mat-card>

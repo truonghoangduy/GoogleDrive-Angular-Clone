@@ -11,29 +11,36 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { FileFormatComponent } from './components/file-format/file-format.component';
-import { ThumbnailsComponent } from './components/thumbnails/thumbnails.component';
 import {MatCardModule} from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
+
 // FireBase Section
 
 import { environment } from 'src/environments/environment';
+
+import { FolderUiModule } from './modules/folder-ui/folder-ui.module';
+import {MatDividerModule} from '@angular/material/divider';
 import { ThumbnailsHeadComponent } from './components/thumbnails-head/thumbnails-head.component';
+import { BySOComponent } from './components/share-file/by-so/by-so.component';
+import { ListShareComponent } from './components/share-file/list-share/list-share.component';
+
+import {  AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
-import { AngularFireAuthModule } from '@angular/fire/auth';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FileFormatComponent,
     NavbarComponent,
-    ThumbnailsComponent,
     NavbarComponent,
     SidebarComponent,
-    ThumbnailsHeadComponent,
+    BySOComponent,
+    ListShareComponent,
+
   ],
-  imports: [
+  imports:[
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -44,13 +51,15 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     MatToolbarModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule,
     BrowserAnimationsModule,
     MatIconModule,
     MatListModule,
     MatCardModule,
     MatInputModule,
-    MatMenuModule
+    MatMenuModule,
+    FolderUiModule,
+    MatDividerModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

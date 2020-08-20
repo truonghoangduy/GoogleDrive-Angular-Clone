@@ -1,5 +1,5 @@
-import { Component, OnInit} from '@angular/core';
-import {VirtualFile}  from '../../models/file.model';
+import { Component, OnInit, Input} from '@angular/core';
+import {File}  from '../../models/file.model';
 
 
 @Component({
@@ -8,16 +8,8 @@ import {VirtualFile}  from '../../models/file.model';
   styleUrls: ['./thumbnails.component.scss']
 })
 export class ThumbnailsComponent implements OnInit {
-  files: VirtualFile[] = [
-    {
-      uuid:"",
-      pictureURL :"https://material.angular.io/assets/img/examples/shiba2.jpg",
-      volume :'',
-      createDate: new Date ().toUTCString(),
-      owner:'',
-      name: 'Shiba-inu',
-    }
-  ];
+  
+  @Input() file:File = null;
 
   constructor() { }
 

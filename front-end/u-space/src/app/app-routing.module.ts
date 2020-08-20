@@ -16,6 +16,7 @@ const routes: Routes = [
     path:"thumbnails-Head",
     component:ThumbnailsHeadComponent,
   },
+  { path: '', loadChildren: () => import('./pages/main-screen/main-screen.module').then(m => m.MainScreenModule) },
 ];
 
 @NgModule({
