@@ -1,11 +1,9 @@
-<mat-list-item>
-    <div mat-subheader>Files</div>
-    <mat-card *ngFor="let files of files" class="example-card">
-        <img src={{files.pictureURL}} style="width: 200px;height: auto;">
+<mat-list-item *ngIf="file != null"> 
+    <mat-card class="example-card">
+        <img src={{file.pictureURL}} style="width: 100%;height: auto;">
         <mat-list-item>
-            <mat-icon mat-list-icon>{{files.icon}}</mat-icon>
-            <mat-card-title mat-line>{{files.name}}</mat-card-title>
+            <mat-icon mat-list-icon>{{file.icon}}</mat-icon>
+            <mat-card-title mat-line>{{file.name}}</mat-card-title>
         </mat-list-item>
     </mat-card>
 </mat-list-item>
-<script src="../thumbnails/change icon.js"></script>
