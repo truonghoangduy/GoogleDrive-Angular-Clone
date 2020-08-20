@@ -2,66 +2,57 @@
     width: 100%;
     height: 100%;
 }
-
 .sidebar {
     width: 15%;
     height: 100%;
 }
-
 .B {
     font-size: 20px;
     list-style: none;
     //   margin: 2px;
     padding-left: 0;
-    background-color: #f5f5f5;
+    background-color: white;
 }
-
 li {
     margin-bottom: 15px;
 }
-
 li {
     margin-bottom: 15px;
 }
-
 .list {
     border-style: none;
-    background-color: #f5f5f5;
+    background-color: white;
     font-weight: 600;
     color: #333;
 }
-
 .list:hover {
     color: #3B5998;
     font-weight: 600;
     cursor: pointer;
+    background-color: #e8f0fe;
 }
-
 .list:focus {
     color: #3B5998;
     font-weight: 600;
 }
-
 .list-hover {
     display: flex;
     flex-direction: row;
-    background-color: #f5f5f5;
+    background-color: white;
+    width: 100%;
 }
-
 .list-hover:hover {
     border-left-style: solid;
     border-left-color: #3B5998;
     border-left-width: 5px;
     cursor: pointer;
-    // background-color: hotpink;
+    background-color: #e8f0fe;
 }
-
 .list-hover:focus {
     border-left-style: solid !important;
     background-color: #3B5998 !important;
     border-left-width: 5px !important;
 }
-
 .New {
     width: 70%;
     height: 5%;
@@ -69,65 +60,32 @@ li {
     border-width: 1px;
     outline: none;
     font-weight: 600;
+    display: flex;
+    
+   justify-content: space-between;
+    margin-left: 20px;
+    
+    // align-content:center;
 }
-
 .New:hover {
-    background-color: #f5f5f5;
-}
-
-#MS {
-    width: 80%;
-    height: 50px;
-    border-radius: 7px;
-    border-width: 1px;
-    outline: none;
-    width: 100%;
-    margin-left: 15px;
-}
-
-#R {
-    width: 80%;
-    height: 50px;
-    border-radius: 7px;
-    border-width: 1px;
-    outline: none;
-    width: 100%;
-    margin-left: 15px;
+    background-color: white;
 }
 
 #S {
-    width: 85%;
     height: 50px;
     border-radius: 7px;
     border-width: 1px;
     outline: none;
     width: 100%;
-    margin-left: 15px;
+    display: flex;
+    // justify-content: space-evenly;
+    flex-direction: row;
 }
 
-#P {
-    width: 80%;
-    height: 50px;
-    border-radius: 7px;
-    border-width: 1px;
-    outline: none;
-    width: 100%;
-    margin-left: 15px;
-}
-
-#RB {
-    width: 80%;
-    height: 50px;
-    border-radius: 7px;
-    border-width: 1px;
-    outline: none;
-    width: 100%;
-    margin-left: 15px;
-}
-
-p {
-    display: inline-block;
-    margin-left: 15px;
+.title {
+    // display: inline-block;
     margin-bottom: 25px;
     font-size: 15px;
+    margin-top: 7%;
+
 }
