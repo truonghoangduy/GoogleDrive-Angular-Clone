@@ -11,11 +11,5 @@ export const firebaseAdminSDK:{} = {
   "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-9dhpz%40u-space-drive.iam.gserviceaccount.com"
 }
 
-export const environment = {
-  warehouse: "./warehouse",
-  testMode: true,
-  JWT_SECRET: "R;*j4CpCaej>t=5Z",
-  logging: true
-}
 
 //  = adminSDK;

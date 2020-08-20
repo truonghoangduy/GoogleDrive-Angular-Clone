@@ -1,12 +1,13 @@
 import express = require('express');
-import env = require('../service_account_firebase')
+import firebaseSDK = require('../service_account_firebase')
+import env = require('../environment')
 import fakeData = require('../fakeData/temperData')
 import cors = require('cors')
 import bodyPraser = require('body-parser')
 import admin = require('firebase-admin');
 
 admin.initializeApp({
-    credential: admin.credential.cert(env.firebaseAdminSDK),
+    credential: admin.credential.cert(firebaseSDK.firebaseAdminSDK),
     databaseURL: "https://u-space-drive.firebaseio.com"
 })
 const server = express();
@@ -32,6 +33,8 @@ server.get("/", async (req, res) => {
 // Add route
 server.use('/createFile', require('./router/createFile'));
 server.use('/upload', require('./router/uploader'));
+server.use('/remove', require('./router/removeFile'));
+
 
 
 
