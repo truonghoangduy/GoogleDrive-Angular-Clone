@@ -11,19 +11,17 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { FileFormatComponent } from './components/file-format/file-format.component';
-import { ThumbnailsComponent } from './components/thumbnails/thumbnails.component';
 import {MatCardModule} from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
-import {MatDividerModule} from '@angular/material/divider';
 
 // FireBase Section
 
 import { environment } from 'src/environments/environment';
-import { ThumbnailsHeadComponent } from './components/thumbnails-head/thumbnails-head.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { FolderUiModule } from './modules/folder-ui/folder-ui.module';
+import {MatDividerModule} from '@angular/material/divider';
 import { BySOComponent } from './components/share-file/by-so/by-so.component';
 import { ListShareComponent } from './components/share-file/list-share/list-share.component';
 
@@ -33,12 +31,9 @@ import { ListShareComponent } from './components/share-file/list-share/list-shar
 @NgModule({
   declarations: [
     AppComponent,
-    FileFormatComponent,
     NavbarComponent,
-    ThumbnailsComponent,
     NavbarComponent,
     SidebarComponent,
-    ThumbnailsHeadComponent,
     BySOComponent,
     ListShareComponent,
 
@@ -54,13 +49,13 @@ import { ListShareComponent } from './components/share-file/list-share/list-shar
     MatToolbarModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule,
     BrowserAnimationsModule,
     MatIconModule,
     MatListModule,
     MatCardModule,
     MatInputModule,
     MatMenuModule,
+    FolderUiModule,
     MatDividerModule,
   ],
   providers: [],

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {Section} from '../../../app/models/folder.model'
+import { Component, OnInit, Input } from '@angular/core';
+import { Folder } from 'src/app/models/folder.model';
 
 @Component({
   selector: 'app-file-format',
@@ -7,22 +7,8 @@ import {Section} from '../../../app/models/folder.model'
   styleUrls: ['./file-format.component.scss']
 })
 export class FileFormatComponent implements OnInit {
-  folders= [
-    {
-      name: 'Photos',
-    },
-    {
-      name: 'Recipes',
-
-    },
-    {
-      name: 'Work',
-
-    }
-  ];
-
-
-
+  
+  @Input() folder:Folder = null;
 
   constructor() { }
 

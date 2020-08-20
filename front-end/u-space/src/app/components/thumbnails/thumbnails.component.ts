@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import {File}  from '../../models/file.model';
 
 
@@ -8,16 +8,8 @@ import {File}  from '../../models/file.model';
   styleUrls: ['./thumbnails.component.scss']
 })
 export class ThumbnailsComponent implements OnInit {
-  files: File[] = [
-    {
-      pictureURL :"https://material.angular.io/assets/img/examples/shiba2.jpg",
-      volume :'',
-      createDate: new Date (),
-      owner:'',
-      icon : '',
-      name: 'Shiba-inu',
-    }
-  ];
+  
+  @Input() file:File = null;
 
   constructor() { }
 

@@ -5,7 +5,6 @@ export interface File {
     createDate: Date;
     owner: string;
     icon :string;
-
     // PATH Implentation will be update
 }
 

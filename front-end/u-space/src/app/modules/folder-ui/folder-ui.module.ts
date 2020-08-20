@@ -1,0 +1,26 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import {FileFormatComponent} from '../../components/file-format/file-format.component';
+import {ThumbnailsComponent} from '../../components/thumbnails/thumbnails.component';
+import {ThumbnailsHeadComponent} from '../../components/thumbnails-head/thumbnails-head.component'
+import {MatListModule} from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
+
+
+@NgModule({
+  declarations: [FileFormatComponent,  ThumbnailsComponent, ThumbnailsHeadComponent],
+  imports: [
+    CommonModule,
+    MatListModule,
+    MatIconModule,
+    MatCardModule
+  ],
+  exports: [
+    FileFormatComponent,
+    ThumbnailsComponent,
+    ThumbnailsHeadComponent
+  ]
+})
+export class FolderUiModule { }
