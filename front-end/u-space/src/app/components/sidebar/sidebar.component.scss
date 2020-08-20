@@ -1,80 +1,81 @@
 .example-container {
     width: 100%;
-    height:100%;
-    
-  }
-  .sidebar{
-      width: 15%;
-      height: 100%;
-  }
-  .B{
-      font-size: 20px;
-      list-style: none;
-    //   margin: 2px;  
-        padding-left: 0;
-        background-color: #f5f5f5;
-  }
-li{
-    margin-bottom: 15px; 
+    height: 100%;
 }
-.list{
+
+.sidebar {
+    width: 15%;
+    height: 100%;
+}
+
+.B {
+    font-size: 20px;
+    list-style: none;
+    //   margin: 2px;
+    padding-left: 0;
+    background-color: #f5f5f5;
+}
+
+li {
+    margin-bottom: 15px;
+}
+
+li {
+    margin-bottom: 15px;
+}
+
+.list {
     border-style: none;
     background-color: #f5f5f5;
-    font-weight: 600 ;
+    font-weight: 600;
     color: #333;
 }
-.list:hover{
+
+.list:hover {
     color: #3B5998;
-    font-weight: 600 ;
+    font-weight: 600;
     cursor: pointer;
 }
 
-.list:focus{
+.list:focus {
     color: #3B5998;
-    font-weight: 600 ;
+    font-weight: 600;
 }
 
-.list-hover{
+.list-hover {
     display: flex;
     flex-direction: row;
     background-color: #f5f5f5;
 }
 
-.list-hover:hover{
+.list-hover:hover {
     border-left-style: solid;
     border-left-color: #3B5998;
     border-left-width: 5px;
     cursor: pointer;
     // background-color: hotpink;
-    
 }
 
-.list-hover:focus{
+.list-hover:focus {
     border-left-style: solid !important;
     background-color: #3B5998 !important;
     border-left-width: 5px !important;
 }
-.New{
+
+.New {
     width: 70%;
     height: 5%;
     border-radius: 7px;
     border-width: 1px;
     outline: none;
-    font-weight: 600 ;
+    font-weight: 600;
 }
-.New:hover{
+
+.New:hover {
     background-color: #f5f5f5;
 }
-#MS{
-    width: 80%;
-    height: 50px;
-    border-radius: 7px;
-    border-width: 1px;
-    outline: none;
-    width: 100%; 
-    margin-left: 15px;
-}
-#R{
+
+#MS {
     width: 80%;
     height: 50px;
     border-radius: 7px;
@@ -83,37 +84,50 @@ li{
     width: 100%;
     margin-left: 15px;
 }
-#S{
+
+#R {
+    width: 80%;
+    height: 50px;
+    border-radius: 7px;
+    border-width: 1px;
+    outline: none;
+    width: 100%;
+    margin-left: 15px;
+}
+
+#S {
     width: 85%;
     height: 50px;
     border-radius: 7px;
-    border-width: 1px; 
+    border-width: 1px;
     outline: none;
-    width: 100%; 
+    width: 100%;
     margin-left: 15px;
 }
-#P{
-    width: 80%;
-    height:50px;
-    border-radius: 7px;
-    border-width: 1px;
-   outline: none;
-   width: 100%; 
-   margin-left: 15px;
-}
-#RB{
+
+#P {
     width: 80%;
     height: 50px;
     border-radius: 7px;
     border-width: 1px;
     outline: none;
-    width: 100%; 
+    width: 100%;
     margin-left: 15px;
 }
-p{
-    display: inline-block; 
-    margin-left: 15px; 
-   margin-bottom: 25px; 
-   font-size: 15px;
+
+#RB {
+    width: 80%;
+    height: 50px;
+    border-radius: 7px;
+    border-width: 1px;
+    outline: none;
+    width: 100%;
+    margin-left: 15px;
 }
 
+p {
+    display: inline-block;
+    margin-left: 15px;
+    margin-bottom: 25px;
+    font-size: 15px;
+}

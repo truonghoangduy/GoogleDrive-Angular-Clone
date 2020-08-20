@@ -1,0 +1,18 @@
+<mat-list-item>
+    <h2 mat-subheader>Truy cập nhanh</h2>
+
+    <div style="width: 18%;">
+        <mat-card *ngFor="let files of files" class="example-card">
+            <div>
+                <img src={{files.pictureURL}} style="width: 200px;height: auto;">
+            </div>
+            <div style="border-color: rgb(204, 203, 203);border-top-style: solid;width: 100%;">
+                <mat-list-item>
+                    <mat-icon mat-list-icon>{{files.icon}}</mat-icon>
+                    <mat-card-title mat-line>{{files.name}}</mat-card-title>
+                    <div mat-line> {{files.createDate|date}} </div>
+                </mat-list-item>
+            </div>
+        </mat-card>
+    </div>
+</mat-list-item>

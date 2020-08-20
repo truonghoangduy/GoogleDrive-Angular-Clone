@@ -13,7 +13,7 @@ export class AuthService {
     let provider = new fire.auth.GoogleAuthProvider();
     await this.Auth.signInWithPopup(provider).then(data=> this.user= data.user)
     // this.router.navigate([""]);
-  
+
   }
     // public async Logout(){
     //   await this.Auth.signOut();
@@ -23,7 +23,7 @@ export class AuthService {
       this.user = null;
       // this.router.navigate([""]);
     }
-  
-    
+
+
   }
 

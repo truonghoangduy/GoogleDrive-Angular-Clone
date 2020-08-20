@@ -1,5 +1,5 @@
 function fileValidation() {
-    var fileInput = document.getElementById('file');
+    var fileInput = document.getElementsByName("img-thumbnail");
     var filePath = fileInput.value; //lấy giá trị input theo id
     var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif|\.doc|\.pdf)$/i; //các tập tin cho phép
     //Kiểm tra định dạng
@@ -17,5 +17,15 @@ function fileValidation() {
         }
 
 
+
     }
+}
+if (fileValidation = ".doc") {
+    files.icon = "article"
+} else if (fileValidation = ".pdf") {
+    files.icon = "picture_as_pdf"
+} else if (fileValidation = ".gif") {
+    files.icon = "gif"
+} else {
+    files.icon = "insert_photo"
 }

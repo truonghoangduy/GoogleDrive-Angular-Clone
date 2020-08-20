@@ -19,6 +19,9 @@ import {MatMenuModule} from '@angular/material/menu';
 // FireBase Section
 
 import { environment } from 'src/environments/environment';
+import { ThumbnailsHeadComponent } from './components/thumbnails-head/thumbnails-head.component';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 
 @NgModule({
@@ -29,11 +32,15 @@ import { environment } from 'src/environments/environment';
     ThumbnailsComponent,
     NavbarComponent,
     SidebarComponent,
+    ThumbnailsHeadComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule,
+    AngularFireAuthModule,
     MatSidenavModule,
     MatToolbarModule,
     MatButtonModule,
