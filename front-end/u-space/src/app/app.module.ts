@@ -14,6 +14,7 @@ import { MatInputModule } from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
+
 // FireBase Section
 
 import { environment } from 'src/environments/environment';
@@ -21,6 +22,9 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { FolderUiModule } from './modules/folder-ui/folder-ui.module';
 import {MatDividerModule} from '@angular/material/divider';
+import { BySOComponent } from './components/share-file/by-so/by-so.component';
+import { ListShareComponent } from './components/share-file/list-share/list-share.component';
+
 
 
 
@@ -30,8 +34,11 @@ import {MatDividerModule} from '@angular/material/divider';
     NavbarComponent,
     NavbarComponent,
     SidebarComponent,
+    BySOComponent,
+    ListShareComponent,
+
   ],
-  imports: [
+  imports:[
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
