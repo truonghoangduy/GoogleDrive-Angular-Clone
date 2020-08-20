@@ -12,7 +12,7 @@ export class AuthService {
   public async loginGoogle(){
     let provider = new fire.auth.GoogleAuthProvider();
     await this.Auth.signInWithPopup(provider).then(data=> this.user= data.user)
-    // this.router.navigate([""]);
+    this.router.navigate(["main-screen"]);
 
   }
     // public async Logout(){

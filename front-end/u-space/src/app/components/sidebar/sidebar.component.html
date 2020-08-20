@@ -1,4 +1,4 @@
-<mat-drawer-container  class="example-container" >
+<mat-drawer-container *ngIf="auth.user!=null" class="example-container" >
     <mat-drawer mode="side" opened class="sidebar" style="background-color: white;">
     <div class="sort" style="margin-top: 20px;">
         <div class="btn1" >

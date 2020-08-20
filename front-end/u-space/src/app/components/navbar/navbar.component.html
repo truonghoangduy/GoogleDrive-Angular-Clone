@@ -1,4 +1,4 @@
-<mat-toolbar class="mat-elevation-z6" color="pirmary" style="background-color: white; border-bottom-style: solid;border-color: whitesmoke;border-width: 2px;">
+<mat-toolbar *ngIf="auth.user!=null" class="mat-elevation-z6" color="pirmary" style="background-color: white; border-bottom-style: solid;border-color: whitesmoke;border-width: 2px;">
 
     <div class="logo_name">
         <img src="../../../assets/logo.png" alt="logo" class="logo">

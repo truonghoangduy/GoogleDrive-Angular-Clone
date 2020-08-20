@@ -1,8 +1,9 @@
+
 <div style="width: 90%; margin-left: 5%;">
     <div mat-subheader class="title">
         <p>Quick access</p>
     </div>
-    <div class="folder-format">
+    <div class="thumbnails-format">
         <app-thumbnails-head *ngFor="let thumbnails of db_2" [thumbnails] = "thumbnails" ></app-thumbnails-head>  
     </div>
 </div>
@@ -22,7 +23,7 @@
     <div mat-subheader class="title">
         <p>File</p>
     </div>
-    <div class="folder-format">
+    <div class="file-format">
         <app-thumbnails  *ngFor="let file of db_1" [file] = "file" ></app-thumbnails>  
     </div>
 

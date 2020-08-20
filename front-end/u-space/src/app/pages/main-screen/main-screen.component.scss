@@ -9,7 +9,16 @@
     justify-content: space-between;
 }
 
+.thumbnails-format{
+        cursor: pointer;
+}
+
 .folder-format{
     display: flex;
     flex-direction: row;   
+    cursor: pointer;
+}
+
+.file-format{
+    cursor: pointer;
 }
