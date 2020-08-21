@@ -1,0 +1,16 @@
+<div style="width: 90%; margin-left: 5%;">
+    <div mat-subheader class="title">
+        <p>Yesterday</p>
+        <div style="display:flex; flex-direction:row ;">
+            <p>Name</p>
+            <mat-icon>arrow_upward</mat-icon>
+        </div>
+    </div>
+
+    <div class="file-format">
+        <app-thumbnails  *ngFor="let file of db_1" [file] = "file" ></app-thumbnails>  
+    </div>
+
+    
+</div>
+

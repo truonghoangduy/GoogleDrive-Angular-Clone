@@ -50,22 +50,27 @@ li {
     cursor: pointer;
     background-color: #e8f0fe;
 }
+
+
 .list-hover:focus {
     border-left-style: solid !important;
     background-color: #3B5998 !important;
     border-left-width: 5px !important;
 }
 .New {
-    width: 70%;
-    height: 5%;
-    border-radius: 7px;
+    min-width: 120px;;
+    height: 48px;
+    padding: 5px 0 0 0;
+    border-radius: 24px;
     border-width: 1px;
     outline: none;
-    font-weight: 600;
-    display: flex;
-    
-   justify-content: space-between;
-    margin-left: 20px;
+    font-weight: 500;
+    font-size: 14px;
+    display: inline-flex;
+    background-color: white;
+
+    // margin-left: 20px;
+    text-align: center;
     
     // align-content:center;
 }
