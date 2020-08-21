@@ -23,12 +23,15 @@ import { FolderUiModule } from './modules/folder-ui/folder-ui.module';
 import {MatDividerModule} from '@angular/material/divider';
 import { ThumbnailsHeadComponent } from './components/thumbnails-head/thumbnails-head.component';
 import { BySOComponent } from './components/share-file/by-so/by-so.component';
-import { ListShareComponent } from './components/share-file/list-share/list-share.component';
+// import { ListShareComponent } from './components/share-file/list-share/list-share.component';
 
 import {  AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { NewFolderComponent } from './components/new-folder/new-folder.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -36,8 +39,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     NavbarComponent,
     SidebarComponent,
     BySOComponent,
-    ListShareComponent,
-    SignInComponent
+    // ListShareComponent,
+    SignInComponent,
+    NewFolderComponent
   ],
   imports:[
     BrowserModule,
@@ -58,7 +62,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatMenuModule,
     FolderUiModule,
     MatDividerModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatDialogModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
