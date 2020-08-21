@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { Iicon} from '../../models/list.model'
 
 import { BreadcrumItem } from '../breadcrum/breadcrum-item';
+import { CreateFolderDialogComponent } from '../dialog/create-folder-dialog/create-folder-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-sidebar',
@@ -45,7 +47,7 @@ export class SidebarComponent implements OnInit {
 
 
   constructor(public auth:AuthService,
-              private router: Router) { }
+              private router: Router,private dialog:MatDialog ) { }
 
   
 
@@ -70,6 +72,20 @@ export class SidebarComponent implements OnInit {
   public clickDir(item){
     console.log(item);
   }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(CreateFolderDialogComponent, {
+      width: '250px',
+      data: {name: "",}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      console.log(result)
+      // this.animal = result;
+    });
+  }
+
 
 
   ngOnInit(): void {
