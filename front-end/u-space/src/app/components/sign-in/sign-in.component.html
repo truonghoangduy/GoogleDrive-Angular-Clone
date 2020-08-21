@@ -1,13 +1,13 @@
-<div class="container" *ngIf="auth.user == null">
-    <div>
-        <img class="Hinh" src="https://s.rsg.sc/sc/images/react/logo/socialclub.png" alt="">
+<div *ngIf="auth.user == null" class="main" style="text-align: center; ">
+    <div class="header">
+        <img class="Hinh" src="../../../assets/logo.png" alt="">
+        <p class="Name">USpace</p>
     </div>
 
-
-    <div>
+    <div style="display: flex; justify-content: center;">
 
         <div class="Khung">
-            <p>Sign in with Social Club</p>
+
             <div>
                 <mat-form-field appearance="fill" class="email">
                     <mat-label>Email</mat-label>
@@ -22,22 +22,37 @@
                     <mat-label>Enter your password</mat-label>
                     <input matInput [type]="hide ? 'password' : 'text'">
                     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-              </button>
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </button>
                 </mat-form-field>
 
                 <section class="tick">
                     <mat-checkbox class="example-margin">Keep me signed in</mat-checkbox>
                 </section>
                 <div class="login">
-                    <a href="https://signin.rockstargames.com/forgotten-password?cid=socialclub">Forgot your password?</a>
-                    <button mat-raised-button color="accent">Sign in</button>
-                </div>
 
+                    <button mat-raised-button color="accent">Sign in</button>
+                    <button mat-raised-button color="accent" (click)="this.auth.loginGoogle()">Sign in with Google</button>
+                </div>
+                <a href="">Create new account</a>
+                <p> <a href="">Forgot your password</a></p>
             </div>
 
 
         </div>
-        <button mat-raised-button color="accent" (click)="this.auth.loginGoogle()">Sign in with Google</button>
+
     </div>
+
+
 </div>
+
+<!-- <div class="main">
+    <p class="sign" align="center">Sign in</p>
+    <input class="un " type="text" align="center" placeholder="Username">
+    <input class="pass" type="password" align="center" placeholder="Password">
+    <a class="submit" align="center">Sign in</a>
+    <img src="../../../assets/btn_google_signin_dark_pressed_web@2x.png">
+    <p class="forgot" align="center"><a href="#">Forgot Password</a></p>
+
+
+</div> -->
