@@ -3,11 +3,10 @@ import { Folder } from 'src/app/models/folder.model';
 
 import {DataService} from '../../services/data/data.service';
 import { Overlay, OverlayRef } from '@angular/cdk/overlay';
-import { TemplatePortal } from '@angular/cdk/portal';
-import { Subscription, fromEvent } from 'rxjs';
-import { filter,take } from 'rxjs/operators'; 
-import { ContextMenuComponent } from 'ngx-contextmenu';
+
 import { MatMenuTrigger } from '@angular/material/menu';
+import { ActivatedRoute } from '@angular/router';
+import { Iicon } from 'src/app/models/list.model';
 
 @Component({
   selector: 'app-main-screen',
@@ -31,7 +30,6 @@ export class MainScreenComponent implements OnInit {
     this.db_1 = this.dataService.getDataBase2();
     this.db_2 = this.dataService.getDataBase2();
   }
-
   
   onContextMenu(event: MouseEvent, item) {
     event.preventDefault();

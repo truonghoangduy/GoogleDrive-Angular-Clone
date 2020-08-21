@@ -27,6 +27,9 @@ const routes: Routes = [
 
   { path: 'main-screen', loadChildren: () => import('./pages/main-screen/main-screen.module').then(m => m.MainScreenModule) },
   { path: 'share-page', loadChildren: () => import('./pages/share-page/share-page.module').then(m => m.SharePageModule) },
+  { path: 'recent-page', loadChildren: () => import('./pages/recent-page/recent-page.module').then(m => m.RecentPageModule) },
+  { path: 'pin-page', loadChildren: () => import('./pages/pin-page/pin-page.module').then(m => m.PinPageModule) },
+  { path: 'recycle-page', loadChildren: () => import('./pages/recycle-page/recycle-page.module').then(m => m.RecyclePageModule) },
 ];
 
 @NgModule({
