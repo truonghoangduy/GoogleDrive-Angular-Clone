@@ -32,7 +32,6 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { RenderTestComponent } from './components/render-test/render-test.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +50,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireModule,
     AngularFireAuthModule,
+
     MatSidenavModule,
     MatToolbarModule,
     MatButtonModule,
