@@ -32,6 +32,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { NewFolderComponent } from './components/new-folder/new-folder.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
+import {MatExpansionModule} from '@angular/material/expansion';
+
 
 @NgModule({
   declarations: [
@@ -65,6 +67,7 @@ import { FormsModule } from '@angular/forms';
     MatCheckboxModule,
     MatDialogModule,
     FormsModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]
