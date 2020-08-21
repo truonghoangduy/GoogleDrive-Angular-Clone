@@ -5,6 +5,6 @@
         <input matInput [(ngModel)]="folderName">
     </mat-form-field>
     <div mat-dialog-actions>
-        <button mat-button (click)="onNoClick()">Cancel</button>
-        <button mat-button [mat-dialog-close]="folderName" cdkFocusInitial>Create</button>
+        <button mat-button (click)="close()">Cancel</button>
+        <button mat-button (click)="createFolder()" cdkFocusInitial>Create</button>
     </div>

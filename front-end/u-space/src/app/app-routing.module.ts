@@ -5,6 +5,7 @@ import { ThumbnailsComponent } from './components/thumbnails/thumbnails.componen
 import { ThumbnailsHeadComponent } from './components/thumbnails-head/thumbnails-head.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
+import { NewFolderComponent } from './components/new-folder/new-folder.component';
 
 const routes: Routes = [
   {path:"file-foler",
@@ -22,8 +23,12 @@ const routes: Routes = [
     path: '',
     component:SignInComponent
   },
+  {
+    path: '',
+    component:NewFolderComponent,
+  },
 
-  { path: 'main-screen', loadChildren: () => import('./pages/main-screen/main-screen.module').then(m => m.MainScreenModule) },
+  { path: 'main-screen/:id?', loadChildren: () => import('./pages/main-screen/main-screen.module').then(m => m.MainScreenModule) },
   { path: 'share-page', loadChildren: () => import('./pages/share-page/share-page.module').then(m => m.SharePageModule) },
   { path: 'recent-page', loadChildren: () => import('./pages/recent-page/recent-page.module').then(m => m.RecentPageModule) },
   { path: 'pin-page', loadChildren: () => import('./pages/pin-page/pin-page.module').then(m => m.PinPageModule) },
