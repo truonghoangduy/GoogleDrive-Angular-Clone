@@ -19,9 +19,10 @@ import { FormsModule } from '@angular/forms';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import {NavbarComponent} from '../../components/navbar/navbar.component'
+import { CreateFolderDialogComponent } from 'src/app/components/dialog/create-folder-dialog/create-folder-dialog.component';
 
 @NgModule({
-  declarations: [SidebarComponent,BreadcrumComponent,NavbarComponent],
+  declarations: [SidebarComponent,BreadcrumComponent,NavbarComponent,CreateFolderDialogComponent],
   imports: [
     CommonModule,
     MatSidenavModule,
@@ -54,7 +55,7 @@ import {NavbarComponent} from '../../components/navbar/navbar.component'
 
   ],
   exports:[
-    SidebarComponent,BreadcrumComponent,NavbarComponent
+    SidebarComponent,BreadcrumComponent,NavbarComponent,CreateFolderDialogComponent
   ]
 })
 
