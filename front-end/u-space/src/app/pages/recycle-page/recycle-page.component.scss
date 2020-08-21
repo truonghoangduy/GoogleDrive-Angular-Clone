@@ -1,9 +1,12 @@
-.body{
+.container{
     display: flex;
+    flex-direction: column;
     justify-content: center;
+}
+
+.body{
     width: 90%;
     align-content: center;
-    // flex-direction: column;
 }
 
 .content{
@@ -14,4 +17,5 @@
 img{
     width:20%; 
     height: 20%;
+    text-align: center;
 }

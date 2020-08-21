@@ -1,5 +1,6 @@
 import { Component, OnInit, Input} from '@angular/core';
 import {File}  from '../../models/file.model';
+import { Router } from '@angular/router';
 
 
 @Component({

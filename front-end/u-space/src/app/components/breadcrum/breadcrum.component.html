@@ -1,6 +1,5 @@
 <div *ngIf = "auth.user != null" id="breadcrum" >
     <div *ngFor = "let item of items">
-        /
         <button mat-button (click) = "onClickItem(item)"> {{item.displayName}}</button>
     </div>
 </div>

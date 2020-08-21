@@ -49,15 +49,16 @@ export class SidebarComponent implements OnInit {
 
   
 
-  public findItem(id:string):Iicon{
-    var matchItem:Iicon;
-      for (let item of this.listOfIcon) {
-        if (item.url == id) {
-          matchItem = item;
-        }
-      }
-      return matchItem;
-    }
+  // public findItem(id:string):Iicon{
+  //   var matchItem:Iicon;
+  //     for (let item of this.listOfIcon) {
+  //       if (item.url == id) {
+  //         matchItem = item;
+  //       }
+  //     }
+  //     return matchItem;
+  //   }
+  
   public navigateToPage(url:string){
     this.router.navigate([url])
   }

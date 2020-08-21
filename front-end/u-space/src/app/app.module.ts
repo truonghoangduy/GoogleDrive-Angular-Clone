@@ -37,6 +37,7 @@ import { BreadcrumComponent } from './components/breadcrum/breadcrum.component';
 import { FileActionDialogComponent } from './components/file-action-dialog/file-action-dialog.component';
 import {UploadComponent} from '../app/components/uploader/uploader.component'
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { FolderFormatComponent } from './components/folder-format/folder-format.component';
 
 
 
@@ -54,6 +55,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     NewFolderComponent,
     FileActionDialogComponent,
     UploadComponent,
+    FolderFormatComponent,
 
   ],
   imports:[

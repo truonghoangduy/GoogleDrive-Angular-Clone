@@ -1,5 +1,21 @@
-.text{
-    width: 90%; 
-    // display: flex; 
-    // justify-content: center;
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.body{
+    width: 90%;
+    align-content: center;
+}
+
+.content{
+    width: 80%;
+    // text-align: center;
+}
+
+img{
+    width:20%; 
+    height: 20%;
+    text-align: center;
 }
