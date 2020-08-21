@@ -29,6 +29,8 @@ import {  AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatExpansionModule} from '@angular/material/expansion';
+
 
 @NgModule({
   declarations: [
@@ -58,7 +60,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatMenuModule,
     FolderUiModule,
     MatDividerModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]
