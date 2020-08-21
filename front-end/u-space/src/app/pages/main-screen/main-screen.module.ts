@@ -6,11 +6,12 @@ import { MainScreenComponent } from './main-screen.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 
+
 import {FolderUiModule} from '../../modules/folder-ui/folder-ui.module'
 
 
 @NgModule({
-  declarations: [MainScreenComponent],
+  declarations: [MainScreenComponent,],
   imports: [
     CommonModule,
     MainScreenRoutingModule,

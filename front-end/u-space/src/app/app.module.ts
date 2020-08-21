@@ -32,16 +32,17 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { RenderTestComponent } from './components/render-test/render-test.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
     NavbarComponent,
     SidebarComponent,
     BySOComponent,
     ListShareComponent,
     RenderTestComponent,
 
+    SignInComponent
   ],
   imports:[
     BrowserModule,

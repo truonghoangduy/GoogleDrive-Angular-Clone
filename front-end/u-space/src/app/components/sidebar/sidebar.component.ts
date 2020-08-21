@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -13,29 +14,37 @@ export class SidebarComponent implements OnInit {
     {
       title:'U-Space',
       icon: 'perm_media',
+      url: 'main-screen/',
     },
     {
       title:'Recent',
       icon: 'history',
+      url: ''
     },
     {
       title:'Share',
       icon: 'folder_shared',
+      url: 'share-page/',
     },
     {
       title:'Pin',
       icon: 'push_pin',
+      url: '',
     },
     {
       title:'Recycle Bin',
       icon: 'delete',
+      url: '',
     },
     
   ]
 
 
-  constructor() { }
+  constructor(public auth:AuthService) { }
 
+  public navigateToPage(url:string){
+    
+  }
 
   ngOnInit(): void {
   }
@@ -43,5 +52,6 @@ export class SidebarComponent implements OnInit {
 }
 export interface Iicon{
   title:string,
-  icon:string
+  icon:string,
+  url: string,
 }

@@ -14,6 +14,18 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  inputBackgroundFlip={
+    'background':'white'
+  }
+
+  changeInputColor(color:string){
+    console.log("dasdasd")
+    this.inputBackgroundFlip = {
+      'background':color
+    }
+  }
+
+
   check(){
     console.log(this.auth.user);
   }
