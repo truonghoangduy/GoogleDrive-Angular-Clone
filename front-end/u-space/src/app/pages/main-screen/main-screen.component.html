@@ -38,8 +38,9 @@
 </div>
 <mat-menu #contextMenu="matMenu" #contextMenu2="matMenu">
 	<ng-template matMenuContent let-item="item">
-		<button mat-menu-item (click)="onContextMenuAction(item)">Action 1</button>
-		<button mat-menu-item (click)="onContextMenuAction(item)">Action 2</button>
+        <div mat-menu-item [disableRipple]='true'>{{item.name}}</div>
+        <!-- <div *ngFor=""> -->
+        <button mat-menu-item (click)="onContextMenuAction(item)">Action 1</button>
 	</ng-template>
 </mat-menu>
 
