@@ -30,6 +30,7 @@ import { RenderTestComponent } from './components/render-test/render-test.compon
 import { NewFolderComponent } from './components/new-folder/new-folder.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
+import { FileFormatComponent } from './components/file-format/file-format.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { BreadcrumComponent } from './components/breadcrum/breadcrum.component';
 import { FileActionDialogComponent } from './components/file-action-dialog/file-action-dialog.component';
@@ -37,6 +38,9 @@ import {UploadComponent} from '../app/components/uploader/uploader.component'
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { CreateFolderDialogComponent } from './components/dialog/create-folder-dialog/create-folder-dialog.component';
 // import {NavUIModule} from '../app/modules/nav-ui/nav-ui.module'
+import { HttpClientModule } from '@angular/common/http';
+import {MatGridListModule} from '@angular/material/grid-list';
+
 
 @NgModule({
   declarations: [
@@ -50,13 +54,15 @@ import { CreateFolderDialogComponent } from './components/dialog/create-folder-d
     NewFolderComponent,
     FileActionDialogComponent,
     UploadComponent,
-    CreateFolderDialogComponent,
+    // FileFormatComponent,
+
 
   ],
   imports:[
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireModule,
     AngularFireAuthModule,
@@ -79,6 +85,7 @@ import { CreateFolderDialogComponent } from './components/dialog/create-folder-d
     MatExpansionModule,
     MatProgressBarModule,
     
+    MatGridListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

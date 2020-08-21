@@ -7,7 +7,7 @@ import { Folder } from 'src/app/models/folder.model';
   styleUrls: ['./file-format.component.scss']
 })
 export class FileFormatComponent implements OnInit {
-  
+
   @Input() folders:Folder = null;
 
   constructor() { }

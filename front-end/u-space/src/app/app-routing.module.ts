@@ -7,6 +7,8 @@ import { RenderTestComponent } from './components/render-test/render-test.compon
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import {AuthGruadService} from './services/auth-gruad/auth-gruad.service'
+import { NewFolderComponent } from './components/new-folder/new-folder.component';
+
 const routes: Routes = [
   // {
   //   path: "file-foler",
