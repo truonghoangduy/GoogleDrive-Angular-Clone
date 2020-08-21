@@ -9,7 +9,7 @@
                     <path fill="none" d="M0 0h36v36H0z"/>
                 </svg> 
             New</button>
-            
+
             <mat-menu #menu="matMenu">
                 <button mat-menu-item>Create folder</button>
                 <button mat-menu-item>Upload file</button>
@@ -29,6 +29,7 @@
         </ul>
     </div>
     </mat-drawer>
+    <app-breadcrum [items]="dir" (clickItem)="clickDir($event)"></app-breadcrum>
     <router-outlet></router-outlet>
 </mat-drawer-container>
 

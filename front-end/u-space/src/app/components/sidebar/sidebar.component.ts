@@ -3,6 +3,8 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 import { Router } from '@angular/router';
 import { Iicon} from '../../models/list.model'
 
+import { BreadcrumItem } from '../breadcrum/breadcrum-item';
+
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -58,6 +60,15 @@ export class SidebarComponent implements OnInit {
     }
   public navigateToPage(url:string){
     this.router.navigate([url])
+  }
+  
+
+  public dir:Array<BreadcrumItem> = [
+    {id:"home", displayName:"Home",data:{}},
+    {id:"demo01", displayName:"Demo 01"}
+  ];
+  public clickDir(item){
+    console.log(item);
   }
 
 
