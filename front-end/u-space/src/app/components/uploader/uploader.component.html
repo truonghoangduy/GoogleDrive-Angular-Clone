@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>
+    Upload Progressive
+</h1>
+<div mat-dialog-content>
+    <p>{{data.fileName}}</p>
+    <mat-progress-bar *ngIf="!data.status.isCompleted" mode="determinate" [value]="data.status.message">
+    </mat-progress-bar>
+    <p *ngIf="!data.status.isCompleted">{{data.status.message}}%</p>
+    <p *ngIf="data.status.isCompleted">
+        {{data.status.message}}
+    </p>
+</div>
+<div mat-dialog-actions>
+</div>

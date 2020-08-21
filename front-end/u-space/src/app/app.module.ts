@@ -23,13 +23,20 @@ import { FolderUiModule } from './modules/folder-ui/folder-ui.module';
 import {MatDividerModule} from '@angular/material/divider';
 import { ThumbnailsHeadComponent } from './components/thumbnails-head/thumbnails-head.component';
 import { BySOComponent } from './components/share-file/by-so/by-so.component';
-import { ListShareComponent } from './components/share-file/list-share/list-share.component';
+// import { ListShareComponent } from './components/share-file/list-share/list-share.component';
 
 import {  AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { NewFolderComponent } from './components/new-folder/new-folder.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { FileActionDialogComponent } from './components/file-action-dialog/file-action-dialog.component';
+import {UploadComponent} from '../app/components/uploader/uploader.component'
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+
 
 
 @NgModule({
@@ -38,8 +45,12 @@ import {MatExpansionModule} from '@angular/material/expansion';
     NavbarComponent,
     SidebarComponent,
     BySOComponent,
-    ListShareComponent,
-    SignInComponent
+    // ListShareComponent,
+    SignInComponent,
+    NewFolderComponent,
+    FileActionDialogComponent,
+    UploadComponent,
+
   ],
   imports:[
     BrowserModule,
@@ -61,7 +72,10 @@ import {MatExpansionModule} from '@angular/material/expansion';
     FolderUiModule,
     MatDividerModule,
     MatCheckboxModule,
-    MatExpansionModule
+    MatDialogModule,
+    FormsModule,
+    MatExpansionModule,
+    MatProgressBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
