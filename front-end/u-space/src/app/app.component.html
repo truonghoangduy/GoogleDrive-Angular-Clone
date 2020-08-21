@@ -1,6 +1,9 @@
 <app-sign-in></app-sign-in>
 <app-navbar></app-navbar>
+<app-breadcrum [items]="dir" (clickItem)="clickDir($event)"></app-breadcrum>
 <app-sidebar></app-sidebar>
 <!-- <br> -->
+
+
 
 <router-outlet></router-outlet>

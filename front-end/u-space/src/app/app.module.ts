@@ -30,6 +30,7 @@ import { AngularFireModule } from '@angular/fire';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { BreadcrumComponent } from './components/breadcrum/breadcrum.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     SidebarComponent,
     BySOComponent,
     ListShareComponent,
-    SignInComponent
+    SignInComponent,
+    BreadcrumComponent
   ],
   imports:[
     BrowserModule,
