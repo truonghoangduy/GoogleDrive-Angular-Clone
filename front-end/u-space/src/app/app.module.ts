@@ -40,6 +40,9 @@ import { CreateFolderDialogComponent } from './components/dialog/create-folder-d
 // import {NavUIModule} from '../app/modules/nav-ui/nav-ui.module'
 import { HttpClientModule } from '@angular/common/http';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { FolderFormatComponent } from './components/folder-format/folder-format.component';
+
+
 
 
 @NgModule({
@@ -56,6 +59,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
     UploadComponent,
     // FileFormatComponent,
 
+    FolderFormatComponent,
 
   ],
   imports:[

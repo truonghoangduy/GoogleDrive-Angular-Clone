@@ -1,13 +1,10 @@
-<mat-grid-list cols="4">
-    <div *ngIf="folders != null">
-
-        <mat-list style="padding: 0;">
-            <div style="width: 245px;height: auto;display: flex;">
-                <mat-list-item class="folder">
-                    <mat-icon mat-list-icon>folder</mat-icon>
-                    <div mat-line>{{folders.name}}</div>
-                </mat-list-item>
-            </div>
-        </mat-list>
-    </div>
-</mat-grid-list>
+<div *ngIf="folders != null" (click) = 'openFolder()' class="grid">
+    <mat-list style="padding: 0;">
+        <div style="width: 245px;height: auto;display: flex;">
+            <mat-list-item class="folder">
+                <mat-icon mat-list-icon>folder</mat-icon>
+                <div mat-line>{{folders.name}}</div>
+            </mat-list-item>
+        </div>
+    </mat-list>
+</div>

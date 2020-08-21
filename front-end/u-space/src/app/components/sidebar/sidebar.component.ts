@@ -18,6 +18,7 @@ import { NewFolderComponent } from '../new-folder/new-folder.component';
 export class SidebarComponent implements OnInit {
 
   @Output() navigateTo:EventEmitter<string> = new EventEmitter<string>();
+  
   listOfIcon:Array<Iicon>=[
     {
       title:'U-Space',
@@ -59,15 +60,16 @@ export class SidebarComponent implements OnInit {
     const dialogRef = this.dialog.open(NewFolderComponent);
   }
 
-  public findItem(id:string):Iicon{
-    var matchItem:Iicon;
-      for (let item of this.listOfIcon) {
-        if (item.url == id) {
-          matchItem = item;
-        }
-      }
-      return matchItem;
-    }
+  // public findItem(id:string):Iicon{
+  //   var matchItem:Iicon;
+  //     for (let item of this.listOfIcon) {
+  //       if (item.url == id) {
+  //         matchItem = item;
+  //       }
+  //     }
+  //     return matchItem;
+  //   }
+  
   public navigateToPage(url:string){
     // this.router.navigate([url])
     this.navigateTo.emit(url);

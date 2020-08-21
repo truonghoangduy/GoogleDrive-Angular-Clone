@@ -8,6 +8,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import {AuthGruadService} from './services/auth-gruad/auth-gruad.service'
 import { NewFolderComponent } from './components/new-folder/new-folder.component';
+import { FolderFormatComponent } from './components/folder-format/folder-format.component';
 
 const routes: Routes = [
   // {
@@ -22,10 +23,10 @@ const routes: Routes = [
   //   path: "thumbnails-Head",
   //   component: ThumbnailsHeadComponent,
   // },
-  // {
-  //   path: '',
-  //   component:SignInComponent
-  // },
+  {
+    path: 'folder-format',
+    component:FolderFormatComponent
+  },
 
   {
     path:'',

@@ -32,8 +32,10 @@ export class MainScreenComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    this.db_1 = this.dataService.getDataBase2();
+    this.db = this.dataService.getDataBase1();
     this.db_2 = this.dataService.getDataBase2();
+    this.db_2 = this.dataService.getDataBase3();
+
     console.log("Loaded")
   }
   
