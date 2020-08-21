@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import {File} from '../../models/file.model'
+import {File, VirtualFile} from '../../models/file.model'
+import { Folder } from 'src/app/models/folder.model';
 
 @Injectable({
   providedIn: 'root'
@@ -26,8 +27,9 @@ export class DataService {
       owner:'',
       icon : '',
       name: 'Shiba-inu',
-    }
+    } 
   ];
+
 
   // thumbnail:  Array<File>  = [
   //   {
@@ -51,5 +53,30 @@ export class DataService {
   // public getDataBase3(){
   //   return this.thumbnail;
   // }
+  genrateRadomFile(name:string):VirtualFile{
+    return {
+      uuid:"pathToHex",
+      name:name,
+      pictureURL:"",
+      volume:"",
+      createDate:"",
+      owner:'',
+    }
+  }
+
+  genrateRadomFolder(name:string,file?):Folder{
+    return {
+      uuid:'root',
+      name:name,
+      files:file,
+    }
+  }
+
+
+
+  newFileStructor:Folder={
+  }
+
+
   constructor() { }
 }
