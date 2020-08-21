@@ -29,7 +29,7 @@ export class AuthService {
     // }
     public Logout(){
       this.user = null;
-      // this.router.navigate([""]);
+      this.router.navigate([""]);
     }
 
 
