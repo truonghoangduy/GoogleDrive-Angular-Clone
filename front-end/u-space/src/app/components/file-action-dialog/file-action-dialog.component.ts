@@ -17,16 +17,16 @@ export class FileActionDialogComponent implements OnInit {
 
   menu = [
     {
-      icon: "https://image.flaticon.com/icons/svg/189/189665.svg", text: "Info", handler: () => {
+      icon: "https://www.svgrepo.com/show/126178/question-mark.svg", text: "Info", handler: () => {
         this._bottomSheetRef.dismiss();
       }
     }, {
-      icon: "https://image.flaticon.com/icons/svg/124/124818.svg", text: "Move", handler: () => {
+      icon: "https://icon-library.com/images/cut-icon/cut-icon-8.jpg", text: "Move", handler: () => {
         this.drive.addToClipboard(this.data.location, false);
         this._bottomSheetRef.dismiss();
       }
     }, {
-      icon: "https://image.flaticon.com/icons/svg/2270/2270591.svg", text: "Copy", handler: () => {
+      icon: "https://icon-library.com/images/copy-icon-vector/copy-icon-vector-20.jpg", text: "Copy", handler: () => {
         this.drive.addToClipboard(this.data.location, true);
         this._bottomSheetRef.dismiss();
       }
@@ -37,7 +37,7 @@ export class FileActionDialogComponent implements OnInit {
       }
     },
     {
-      icon: "https://image.flaticon.com/icons/svg/1632/1632602.svg", text: "Delete", handler: async () => {
+      icon: "https://image.flaticon.com/icons/svg/1214/1214428.svg", text: "Delete", handler: async () => {
         let result = await this.drive.deleteDir(this.data.uid, this.data.token, this.data.location);
         this._bottomSheetRef.dismiss();
       }
@@ -50,22 +50,22 @@ export class FileActionDialogComponent implements OnInit {
   buildMenuForFolder() {
     this.menu = [
       {
-        icon: "https://image.flaticon.com/icons/svg/189/189665.svg", text: "Info", handler: () => {
+        icon: "https://www.svgrepo.com/show/126178/question-mark.svg", text: "Info", handler: () => {
 
         }
       },
       {
-        icon: "https://cdn4.iconfinder.com/data/icons/materia-database-vol-1/24/037_026_copy_move_folder_information_into-512.png", text: "Move", handler: () => {
+        icon: "https://icon-library.com/images/cut-icon/cut-icon-8.jpg", text: "Move", handler: () => {
           this.drive.addToClipboard(this.data.location, false);
           this._bottomSheetRef.dismiss();
         }
       }, {
-        icon: "https://image.flaticon.com/icons/svg/1087/1087547.svg", text: "Clone", handler: () => {
+        icon: "https://www.netclipart.com/pp/m/168-1682622_svg-icon-free-clone-icon-png.png", text: "Clone", handler: () => {
           this.drive.addToClipboard(this.data.location, true);
           this._bottomSheetRef.dismiss();
         }
       }, {
-        icon: "https://image.flaticon.com/icons/svg/1632/1632602.svg", text: "Delete", handler: async () => {
+        icon: "https://image.flaticon.com/icons/svg/1214/1214428.svg", text: "Delete", handler: async () => {
           let result = await this.drive.deleteDir(this.data.uid, this.data.token, this.data.location, true);
           this._bottomSheetRef.dismiss();
         }

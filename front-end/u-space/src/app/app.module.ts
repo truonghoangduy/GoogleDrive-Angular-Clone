@@ -34,6 +34,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { FileActionDialogComponent } from './components/file-action-dialog/file-action-dialog.component';
+import { UploaderComponent } from './components/uploader/uploader.component';
 
 
 
@@ -47,6 +48,7 @@ import { FileActionDialogComponent } from './components/file-action-dialog/file-
     SignInComponent,
     NewFolderComponent,
     FileActionDialogComponent,
+    UploaderComponent,
 
   ],
   imports:[
