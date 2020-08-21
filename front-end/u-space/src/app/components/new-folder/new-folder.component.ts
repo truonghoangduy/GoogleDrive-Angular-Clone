@@ -1,6 +1,6 @@
 import { Component, OnInit,Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA,MatDialog, DialogRole } from '@angular/material/dialog';
-
+import {FunctionalService} from '../../services/functional.service'
 
 @Component({
   selector: 'app-new-folder',
@@ -9,7 +9,7 @@ import { MatDialogRef, MAT_DIALOG_DATA,MatDialog, DialogRole } from '@angular/ma
 })
 export class NewFolderComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<NewFolderComponent>) { }
+  constructor(public async :FunctionalService,public dialogRef: MatDialogRef<NewFolderComponent>) { }
 
   folderName = "";
   onNoClick(): void {
