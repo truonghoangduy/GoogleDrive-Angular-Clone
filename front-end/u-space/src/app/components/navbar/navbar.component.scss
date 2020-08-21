@@ -23,3 +23,42 @@
         height: 20px;
         border-radius: 50%;
     }
+    
+    .inputcenter {
+        display: flex;
+        align-items: center;
+    }
+    
+    .inputcenter input:focus {
+        outline: none;
+        background-color: none;
+    }
+    
+    .inputcenter input {
+        font-size: 15px;
+        width: 35vw;
+        border-style: none;
+    }
+    
+    .fuckyou {
+        position: absolute;
+        left: 30vw;
+        width: 40vw;
+        top: 0px;
+        z-index: 1000;
+        // width: 300px;
+    }
+    
+    div .mat-form-field-infix {
+        border-style: none !important;
+    }
+    
+    .yourmotherfucker {
+        // position: absolute,
+    }
+    
+    // position: fixed;
+    // top: 0;
+    // left: 0;
+    // right: 0;
+    // z-index: 100;
