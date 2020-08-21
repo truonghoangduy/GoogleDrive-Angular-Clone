@@ -34,6 +34,7 @@ import { NewFolderComponent } from './components/new-folder/new-folder.component
 import {MatDialogModule} from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { BreadcrumComponent } from './components/breadcrum/breadcrum.component';
 import { FileActionDialogComponent } from './components/file-action-dialog/file-action-dialog.component';
 import {UploadComponent} from '../app/components/uploader/uploader.component'
 import {MatProgressBarModule} from '@angular/material/progress-bar';
@@ -49,6 +50,11 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 
     SignInComponent,
     // ListShareComponent,
+    // ListShareComponent,/
+    SignInComponent,
+    BreadcrumComponent,
+    // ListShareComponent,
+    // SignInComponent,
     NewFolderComponent,
     FileActionDialogComponent,
     UploadComponent,
