@@ -10,7 +10,10 @@
 }
 
 .thumbnails-format{
-        cursor: pointer;
+    display: inline-block;
+    flex-direction: row;   
+    cursor: pointer;
+    margin: 10px;
 }
 
 .folder-format{
@@ -20,5 +23,7 @@
 }
 
 .file-format{
+    display: inline-block;
+    flex-direction: row;   
     cursor: pointer;
 }

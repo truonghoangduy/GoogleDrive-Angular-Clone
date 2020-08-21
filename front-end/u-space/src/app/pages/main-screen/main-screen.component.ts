@@ -17,13 +17,12 @@ export class MainScreenComponent implements OnInit {
   db_2 = [];
   constructor(private dataService: DataService,) { }
 
-  page:Iicon;
 
 
   ngOnInit(): void {
     this.db = this.dataService.getDataBase1();
     this.db_1 = this.dataService.getDataBase2();
-    this.db_2 = this.dataService.getDataBase2();
+    this.db_2 = this.dataService.getDataBase3();
 
   }
 }

@@ -17,7 +17,7 @@
         </div>
         <ul class="B" style="margin-top: 15px;">
 
-            <li style="display: flex; flex-direction: row;" *ngFor="let icon of listOfIcon" (click) = 'navigateToPage(icon.url)'>
+            <li style="display: flex; flex-direction: row;" *ngFor="let icon of listOfIcon"  (click) = 'navigateToPage(icon.url)'>
                 <div class="list-hover">
                     <button class="list" id="S">
                             <mat-icon style="margin-top: 5%; margin-right: 7%;">{{icon.icon}}</mat-icon>
@@ -28,7 +28,7 @@
         </ul>
     </div>
     </mat-drawer>
-    <app-breadcrum [items]="dir" (clickItem)="clickDir($event)"></app-breadcrum>
+    <app-breadcrum [items]="dir" (clickItem)="clickDir($event)" class="fix"></app-breadcrum>
     <router-outlet></router-outlet>
 </mat-drawer-container>
 
