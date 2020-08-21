@@ -33,6 +33,8 @@ import { NewFolderComponent } from './components/new-folder/new-folder.component
 import {MatDialogModule} from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { FileActionDialogComponent } from './components/file-action-dialog/file-action-dialog.component';
+
 
 
 @NgModule({
@@ -43,7 +45,9 @@ import {MatExpansionModule} from '@angular/material/expansion';
     BySOComponent,
     // ListShareComponent,
     SignInComponent,
-    NewFolderComponent
+    NewFolderComponent,
+    FileActionDialogComponent,
+
   ],
   imports:[
     BrowserModule,
