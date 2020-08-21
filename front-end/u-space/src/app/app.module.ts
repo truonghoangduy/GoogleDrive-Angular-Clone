@@ -34,7 +34,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { FileActionDialogComponent } from './components/file-action-dialog/file-action-dialog.component';
-import { UploaderComponent } from './components/uploader/uploader.component';
+import {UploadComponent} from '../app/components/uploader/uploader.component'
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 
 
@@ -48,7 +49,7 @@ import { UploaderComponent } from './components/uploader/uploader.component';
     SignInComponent,
     NewFolderComponent,
     FileActionDialogComponent,
-    UploaderComponent,
+    UploadComponent,
 
   ],
   imports:[
@@ -73,7 +74,8 @@ import { UploaderComponent } from './components/uploader/uploader.component';
     MatCheckboxModule,
     MatDialogModule,
     FormsModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatProgressBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

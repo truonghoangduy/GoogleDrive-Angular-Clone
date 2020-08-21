@@ -5,9 +5,9 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   templateUrl: './uploader.component.html',
   styleUrls: ['./uploader.component.scss']
 })
-export class UploadDialogComponent implements OnInit {
+export class UploadComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<UploadDialogComponent>,
+  constructor(public dialogRef: MatDialogRef<UploadComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit() {
