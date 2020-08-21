@@ -7,6 +7,8 @@ import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { ActivatedRoute } from '@angular/router';
 import { Iicon } from 'src/app/models/list.model';
+import { AuthService } from 'src/app/services/auth/auth.service';
+import { BreadcrumItem } from 'src/app/components/breadcrum/breadcrum-item';
 
 @Component({
   selector: 'app-main-screen',
@@ -23,12 +25,14 @@ export class MainScreenComponent implements OnInit {
   contextMenuPosition = { x: '0px', y: '0px' };
 
   constructor(private dataService: DataService,    public overlay: Overlay,
+    public auth:AuthService,
     public viewContainerRef: ViewContainerRef) { }
 
   ngOnInit(): void {
     this.db = this.dataService.getDataBase1();
     this.db_1 = this.dataService.getDataBase2();
     this.db_2 = this.dataService.getDataBase2();
+    console.log("Loaded")
   }
   
   onContextMenu(event: MouseEvent, item) {
@@ -42,6 +46,15 @@ export class MainScreenComponent implements OnInit {
   onContextMenuAction(item){
     console.log(item)
   }
+
+  public dir:Array<BreadcrumItem> = [
+    {id:"home", displayName:"Home",data:{}},
+    {id:"demo01", displayName:"Demo 01"}
+  ];
+  public clickDir(item){
+    console.log(item);
+  }
+
 
 
 

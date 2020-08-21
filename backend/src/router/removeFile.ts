@@ -34,25 +34,17 @@ router.post('/', async (req, res) => {
         res.status(501).send("Missing KEYS");
         return;
     }
-
-
-    // Not Safety
-    let comfromRemovedFile: any = [];
-    removeFile.forEach(async (file) => {
-        return new Promise(async (res, rej) => {
-            try {
-                if (await fileExist.fileExist(file)) {
-                    console.log(`Dose you run : DROP ${file}`)
-                    res(comfromRemovedFile.push(file));
-                    await deleter.removeFile(file); // DEL
-                }
-                console.log(comfromRemovedFile.length);
-
-            } catch (error) {
-                rej(error);
+    let comfromRemovedFile:Array<string> = [];
+    for (let file of removeFile) {
+         try {
+            if (await fileExist.fileExist(file)) {
+                console.log(`Dose you run : DROP ${file}`)
+                comfromRemovedFile.push(file);
+                await deleter.removeFile(file); // DEL
             }
-        })
-    })
+        } catch (error) {
+        }
+    }
     res.send({
         requestRemove: removeFile,
         removed: comfromRemovedFile

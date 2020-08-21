@@ -73,43 +73,8 @@ export class VirtualFileService {
     }
 
 
-    //   traverse(o, fn, scope = []) {
-    //   for (let i in o) {
-    //     if (i == "folder") {
-    //       // console.log(o[i].lenght)
-    //       fn.apply(this, [i, o[i], scope]);
-    //       if (o[i].lenght != undefined) {
-    //         this.traverse(o[i], fn, scope.concat(i));
-    //       }
-    //     }
-    //   }
-    // }
 
 
-
-  // makeSreachable(){
-
-  //   // let listOfFile = [];
-  //   let listOfableFolder = [];
-  //   this.traverse(this.fileDicrectory, (key, value, scope) => {
-  //     // console.log(value)
-  //     listOfableFolder.push(value)
-  //     // if (value === 'Some Value') {
-  //       console.log(`Position: myObject[${scope.concat(key).map(k => isNaN(k) ? `'${k}'` : k).join('][')}]`);
-  //     // }
-  //   });
-  //   console.log(...listOfableFolder)
-      
-  //   }
-  
-  // traverse(o, fn, scope = []) {
-  //     for (let i in o) {
-  //       fn.apply(this, [i, o[i], scope]);
-  //       if (o[i] !== null && typeof o[i] === "object") {
-  //         this.traverse(o[i], fn, scope.concat(i));
-  //       }
-  //     }
-  //   }
     
   constructor() {
 
@@ -152,3 +117,30 @@ export class VirtualFileService {
 //     owner:"TH1305"
 //   }
 // ]
+
+
+// makeSreachable(){
+
+//   // let listOfFile = [];
+//   let listOfableFolder = [];
+//   this.traverse(this.fileDicrectory, (key, value, scope) => {
+//     // console.log(value)
+//     listOfableFolder.push(value)
+//     // if (value === 'Some Value') {
+//       console.log(`Position: myObject[${scope.concat(key).map(k => isNaN(k) ? `'${k}'` : k).join('][')}]`);
+//     // }
+//   });
+//   console.log(...listOfableFolder.filter((value)=>{
+    
+//   }))
+    
+//   }
+
+// traverse(o, fn, scope = []) {
+//     for (let i in o) {
+//       fn.apply(this, [i, o[i], scope]);
+//       if (o[i] !== null && typeof o[i] === "object") {
+//         this.traverse(o[i], fn, scope.concat(i));
+//       }
+//     }
+//   }

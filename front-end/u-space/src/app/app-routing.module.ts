@@ -6,30 +6,35 @@ import { ThumbnailsHeadComponent } from './components/thumbnails-head/thumbnails
 import { RenderTestComponent } from './components/render-test/render-test.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
-
+import {AuthGruadService} from './services/auth-gruad/auth-gruad.service'
 const routes: Routes = [
-  {
-    path: "file-foler",
-    component: FileFormatComponent,
-  },
-  {
-    path: "thumbnails",
-    component: ThumbnailsComponent,
-  },
-  {
-    path: "thumbnails-Head",
-    component: ThumbnailsHeadComponent,
-  },
-  {
-    path: '',
-    component:SignInComponent
-  },
+  // {
+  //   path: "file-foler",
+  //   component: FileFormatComponent,
+  // },
+  // {
+  //   path: "thumbnails",
+  //   component: ThumbnailsComponent,
+  // },
+  // {
+  //   path: "thumbnails-Head",
+  //   component: ThumbnailsHeadComponent,
+  // },
+  // {
+  //   path: '',
+  //   component:SignInComponent
+  // },
 
-  { path: 'main-screen', loadChildren: () => import('./pages/main-screen/main-screen.module').then(m => m.MainScreenModule) },
-  { path: 'share-page', loadChildren: () => import('./pages/share-page/share-page.module').then(m => m.SharePageModule) },
-  { path: 'recent-page', loadChildren: () => import('./pages/recent-page/recent-page.module').then(m => m.RecentPageModule) },
-  { path: 'pin-page', loadChildren: () => import('./pages/pin-page/pin-page.module').then(m => m.PinPageModule) },
-  { path: 'recycle-page', loadChildren: () => import('./pages/recycle-page/recycle-page.module').then(m => m.RecyclePageModule) },
+  {
+    path:'',
+    // component:SignInComponent
+    redirectTo:'drive',pathMatch: 'full'
+  },
+  { path: 'login', 
+  loadChildren: () => import('./pages/signin-page/signin-page.module').then(m => m.SigninPageModule) },
+  { path: 'drive', 
+  canActivate:[AuthGruadService],
+  loadChildren: () => import('./pages/drive/drive.module').then(m => m.DriveModule) },
 ];
 
 @NgModule({

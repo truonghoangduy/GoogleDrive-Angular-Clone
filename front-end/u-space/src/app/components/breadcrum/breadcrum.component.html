@@ -1,5 +1,5 @@
-<div *ngIf = "auth.user != null" id="breadcrum" >
-    <div *ngFor = "let item of items;let i = index">
+<div *ngIf = "auth.user != null" id="breadcrum" class="breadcrummm">
+    <div *ngFor = "let item of items;let i = index" >
         <span *ngIf="i != 0">/</span>
         <!-- {{i}} -->
         <button mat-button (click) = "onClickItem(item)"> {{item.displayName}}</button>

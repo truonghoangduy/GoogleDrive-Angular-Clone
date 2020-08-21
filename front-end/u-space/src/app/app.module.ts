@@ -3,10 +3,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -27,7 +25,6 @@ import { BySOComponent } from './components/share-file/by-so/by-so.component';
 
 import {  AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
-import { SignInComponent } from './components/sign-in/sign-in.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { RenderTestComponent } from './components/render-test/render-test.component';
 import { NewFolderComponent } from './components/new-folder/new-folder.component';
@@ -39,23 +36,17 @@ import { FileActionDialogComponent } from './components/file-action-dialog/file-
 import {UploadComponent} from '../app/components/uploader/uploader.component'
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { CreateFolderDialogComponent } from './components/dialog/create-folder-dialog/create-folder-dialog.component';
-
+// import {NavUIModule} from '../app/modules/nav-ui/nav-ui.module'
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    SidebarComponent,
     BySOComponent,
     RenderTestComponent,
-
-    SignInComponent,
     // ListShareComponent,
     // ListShareComponent,/
-    SignInComponent,
-    BreadcrumComponent,
+    // BreadcrumComponent,
     // ListShareComponent,
-    // SignInComponent,
     NewFolderComponent,
     FileActionDialogComponent,
     UploadComponent,
@@ -69,7 +60,6 @@ import { CreateFolderDialogComponent } from './components/dialog/create-folder-d
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireModule,
     AngularFireAuthModule,
-
     MatSidenavModule,
     MatToolbarModule,
     MatButtonModule,
@@ -80,13 +70,15 @@ import { CreateFolderDialogComponent } from './components/dialog/create-folder-d
     MatCardModule,
     MatInputModule,
     MatMenuModule,
-    FolderUiModule,
+    // FolderUiModule,
+    // NavUIModule,
     MatDividerModule,
     MatCheckboxModule,
     MatDialogModule,
     FormsModule,
     MatExpansionModule,
     MatProgressBarModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
