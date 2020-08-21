@@ -8,6 +8,8 @@ import {MatDividerModule} from '@angular/material/divider';
 
 
 import {FolderUiModule} from '../../modules/folder-ui/folder-ui.module'
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 @NgModule({
@@ -18,6 +20,8 @@ import {FolderUiModule} from '../../modules/folder-ui/folder-ui.module'
     MatIconModule,
     FolderUiModule,
     MatDividerModule,
+    MatCardModule,
+    MatMenuModule
   ]
 })
 export class MainScreenModule { }

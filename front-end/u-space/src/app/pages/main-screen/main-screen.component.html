@@ -17,7 +17,9 @@
         </div>
     </div>
     <div class="folder-format">
-        <app-file-format  *ngFor="let folder of db" [folders] = "folder" ></app-file-format>  
+        <app-file-format  *ngFor="let folder of db" [folders] = "folder" 
+        (contextmenu)="onContextMenu($event, folder)"
+        ></app-file-format>  
     </div>
     <!----------------  -------------------->
     <div mat-subheader class="title">
@@ -29,3 +31,15 @@
 
     
 </div>
+<div style="visibility: hidden; position: fixed"
+  [style.left]="contextMenuPosition.x"
+  [style.top]="contextMenuPosition.y"
+  [matMenuTriggerFor]="contextMenu">
+</div>
+<mat-menu #contextMenu="matMenu" #contextMenu2="matMenu">
+	<ng-template matMenuContent let-item="item">
+		<button mat-menu-item (click)="onContextMenuAction(item)">Action 1</button>
+		<button mat-menu-item (click)="onContextMenuAction(item)">Action 2</button>
+	</ng-template>
+</mat-menu>
+
