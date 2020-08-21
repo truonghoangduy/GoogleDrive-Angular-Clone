@@ -55,7 +55,7 @@ export class FileActionDialogComponent implements OnInit {
         }
       },
       {
-        icon: "https://image.flaticon.com/icons/svg/1420/1420322.svg", text: "Move", handler: () => {
+        icon: "https://cdn4.iconfinder.com/data/icons/materia-database-vol-1/24/037_026_copy_move_folder_information_into-512.png", text: "Move", handler: () => {
           this.drive.addToClipboard(this.data.location, false);
           this._bottomSheetRef.dismiss();
         }
