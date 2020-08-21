@@ -1,0 +1,12 @@
+<mat-list>
+    <mat-list-item>
+        <p>Action on <strong>{{data.fileName}}</strong></p>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item *ngFor="let menuItem of menu">
+        <button mat-button (click)="menuItem.handler()" style="width: 100%;">
+          <img [src]="menuItem.icon" width=30>
+          {{menuItem.text}}
+      </button>
+    </mat-list-item>
+</mat-list>

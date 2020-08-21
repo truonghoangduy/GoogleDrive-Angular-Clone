@@ -8,10 +8,10 @@
 
 
 
-    <div class="fuckyou" (mouseleave)="changeInputColor('white')" (mouseenter)="changeInputColor('#f5f5f5')" (click)="changeInputColor('white')">
+    <div class="search" (mouseleave)="changeInputColor('white')" (mouseenter)="changeInputColor('#f5f5f5')" (click)="changeInputColor('white')">
         <!-- <mat-form-field class="example-full-width" appearance="none" style="border-style:none"> -->
         <mat-accordion style="border-style:none">
-            <mat-expansion-panel hideToggle>
+            <mat-expansion-panel style="margin-top: 7px;" hideToggle>
                 <mat-expansion-panel-header>
                     <mat-panel-title>
                         <div class="inputcenter">
@@ -20,12 +20,12 @@
                         </div>
                     </mat-panel-title>
                 </mat-expansion-panel-header>
-                <div class="yourmotherfucker" (mouseover)="changeInputColor('white')">
-                    <p>This is the primary content of the panel.</p>
-                    <p>This is the primary content of the panel.</p>
-                    <p>This is the primary content of the panel.</p>
-                    <p>This is the primary content of the panel.</p>
-                    <p>This is the primary content of the panel.</p>
+                <div (mouseover)="changeInputColor('white')">
+                    <p><img style="width: 22px; margin-right:30px ;" src="https://th.bing.com/th/id/OIP.SibV2DoKRX-lAqSMPwYlFgHaHa?pid=Api&rs=1 " alt=""> .PDF</p>
+                    <p><img style="width: 22px;margin-right:30px ;" src="https://cdn4.iconfinder.com/data/icons/free-colorful-icons/360/google_docs.png" alt=""> .DOC</p>
+                    <p><img style="width: 22px;margin-right:30px ;" src="https://drive-thirdparty.googleusercontent.com/16/type/application/vnd.google-apps.spreadsheet" alt=""> .XLS</p>
+                    <p><img style="width: 22px;margin-right:30px ;" src="https://drive-thirdparty.googleusercontent.com/16/type/image/png" alt=""> .PIC</p>
+                    <p><img style="width: 24px;margin-right:30px ;" src="https://drive-thirdparty.googleusercontent.com/16/type/video/mp4" alt=""> .MP4</p>
                 </div>
 
             </mat-expansion-panel>
@@ -35,10 +35,28 @@
     </div>
 
     <div>
-        <button mat-icon-button class="example-icon favorite-icon" [matMenuTriggerFor]="menu" aria-label="Example icon-button with heart icon">
+        <button mat-icon-button class="example-icon favorite-icon" [matMenuTriggerFor]="app" aria-label="Example icon-button with heart icon">
           <mat-icon>apps</mat-icon>
         </button>
+        <mat-menu #app="matMenu">
+            <button mat-menu-item>
+            <mat-icon>slideshow</mat-icon>
+            <span>UTube</span>
+          </button>
+            <button mat-menu-item>
+            <mat-icon>email</mat-icon>
+            <span>Umail</span>
+          </button>
+            <button mat-menu-item>
+            <mat-icon>calendar_today</mat-icon>
+            <span>UCalendar</span>
+          </button>
+            <button mat-menu-item>
+            <mat-icon>voice_chat</mat-icon>
+            <span>UMeet</span>
+          </button>
 
+        </mat-menu>
 
         <button *ngIf="auth.user==null" mat-raised-button (click)="this.auth.loginGoogle() ">Sign in with Google</button>
         <button class="khung_avatar" *ngIf="auth.user!=null" mat-raised-button [matMenuTriggerFor]="menu">
@@ -57,3 +75,5 @@
 <span>Logout</span>
 </button>
 </mat-menu>
+
+<!-- <button (click)="check()">asdasdasdas</button> -->
