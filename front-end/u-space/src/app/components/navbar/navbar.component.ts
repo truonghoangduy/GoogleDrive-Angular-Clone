@@ -26,7 +26,7 @@ export class NavbarComponent implements OnInit {
   }
 
 
-  check(){
-    console.log(this.auth.user);
-  }
+  // check(){
+  //   console.log(this.auth.user);
+  // }
 }

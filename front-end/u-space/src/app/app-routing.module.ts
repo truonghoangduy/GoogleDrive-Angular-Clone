@@ -19,7 +19,7 @@ const routes: Routes = [
     component:ThumbnailsHeadComponent,
   },
   {
-    path: 'sign-in',
+    path: '',
     component:SignInComponent
   },
 
