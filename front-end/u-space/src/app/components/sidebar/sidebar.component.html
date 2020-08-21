@@ -1,35 +1,35 @@
-<mat-drawer-container *ngIf="auth.user!=null" class="example-container" >
+<mat-drawer-container *ngIf="auth.user!=null" class="example-container">
     <mat-drawer mode="side" opened class="sidebar" style="background-color: white;">
-    <div class="sort" style="margin-top: 20px;">
-        <div class="btn1">           
-            <button mat-raised-button [matMenuTriggerFor]="menu" class="New" style="display:flex;justify-content:center">
+        <div class="sort" style="margin-top: 20px;">
+            <div class="btn1">
+                <button mat-raised-button [matMenuTriggerFor]="menu" class="New" style="display:flex;justify-content:center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
                     <path fill="#34A853" d="M16 16v14h4V20z"/><path fill="#4285F4" d="M30 16H20l-4 4h14z"/>
                     <path fill="#FBBC05" d="M6 16v4h10l4-4z"/><path fill="#EA4335" d="M20 16V6h-4v14z"/>
                     <path fill="none" d="M0 0h36v36H0z"/>
-                </svg> 
+                </svg>
             New</button>
 
-            <mat-menu #menu="matMenu">
-                <button mat-menu-item>Create folder</button>
-                <button mat-menu-item>Upload file</button>
-            </mat-menu>
-        </div>
-        <ul class="B" style="margin-top: 15px;">
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="openNewFolderDialog()">Create folder</button>
 
-            <li style="display: flex; flex-direction: row;" *ngFor="let icon of listOfIcon" (click) = 'navigateToPage(icon.url)'>
-                <div class="list-hover">
-                    <button class="list" id="S">
+                    <button mat-menu-item>Upload file</button>
+                </mat-menu>
+            </div>
+            <ul class="B" style="margin-top: 15px;">
+
+                <li style="display: flex; flex-direction: row;" *ngFor="let icon of listOfIcon" (click)='navigateToPage(icon.url)'>
+                    <div class="list-hover">
+                        <button class="list" id="S">
                             <mat-icon style="margin-top: 5%; margin-right: 7%;">{{icon.icon}}</mat-icon>
                             <p class="title">{{icon.title}}</p>
-                        
+
                     </button>
-                </div>
-            </li>        
-        </ul>
-    </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </mat-drawer>
     <app-breadcrum [items]="dir" (clickItem)="clickDir($event)"></app-breadcrum>
     <router-outlet></router-outlet>
 </mat-drawer-container>
-

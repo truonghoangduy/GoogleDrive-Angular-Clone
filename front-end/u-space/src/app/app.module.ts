@@ -32,12 +32,14 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { NewFolderComponent } from './components/new-folder/new-folder.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
+import { FileFormatComponent } from './components/file-format/file-format.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { BreadcrumComponent } from './components/breadcrum/breadcrum.component';
 import { FileActionDialogComponent } from './components/file-action-dialog/file-action-dialog.component';
 import {UploadComponent} from '../app/components/uploader/uploader.component'
 import {MatProgressBarModule} from '@angular/material/progress-bar';
-
+import { HttpClientModule } from '@angular/common/http';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 @NgModule({
@@ -54,12 +56,15 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     NewFolderComponent,
     FileActionDialogComponent,
     UploadComponent,
+    // FileFormatComponent,
+
 
   ],
   imports:[
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireModule,
     AngularFireAuthModule,
@@ -80,6 +85,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     FormsModule,
     MatExpansionModule,
     MatProgressBarModule,
+    MatGridListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

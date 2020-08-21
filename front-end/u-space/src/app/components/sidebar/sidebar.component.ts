@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { Iicon} from '../../models/list.model'
 
 import { BreadcrumItem } from '../breadcrum/breadcrum-item';
+import {MatDialog} from '@angular/material/dialog';
+import { NewFolderComponent } from '../new-folder/new-folder.component';
 
 @Component({
   selector: 'app-sidebar',
@@ -40,14 +42,20 @@ export class SidebarComponent implements OnInit {
       icon: 'delete',
       url: '/recycle-page',
     },
-    
-  ]
+
+  ];
 
 
-  constructor(public auth:AuthService,
-              private router: Router) { }
+  constructor(
+    public auth:AuthService,
+    private router: Router,
+    private dialog: MatDialog,
+    ) { }
 
-  
+
+  openNewFolderDialog() {
+    const dialogRef = this.dialog.open(NewFolderComponent);
+  }
 
   public findItem(id:string):Iicon{
     var matchItem:Iicon;
@@ -61,7 +69,7 @@ export class SidebarComponent implements OnInit {
   public navigateToPage(url:string){
     this.router.navigate([url])
   }
-  
+
 
   public dir:Array<BreadcrumItem> = [
     {id:"home", displayName:"Home",data:{}},
