@@ -1,5 +1,5 @@
-<div class="sort" style="margin-top: 85px;position: absolute; width: 100%;">
-    <div class="btn1"style="display:flex;justify-content:center">
+<div class="sort" style="margin-top: 85px;position: absolute; width: 100%; ">
+    <div class="btn1"style="display:flex;justify-content:center;color: #333;">
         <button mat-raised-button [matMenuTriggerFor]="menu" class="New" style="display:flex;justify-content:center">
             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
                 <path fill="#34A853" d="M16 16v14h4V20z"/><path fill="#4285F4" d="M30 16H20l-4 4h14z"/>
@@ -15,7 +15,7 @@
         </mat-menu>
     </div>
 
-    <ul class="B" style="margin-top: 15px;">
+    <ul class="B" style="margin-top: 15px; color: #333;">
         <li style="display: flex; flex-direction: row;" *ngFor="let icon of listOfIcon" (click)='navigateToPage(icon.url)'>
             <div class="list-hover">
                 <button class="list" id="S">
