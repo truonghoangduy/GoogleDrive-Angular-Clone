@@ -11,8 +11,21 @@
 
 }
 
+.body {
+    width: 90%;
+    align-content: center;
+    position: absolute;
+    left: 100px;
+    top: 150px;
+}
 
+.content {
+    width: 80%;
+    // text-align: center;
+}
 
-.file-format{
-    cursor: pointer;
+img {
+    width: 20%;
+    height: 20%;
+    text-align: center;
 }

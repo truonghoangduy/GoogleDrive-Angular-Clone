@@ -45,6 +45,8 @@ import { FolderFormatComponent } from './components/folder-format/folder-format.
 
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,6 +62,7 @@ import { FolderFormatComponent } from './components/folder-format/folder-format.
     // FileFormatComponent,
 
     FolderFormatComponent,
+
 
   ],
   imports:[
@@ -88,7 +91,7 @@ import { FolderFormatComponent } from './components/folder-format/folder-format.
     FormsModule,
     MatExpansionModule,
     MatProgressBarModule,
-    
+
     MatGridListModule,
   ],
   providers: [],

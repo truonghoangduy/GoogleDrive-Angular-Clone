@@ -9,12 +9,12 @@
                 </svg>
             New</button>
 
-                <mat-menu #menu="matMenu">
-                    <button mat-menu-item (click)="openNewFolderDialog()">Create folder</button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="openNewFolderDialog()">Create folder</button>
 
-                    <button mat-menu-item>Upload file</button>
-                </mat-menu>
-            </div>
+            <button mat-menu-item (click)="openUploadDialog()">Upload file</button>
+        </mat-menu>
+    </div>
 
             <ul class="B" style="margin-top: 15px;">
                 <li style="display: flex; flex-direction: row;" *ngFor="let icon of listOfIcon" (click)='navigateToPage(icon.url)'>
