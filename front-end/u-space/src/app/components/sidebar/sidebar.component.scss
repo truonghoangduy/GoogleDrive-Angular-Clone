@@ -29,7 +29,7 @@ li {
     color: #3B5998;
     font-weight: 600;
     cursor: pointer;
-    background-color: #e8f0fe;
+    background-color: rgb(245, 245, 245);
 }
 .list:focus {
     color: #3B5998;
@@ -48,17 +48,17 @@ li {
     border-left-color: #3B5998;
     border-left-width: 5px;
     cursor: pointer;
-    background-color: #e8f0fe;
 }
 
 
 .list-hover:focus {
-    border-left-style: solid !important;
-    background-color: #3B5998 !important;
-    border-left-width: 5px !important;
+    border-left-style: solid;
+    border-left-color: #3B5998;
+    border-left-width: 5px;
+    border-left-color: #3B5998;
 }
 .New {
-    min-width: 120px;;
+    min-width: 120px;
     height: 48px;
     padding: 5px 0 0 0;
     border-radius: 24px;
@@ -94,7 +94,6 @@ li {
     margin-bottom: 25px;
     font-size: 15px;
     margin-top: 7%;
-
 }
 
 .fix{
