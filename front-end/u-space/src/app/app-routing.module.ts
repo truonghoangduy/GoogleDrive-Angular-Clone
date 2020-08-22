@@ -33,9 +33,9 @@ const routes: Routes = [
     // component:SignInComponent
     redirectTo:'drive',pathMatch: 'full'
   },
-  { path: 'login', 
+  { path: 'login',
   loadChildren: () => import('./pages/signin-page/signin-page.module').then(m => m.SigninPageModule) },
-  { path: 'drive', 
+  { path: 'drive',
   canActivate:[AuthGruadService],
   loadChildren: () => import('./pages/drive/drive.module').then(m => m.DriveModule) },
 ];

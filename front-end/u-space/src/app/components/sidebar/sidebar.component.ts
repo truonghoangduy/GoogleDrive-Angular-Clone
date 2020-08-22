@@ -7,6 +7,7 @@ import { BreadcrumItem } from '../breadcrum/breadcrum-item';
 import { CreateFolderDialogComponent } from '../dialog/create-folder-dialog/create-folder-dialog.component';
 import {MatDialog} from '@angular/material/dialog';
 import { NewFolderComponent } from '../new-folder/new-folder.component';
+import { UploadComponent } from '../uploader/uploader.component';
 
 @Component({
   selector: 'app-sidebar',
@@ -18,7 +19,7 @@ import { NewFolderComponent } from '../new-folder/new-folder.component';
 export class SidebarComponent implements OnInit {
 
   @Output() navigateTo:EventEmitter<string> = new EventEmitter<string>();
-  
+
   listOfIcon:Array<Iicon>=[
     {
       title:'U-Space',
@@ -60,6 +61,10 @@ export class SidebarComponent implements OnInit {
     const dialogRef = this.dialog.open(NewFolderComponent);
   }
 
+  openUploadDialog(){
+    const dialogRef = this.dialog.open(UploadComponent);
+  }
+
   // public findItem(id:string):Iicon{
   //   var matchItem:Iicon;
   //     for (let item of this.listOfIcon) {
@@ -69,7 +74,7 @@ export class SidebarComponent implements OnInit {
   //     }
   //     return matchItem;
   //   }
-  
+
   public navigateToPage(url:string){
     // this.router.navigate([url])
     this.navigateTo.emit(url);
