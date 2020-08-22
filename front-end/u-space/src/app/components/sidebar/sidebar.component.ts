@@ -61,7 +61,7 @@ export class SidebarComponent implements OnInit {
     const dialogRef = this.dialog.open(NewFolderComponent);
   }
 
-  openNewFileDialog(){
+  openUploadDialog(){
     const dialogRef = this.dialog.open(UploadComponent);
   }
 

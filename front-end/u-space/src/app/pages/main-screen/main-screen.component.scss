@@ -14,10 +14,16 @@
     flex-direction: row;   
     cursor: pointer;
     margin: 10px;
+    overflow: scroll;
+    width: 100%;
+    /* width: 30em; */
+    overflow-x: auto;
+    white-space: nowrap;
+    overflow-y: overlay;
 }
 
 .folder-format{
-    display: flex;
+    display: inline-block;
     flex-direction: row;   
     cursor: pointer;
 }
