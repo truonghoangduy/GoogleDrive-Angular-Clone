@@ -164,3 +164,28 @@ a {
         border-radius: 0px;
     }
 }
+
+.btnlogin{
+    background-color: #DD4B39; 
+    color: white;
+}
+
+.btnlogin:hover{
+    background-color: white; 
+    color: #DD4B39;
+    border-color: #DD4B39;
+    border-style: solid;
+    border-width: 0.5px;
+}
+
+.btnlogin:focus{
+    background-color: white; 
+    color: #DD4B39;
+    border-color: #DD4B39;
+    border-style: solid;
+    border-width: 0.5px;
+}
+
+.link{
+    color: #3B5998;
+}
