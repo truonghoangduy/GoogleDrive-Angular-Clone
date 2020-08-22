@@ -1,5 +1,5 @@
-<div *ngIf="folders != null" (click) = 'openFolder()' class="grid">
-    <mat-list style="padding: 0;">
+
+    <mat-list *ngIf="folders != null" (click) = 'openFolder()' style="padding: 0;" class="grid">
         <div style="width: 245px;height: auto;display: flex;">
             <mat-list-item class="folder">
                 <mat-icon mat-list-icon>folder</mat-icon>
@@ -7,4 +7,4 @@
             </mat-list-item>
         </div>
     </mat-list>
-</div>
+

@@ -16,11 +16,9 @@
 }
 li {
     margin-bottom: 15px;
-    
+    width: 100%;
 }
-li {
-    margin-bottom: 15px;
-}
+
 .list {
     border-style: none;
     background-color: white;
@@ -35,6 +33,8 @@ li {
 }
 .list:focus {
     color: #3B5998;
+     border-left-color: #3B5998;
+     background-color: #e8f0fe;
     font-weight: 600;
 }
 .list-hover {
@@ -80,7 +80,7 @@ li {
 
 #S {
     height: 50px;
-    border-radius: 7px;
+    border-radius: none;
     border-width: 1px;
     outline: none;
     width: 100%;
