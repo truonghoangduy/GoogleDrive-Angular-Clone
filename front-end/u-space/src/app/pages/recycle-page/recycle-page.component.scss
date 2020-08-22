@@ -1,21 +1,24 @@
-.container{
+.container {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.body{
+.body {
     width: 90%;
     align-content: center;
+    position: absolute;
+    left: 100px;
+    top: 150px;
 }
 
-.content{
+.content {
     width: 80%;
     // text-align: center;
 }
 
-img{
-    width:20%; 
+img {
+    width: 20%;
     height: 20%;
     text-align: center;
 }

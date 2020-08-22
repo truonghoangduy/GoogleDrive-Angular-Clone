@@ -15,8 +15,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 
 
 @NgModule({
-  declarations: [FileFormatComponent,
-                 ThumbnailsComponent,
+  declarations: [ThumbnailsComponent, ThumbnailsHeadComponent,FileFormatComponent,
                  ThumbnailsHeadComponent,
                 //  FolderFormatComponent
                 ],
@@ -31,9 +30,9 @@ import { MatGridListModule } from '@angular/material/grid-list';
 
   ],
   exports: [
-    FileFormatComponent,
     ThumbnailsComponent,
     ThumbnailsHeadComponent,
+    FileFormatComponent
     // FolderFormatComponent
   ]
 })

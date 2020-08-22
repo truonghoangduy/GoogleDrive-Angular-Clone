@@ -1,0 +1,14 @@
+GET http://localhost:3000/
+
+###
+GET http://localhost:3000/createFile
+
+
+###
+POST http://localhost:3000/upload
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: attachment; filename="test.txt"
+Content-Type: text
+
+< ./test.txt
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
