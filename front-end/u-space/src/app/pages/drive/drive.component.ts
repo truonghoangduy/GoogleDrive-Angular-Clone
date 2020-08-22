@@ -16,7 +16,15 @@ export class DriveComponent implements OnInit {
     this.router.navigate(["drive/"+'main-screen'])
   }
 
+  public dir:Array<BreadcrumItem> = [
+    {id:"home", displayName:"Home",data:{}},
+    {id:"demo01", displayName:"Demo 01"}
+  ];
 
+    
+  public clickDir(item){
+    console.log(item);
+  }
   public navigateToPage(url:string){
     this.router.navigate(["drive/"+url])
     // this.navigateTo.emit(url);

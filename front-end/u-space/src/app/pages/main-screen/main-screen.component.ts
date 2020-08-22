@@ -55,6 +55,7 @@ export class MainScreenComponent implements OnInit {
     {id:"home", displayName:"Home",data:{}},
     {id:"demo01", displayName:"Demo 01"}
   ];
+  
   public clickDir(item){
     console.log(item);
   }

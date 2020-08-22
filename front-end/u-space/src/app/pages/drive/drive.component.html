@@ -4,6 +4,8 @@
         
         <app-sidebar (navigateTo)="this.navigateToPage($event)"></app-sidebar>
     </mat-drawer>
-    <div class="marginTOP" style="margin-top: 95px;"></div>
+    <div class="marginTOP" style="margin-top: 5%;"></div>
+    <app-breadcrum [items]="dir" (clickItem)="clickDir($event)" ></app-breadcrum>
+    <div class="marginTOP" style="margin-top: 10%;"></div>
     <router-outlet></router-outlet>
 </mat-drawer-container>

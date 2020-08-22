@@ -23,6 +23,7 @@ input.example-right-align {
     position: absolute;
     top: 0px;
     right: 6px;
+    color: #333;
 }
 
 .container {
@@ -41,6 +42,7 @@ input.example-right-align {
 
 .email {
     width: 236px;
+    color: #333;
 }
 
 .khung {
@@ -62,6 +64,7 @@ input.example-right-align {
 
 .Name {
     font-size: 5vw;
+    color: #333;
     // margin-top: 7%;
 }
 
@@ -163,4 +166,29 @@ a {
     .main {
         border-radius: 0px;
     }
+}
+
+.btnlogin{
+    background-color: #DD4B39; 
+    color: white;
+}
+
+.btnlogin:hover{
+    background-color: white; 
+    color: #DD4B39;
+    border-color: #DD4B39;
+    border-style: solid;
+    border-width: 0.5px;
+}
+
+.btnlogin:focus{
+    background-color: white; 
+    color: #DD4B39;
+    border-color: #DD4B39;
+    border-style: solid;
+    border-width: 0.5px;
+}
+
+.link{
+    color: #3B5998;
 }

@@ -101,6 +101,7 @@ export class SidebarComponent implements OnInit {
       // this.animal = result;
     });
   }
+  
 
 
 

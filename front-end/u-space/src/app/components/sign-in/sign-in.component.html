@@ -1,10 +1,10 @@
 <div class="main" style="text-align: center; ">
     <div class="header">
-        <img class="Hinh" src="../../../assets/logo.png" alt="">
+        <img class="Hinh" src="../../../assets/universe.svg" alt="">
         <p class="Name">USpace</p>
     </div>
 
-    <div style="display: flex; justify-content: center;">
+    <div style="display: flex; justify-content: center; padding-bottom: 5%;" >
 
         <div class="Khung">
 
@@ -18,9 +18,9 @@
 
 
 
-                <mat-form-field appearance="fill">
+                <mat-form-field appearance="fill" style="color: #333;">
                     <mat-label>Enter your password</mat-label>
-                    <input matInput [type]="hide ? 'password' : 'text'">
+                    <input matInput [type]="hide ? 'password' : 'text'" style="color: #333;">
                     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                   <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                   </button>
@@ -31,11 +31,11 @@
                 </section>
                 <div class="login">
 
-                    <button mat-raised-button color="accent">Sign in</button>
-                    <button mat-raised-button color="accent" (click)="this.auth.loginGoogle()">Sign in with Google</button>
+                    <button mat-raised-button  class="btnlogin">Sign in</button>
+                    <button mat-raised-button  class="btnlogin" (click)="this.auth.loginGoogle()">Sign in with Google</button>
                 </div>
-                <a href="">Create new account</a>
-                <p> <a href="">Forgot your password</a></p>
+                <a class="link" href="">Create new account</a>
+                <p><a class="link" href="">Forgot your password</a></p>
             </div>
 
 

@@ -1,7 +1,14 @@
-.container {
+.title{
+    color: rgba(0, 0,0, 0.54); 
+    font-weight: 500;
+    padding: 8px 0px 16px;
+    margin: 0 0 0 22px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 17px;
+    margin-top: 3%;
+
 }
 
 .body {
