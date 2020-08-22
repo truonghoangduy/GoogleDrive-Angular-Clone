@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./file-format.component.scss']
 })
 export class FileFormatComponent implements OnInit {
-  
+
   @Input() folders:Folder = null;
 
   constructor(private router:Router) { }

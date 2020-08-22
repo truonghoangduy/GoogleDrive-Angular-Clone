@@ -52,3 +52,9 @@
     div .mat-form-field-infix {
         border-style: none !important;
     }
+    
+    .mat-toolbar {
+        position: fixed;
+        top: 0px;
+        z-index: 5;
+    }
