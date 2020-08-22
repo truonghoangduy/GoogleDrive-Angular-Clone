@@ -19,12 +19,11 @@ export class MainScreenComponent implements OnInit {
     this.db = this.dataService.getDataBase1();
   }
 
-  page:Iicon;
 
 
   ngOnInit(): void {
     this.db_1 = this.dataService.getDataBase2();
-    this.db_2 = this.dataService.getDataBase2();
+    this.db_2 = this.dataService.getDataBase3();
 
   }
 }

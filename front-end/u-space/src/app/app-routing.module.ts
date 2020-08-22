@@ -6,6 +6,7 @@ import { ThumbnailsHeadComponent } from './components/thumbnails-head/thumbnails
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { NewFolderComponent } from './components/new-folder/new-folder.component';
+import { FolderFormatComponent } from './components/folder-format/folder-format.component';
 
 const routes: Routes = [
   {path:"file-foler",
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: '',
     component:NewFolderComponent,
+  },
+  {
+    path: 'folder-format',
+    component: FolderFormatComponent
   },
 
   { path: 'main-screen/:id?', loadChildren: () => import('./pages/main-screen/main-screen.module').then(m => m.MainScreenModule) },

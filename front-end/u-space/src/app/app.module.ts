@@ -40,6 +40,9 @@ import {UploadComponent} from '../app/components/uploader/uploader.component'
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { HttpClientModule } from '@angular/common/http';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { FolderFormatComponent } from './components/folder-format/folder-format.component';
+
+
 
 
 @NgModule({
@@ -58,6 +61,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
     UploadComponent,
     // FileFormatComponent,
 
+    FolderFormatComponent,
 
   ],
   imports:[

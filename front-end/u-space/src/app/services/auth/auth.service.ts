@@ -21,7 +21,6 @@ export class AuthService {
     let provider = new fire.auth.GoogleAuthProvider();
     await this.Auth.signInWithPopup(provider).then(data=> this.user= data.user)
     this.router.navigate(["main-screen"]);
-
   }
     // public async Logout(){
     //   await this.Auth.signOut();

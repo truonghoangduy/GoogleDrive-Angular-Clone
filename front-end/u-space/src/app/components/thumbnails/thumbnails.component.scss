@@ -1,6 +1,7 @@
 .example-card {
     max-width: 220px;
     min-height: 190px;
+    
 }
 
 .example-form {
@@ -9,4 +10,9 @@
 
 .example-full-width {
     width: 100%;
+}
+
+.grid{
+    display: inline-flex;
+    margin: 2%;
 }

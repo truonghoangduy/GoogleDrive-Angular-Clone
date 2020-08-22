@@ -10,11 +10,16 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatGridListModule } from '@angular/material/grid-list';
+// import { FolderFormatComponent } from 'src/app/components/folder-format/folder-format.component';
 
 
 
 @NgModule({
-  declarations: [FileFormatComponent , ThumbnailsComponent, ThumbnailsHeadComponent, ],
+  declarations: [FileFormatComponent,
+                 ThumbnailsComponent,
+                 ThumbnailsHeadComponent,
+                //  FolderFormatComponent
+                ],
   imports: [
     CommonModule,
     MatListModule,
@@ -28,7 +33,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
   exports: [
     FileFormatComponent,
     ThumbnailsComponent,
-    ThumbnailsHeadComponent
+    ThumbnailsHeadComponent,
+    // FolderFormatComponent
   ]
 })
 export class FolderUiModule { }
