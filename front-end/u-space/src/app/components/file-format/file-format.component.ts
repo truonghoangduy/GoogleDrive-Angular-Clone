@@ -14,7 +14,7 @@ export class FileFormatComponent implements OnInit {
   constructor(private router:Router) { }
 
   public openFolder(){
-    this.router.navigate(["/folder-format"]);
+    this.router.navigate(["drive",'main-screen'],{queryParams:{id:"hello"}});
   }
 
 

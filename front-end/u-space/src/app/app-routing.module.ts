@@ -23,10 +23,7 @@ const routes: Routes = [
   //   path: "thumbnails-Head",
   //   component: ThumbnailsHeadComponent,
   // },
-  {
-    path: 'folder-format',
-    component:FolderFormatComponent
-  },
+
 
   {
     path:'',
