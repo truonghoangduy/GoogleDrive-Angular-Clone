@@ -1,0 +1,26 @@
+<div class="nav">
+    <div class="container">
+        <div class="row">
+            <div *ngIf="screenWidth<768" class="align col-3" style="justify-content: center;">
+                <button mat-button (click)="showMenu()" class="btn-menu">
+                <mat-icon style="color: rgb(57, 77, 92);">menu</mat-icon>
+                </button>
+
+                <div class="btn1">
+                    <button mat-raised-button class="New">
+                        <mat-icon style="color: rgb(57, 77, 92);" >add</mat-icon>
+                    </button>
+                </div>
+            </div>
+            <div class="align col-9 col-md-3 col-xl-3">
+                <a class="align st" href="#">
+                    <img id="icon" src="../../../assets/universe.svg" width="60px" alt=""> USpace
+                </a>
+            </div>
+            <div *ngIf="screenWidth>=768" class="align col-md-7 col-xl-5 " style="justify-content: center;">
+                <input class="form-control mr-sm-2 min search" type="search" placeholder="Search" aria-label=" Search ">
+                <button class="btn btn-outline-success my-2 my-sm-0 " type="submit ">Search</button>
+            </div>
+        </div>
+    </div>
+</div>
