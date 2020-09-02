@@ -1,21 +1,20 @@
-<div class="container" style="margin-top: 30px;">
-    <div class="row align">
-        <div class="logo col-12 col-sm-10 col-md-8 align ">
-            <img src="../../../assets/universe.svg" width="15%" alt="Logo">USpace
+<div class="sign-up">
+    <p>Username:</p>
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="user name" aria-label="Recipient's username" aria-describedby="basic-addon2" [formControl]="email" required>
+    </div>
+    <p>Password:</p>
+    <div class="input-group mb-3">
+        <input [type]="hide ? 'password' : 'text'" class="form-control" placeholder="password" aria-label="Recipient's username" aria-describedby="button-addon2">
+        <div class="input-group-append">
+            <button (click)="hide = !hide" style="border-radius:0 4px 4px 0; outline: none;" mat-stroked-button><mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon></button>
         </div>
     </div>
-    <div class="row">
-        <div class="col"></div>
-        <div class="col-12 col-sm-10 col-md-6">
-            <mat-tab-group color="warn" mat-align-tabs="center">
-                <mat-tab label="Sign in">
-                    <app-login-tab></app-login-tab>
-                </mat-tab>
-                <mat-tab label="Sign up">
-                    <app-sign-up></app-sign-up>
-                </mat-tab>
-            </mat-tab-group>
-        </div>
-        <div class="col"></div>
+    <div class="login">
+
+        <button mat-raised-button class="btnlogin">Sign in</button>
+        <button mat-raised-button class="btnlogin" (click)="this.auth.loginGoogle()">Sign in with Google</button>
     </div>
+    <a class="link" href="" style="font-size: 1rem;">Create new account</a>
+    <p class="link2"><a class="link" href="">Forgot your password</a></p>
 </div>

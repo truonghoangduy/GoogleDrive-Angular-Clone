@@ -6,7 +6,10 @@ import { SideBarContentComponent } from './side-bar-content/side-bar-content.com
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
-import { LoginTabComponent } from './login-tab/login-tab.component';
+import { ThumbnailComponent } from './thumbnail/thumbnail.component';
+import { FolderComponent } from './folder/folder.component';
+import { MThumbnailComponent } from './m-thumbnail/m-thumbnail.component';
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,10 @@ import { LoginTabComponent } from './login-tab/login-tab.component';
     SideBarComponent,
     SignInComponent,
     SignUpComponent,
-    LoginTabComponent,
+    ThumbnailComponent,
+    FolderComponent,
+    MThumbnailComponent,
+    BreadcrumbComponent,
   ],
   imports: [
     CommonModule,
@@ -26,6 +32,11 @@ import { LoginTabComponent } from './login-tab/login-tab.component';
     SideBarContentComponent,
     SideBarComponent,
     SignInComponent,
+    SignUpComponent,
+    ThumbnailComponent,
+    FolderComponent,
+    MThumbnailComponent,
+    BreadcrumbComponent,
   ]
 })
 export class ComponentsModule { }
