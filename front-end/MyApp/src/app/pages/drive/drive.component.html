@@ -1,35 +1,36 @@
 <mat-sidenav-container class="example-container" (backdropClick)="close('backdrop')">
     <mat-sidenav class="side-bar" #sidenav (keydown.escape)="close('escape')" disableClose>
         <!-- custom here -->
-        <p style="height:71px;box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);">
-            <button mat-button (click)="close( 'toggle button') ">
-                <mat-icon>home</mat-icon>
-            </button>
-        </p>
+        <div style="justify-content: left; margin:10px 0 ;" class="align">
+            <mat-icon (click)="close( 'toggle button')" style="margin:0 20px;">keyboard_arrow_left
+            </mat-icon>
+            <div class="user-icon">
+                <img [src]="authService.user.photoURL"> {{authService.user.displayName}}
+            </div>
+        </div>
         <div class="search">
             <input class="form-control mr-sm-2 min" type="search" placeholder="Search" aria-label=" Search ">
             <button class="btn btn-outline-success my-2 my-sm-0 " type="submit ">Search</button>
         </div>
         <app-side-bar (navigateTo)="navigated($event)" (click)="close( 'toggle button');"></app-side-bar>
         <!-- custom here -->
-
-
     </mat-sidenav>
     <mat-sidenav-content>
+        <!-- PC display -->
         <app-nav-bar (onShowMenu)="sidenav.open() "></app-nav-bar>
-        <div *ngIf="screenWidth >=768" class="container">
+        <div *ngIf="screenWidth >=768" class="container ">
             <div class="row">
                 <div class="col-md-3 col-xl-3" style="padding:0">
-                    <div class="btn1">
+                    <!-- <div class="btn1">
                         <button mat-raised-button [matMenuTriggerFor]="menu" class="New" style="display:flex;justify-content:center">
-                            <img src="https://png.pngtree.com/png-vector/20190806/ourlarge/pngtree-galaxy-space-stars-flat-color-icon-vector-icon-banner-png-image_1651645.jpg" alt="Add" width="40px">
+                            <mat-icon>add</mat-icon>
                         New</button>
 
                         <mat-menu #menu="matMenu">
                             <button style="outline: none;" mat-menu-item>Create folder</button>
                             <button style="outline: none;" mat-menu-item>Upload file</button>
                         </mat-menu>
-                    </div>
+                    </div> -->
 
                     <app-side-bar (navigateTo)="navigated($event)"></app-side-bar>
                 </div>
@@ -38,6 +39,9 @@
                 </div>
             </div>
         </div>
-        <router-outlet *ngIf="screenWidth <768"></router-outlet>
+        <!-- Mobile display -->
+        <div *ngIf="screenWidth <768" class="overflow">
+            <router-outlet></router-outlet>
+        </div>
     </mat-sidenav-content>
 </mat-sidenav-container>
