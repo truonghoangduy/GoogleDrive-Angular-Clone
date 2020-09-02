@@ -7,6 +7,9 @@ import { SideBarComponent } from './side-bar/side-bar.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { LoginTabComponent } from './login-tab/login-tab.component';
+import { UploadTaskComponent } from './upload-task/upload-task.component';
+import { UploaderComponent } from './uploader/uploader.component';
+import { DropzoneDirective } from './dropzone.directive';
 
 @NgModule({
   declarations: [
@@ -16,6 +19,9 @@ import { LoginTabComponent } from './login-tab/login-tab.component';
     SignInComponent,
     SignUpComponent,
     LoginTabComponent,
+    UploadTaskComponent,
+    UploaderComponent,
+    DropzoneDirective,
   ],
   imports: [
     CommonModule,
@@ -26,6 +32,10 @@ import { LoginTabComponent } from './login-tab/login-tab.component';
     SideBarContentComponent,
     SideBarComponent,
     SignInComponent,
+    SignUpComponent,
+    LoginTabComponent,
+    UploadTaskComponent,
+    UploaderComponent,
   ]
 })
 export class ComponentsModule { }
