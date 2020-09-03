@@ -34,5 +34,6 @@ export class NavBarComponent implements OnInit {
     this.getScreenSize();
   }
 }
+//ádsa
 
 
