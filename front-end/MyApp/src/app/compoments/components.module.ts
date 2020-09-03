@@ -10,6 +10,7 @@ import { ThumbnailComponent } from './thumbnail/thumbnail.component';
 import { FolderComponent } from './folder/folder.component';
 import { MThumbnailComponent } from './m-thumbnail/m-thumbnail.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+// import { DialogComponent } from './dialog/dialog.component';
 
 @NgModule({
   declarations: [
