@@ -1,7 +1,7 @@
-import { VirtualFile } from '../src/models/file.model';
-import { Folder } from '../src/models/folder.model';
-const fakeData = {
-    folders:[
+import {Folder} from './models/folder.model'
+let fakeData:Folder = {
+    uuid:"213213213123",
+    folder:[
         <Folder>{
             uuid: "SubFolder1",
             name: "SubFolder1",
@@ -38,19 +38,8 @@ const fakeData = {
             ]
         }
     ]
-}
+};
 
-
-const fakeData2 = <Folder>{
-    uuid:"123123123",
-    name:"HelloWorld123",
-    volume:"0",
-    owner:"DUYTH1305"
-}
-
-
-// export = fakeData;
 export = {
-    fakeData:fakeData,
-    fakeData2:fakeData2
+    fakedata:fakeData
 };
