@@ -1,11 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <app-folder></app-folder>
-            <app-folder></app-folder>
-            <app-folder></app-folder>
-            <app-folder></app-folder>
-            <app-folder></app-folder>
+            <app-folder *ngFor="let item of this.folerService.folderBD" [name]="item.name"></app-folder>
         </div>
     </div>
     <div *ngIf="screenWidth>=768" class="row">
