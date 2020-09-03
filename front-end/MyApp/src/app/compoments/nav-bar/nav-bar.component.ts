@@ -1,8 +1,5 @@
 import {Component, OnInit,ViewChild, Output, EventEmitter} from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import {MatSidenav} from '@angular/material/sidenav';
-import { ViewportRuler } from '@angular/cdk/overlay';
-import { Platform } from '@angular/cdk/platform';
 import { HostListener } from "@angular/core";
 
 
@@ -13,8 +10,8 @@ import { HostListener } from "@angular/core";
 })
 export class NavBarComponent implements OnInit {
   screenWidth:number;
-  constructor(){
-   
+  constructor(public authService:AuthService){
+  
   }
   clearIcon = false;
   txtSearch='';

@@ -2,7 +2,7 @@ import {Component, ViewChild,OnInit} from '@angular/core';
 import { HostListener } from "@angular/core";
 import {MatSidenav} from '@angular/material/sidenav';
 import { Router } from '@angular/router';
-
+import {AuthService} from '../../services/auth.service'
 @Component({
   selector: 'app-drive',
   templateUrl: './drive.component.html',
@@ -10,10 +10,9 @@ import { Router } from '@angular/router';
 })
 export class DriveComponent implements OnInit {
   
-  screenWidth:number;
+  
   @ViewChild('sidenav') sidenav: MatSidenav;
-
-  constructor(private router:Router){}
+  constructor(private router:Router, public authService:AuthService){}
   reason = '';
 
   close(reason: string) {
@@ -25,11 +24,10 @@ export class DriveComponent implements OnInit {
     this.router.navigate(["drive/"+path]);
     // console.log(path);
   }
-
+  screenWidth:number;
   @HostListener('window:resize', ['$event'])
   getScreenSize(event?) {
         this.screenWidth = window.innerWidth;
-        // console.log( this.screenWidth);
   }
 
   ngOnInit(): void {

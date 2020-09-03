@@ -6,10 +6,14 @@ import { SideBarContentComponent } from './side-bar-content/side-bar-content.com
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
-import { LoginTabComponent } from './login-tab/login-tab.component';
+// import {  } from './login-tab/login-tab.component';
 import { UploadTaskComponent } from './upload-task/upload-task.component';
 import { UploaderComponent } from './uploader/uploader.component';
 import { DropzoneDirective } from './dropzone.directive';
+import { ThumbnailComponent } from './thumbnail/thumbnail.component';
+import { FolderComponent } from './folder/folder.component';
+import { MThumbnailComponent } from './m-thumbnail/m-thumbnail.component';
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 
 @NgModule({
   declarations: [
@@ -18,10 +22,14 @@ import { DropzoneDirective } from './dropzone.directive';
     SideBarComponent,
     SignInComponent,
     SignUpComponent,
-    LoginTabComponent,
+    // LoginTabComponent,
     UploadTaskComponent,
     UploaderComponent,
     DropzoneDirective,
+    ThumbnailComponent,
+    FolderComponent,
+    MThumbnailComponent,
+    BreadcrumbComponent,
   ],
   imports: [
     CommonModule,
@@ -33,9 +41,13 @@ import { DropzoneDirective } from './dropzone.directive';
     SideBarComponent,
     SignInComponent,
     SignUpComponent,
-    LoginTabComponent,
+    // LoginTabComponent,
     UploadTaskComponent,
     UploaderComponent,
+    ThumbnailComponent,
+    FolderComponent,
+    MThumbnailComponent,
+    BreadcrumbComponent,
   ]
 })
 export class ComponentsModule { }

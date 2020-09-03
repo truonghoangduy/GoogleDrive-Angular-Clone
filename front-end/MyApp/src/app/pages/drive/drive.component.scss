@@ -7,6 +7,17 @@
     background-color: white;
 }
 
+.align {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 0;
+}
+
+.btn2 {
+    margin-right: 10px;
+}
+
 .side-bar {
     max-width: 350px;
     min-width: 200px;
@@ -17,7 +28,7 @@
     height: 88.5vh;
 }
 
-.New {
+.New1 {
     min-width: 120px;
     height: 48px;
     padding: 5px 0 0 0;
@@ -34,7 +45,7 @@
 .overflow {
     overflow-y: auto;
     overflow-x: hidden;
-    min-height: 87vh;
+    height: 78vh;
     padding: 0 10px;
 }
 
@@ -92,4 +103,17 @@ a {
 
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
+}
+
+.user-icon>img {
+    border-radius: 17px;
+    height: 34px;
+}
+
+.user-icon {
+    font-weight: 500;
+}
+
+body {
+    background-color: yellow;
 }

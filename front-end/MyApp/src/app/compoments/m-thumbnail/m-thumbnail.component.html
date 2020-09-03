@@ -1,0 +1,12 @@
+<div *ngIf="thumbnails != null" class="grid">
+    <mat-card style="padding: 0;">
+        <img [src]="thumbnails.pictureURL" width="100%">
+        <div class="file-content">
+            <div class="file-name">
+                <mat-icon mat-list-icon>{{thumbnails.icon}}</mat-icon>
+                <span style="overflow: hidden;text-overflow: ellipsis;">{{thumbnails.name}}</span>
+            </div>
+            <div>{{thumbnails.createDate}} </div>
+        </div>
+    </mat-card>
+</div>
