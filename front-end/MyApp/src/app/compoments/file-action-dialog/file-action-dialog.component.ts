@@ -38,7 +38,7 @@ export class FileActionDialogComponent implements OnInit {
     },
     {
       icon: "https://image.flaticon.com/icons/svg/1214/1214428.svg", text: "Delete", handler: async () => {
-        // let result = await this.drive.deleteDir(this.data.uid, this.data.token, this.data.location);
+        let result = await this.drive.deleteDir(this.data.uid, this.data.token, this.data.location);
         this._bottomSheetRef.dismiss();
       }
     }
@@ -66,7 +66,7 @@ export class FileActionDialogComponent implements OnInit {
         }
       }, {
         icon: "https://image.flaticon.com/icons/svg/1214/1214428.svg", text: "Delete", handler: async () => {
-          // let result = await this.drive.deleteDir(this.data.uid, this.data.token, this.data.location, true);
+          let result = await this.drive.deleteDir(this.data.uid, this.data.token, this.data.location, true);
           this._bottomSheetRef.dismiss();
         }
       },

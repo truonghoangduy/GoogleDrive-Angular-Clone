@@ -3,6 +3,7 @@ import { HostListener } from "@angular/core";
 import {MatSidenav} from '@angular/material/sidenav';
 import { Router } from '@angular/router';
 import {AuthService} from '../../services/auth.service'
+
 @Component({
   selector: 'app-drive',
   templateUrl: './drive.component.html',
@@ -32,7 +33,7 @@ export class DriveComponent implements OnInit {
 
   ngOnInit(): void {
     this.getScreenSize(); 
-    this.router.navigate(["drive/"]);
+    // this.router.navigate(["drive/"]);
  
   }
 }
