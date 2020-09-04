@@ -2,6 +2,8 @@ import {Component, Inject} from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { Folder } from 'src/app/models/folder.model';
 import { FolderService } from 'src/app/services/folder.service';
+
+
 @Component({
   selector: 'app-dialog',
   templateUrl: './dialog.component.html',
