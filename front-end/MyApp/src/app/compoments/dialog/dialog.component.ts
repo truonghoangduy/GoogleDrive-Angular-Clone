@@ -10,10 +10,10 @@ import { FolderService } from 'src/app/services/folder.service';
   styleUrls: ['./dialog.component.scss']
 })
 export class DialogComponent{
-  constructor(
-    public dialogRef: MatDialogRef<DialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Folder,public folderService:FolderService) {}
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
+  constructor(){}
+  //   public dƠialogRef: MatDialogRef<DialogComponent>,
+  //   @Inject(MAT_DIALOG_DATA) public data: Folder,public folderService:FolderService) {}
+  // onNoClick(): void {
+  //   this.dialogRef.close();
+  // }
 }
