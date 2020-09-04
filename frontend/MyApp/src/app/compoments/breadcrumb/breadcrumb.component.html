@@ -1,9 +1,0 @@
-<div class="bread1">
-    <div *ngIf="auth.user != null" id="breadcrumb">
-        <div *ngFor="let item of items;let i = index" class="breadcrumb-con">
-            <span *ngIf="i != 0">/</span>
-            <!-- {{i}} -->
-            <button style="outline: none;" mat-button (click)="onClickItem(item)"> {{item.displayName}}</button>
-        </div>
-    </div>
-</div>

@@ -1,0 +1,41 @@
+#breadcrum {
+    display: inline-flex;
+    justify-content: left;
+    background-color: white;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    height: auto;
+    padding: 0.5%;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(245, 245, 245);
+    border-bottom-width: 0.5px;
+}
+
+.Crumbs {
+    margin: 0;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    background-color: aliceblue;
+    color: black;
+    list-style: none;
+}
+
+.Crumbs-Separator {
+    margin: 0 4px
+}
+
+.Crumbs-Link_current {
+    color: rgb(207, 37, 212)
+}
+
+.Crumbs-Link a {
+    color: darkblue;
+    text-decoration: none;
+}
+
+.Crumbs-Link a:hover {
+    color: #1d4fd8;
+}
