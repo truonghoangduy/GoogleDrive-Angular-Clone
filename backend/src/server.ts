@@ -35,6 +35,7 @@ server.use('/createFile', require('./router/createFile'));
 server.use('/upload', require('./router/uploader'));
 server.use('/remove', require('./router/removeFile'));
 server.use('/browse',require('./router/browse'));
+server.use('/user', require('./router/user'));
 
 
 
