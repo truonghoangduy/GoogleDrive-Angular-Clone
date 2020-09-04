@@ -9,10 +9,11 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./sign-in.component.scss']
 })
 export class SignInComponent implements OnInit {
-
+  
   constructor(public auth:AuthService) { }
   hide = true;
   email = new FormControl('', [Validators.required, Validators.email]);
+  
   ngOnInit(): void {
   }
 
