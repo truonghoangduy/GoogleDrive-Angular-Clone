@@ -21,13 +21,16 @@ export class UploadTaskComponent implements OnInit {
   snapshot: Observable<any>;
   downloadURL: string;
 
-  constructor(private storage: AngularFireStorage, private db: AngularFirestore,private http: HttpClient) { }
+  constructor(private storage: AngularFireStorage, private db: AngularFirestore,private http: HttpClient) {
+    
+    this.Getdata();
+   }
 
   listitem:any=[];
   ngOnInit() {
-    this.Getdata()
-  this.startUpload();
   
+    this.startUpload();
+    
   }
 
   async Getdata(){
@@ -40,21 +43,21 @@ export class UploadTaskComponent implements OnInit {
   }// Cho` duoc goi
 
 
-  async uploadFile(file:File){
-    let form = new FormData();
-    form.append("uploadDir","zzz/abcasd/")
-    form.append("file",file);
-    var result = new HttpRequest('POST',"http://localhost:3000/upload",form,{
-      reportProgress: true,
-    });
+  // async uploadFile(file:File){
+  //   let form = new FormData();
+  //   form.append("uploadDir","admin/abcasd/hola/bello/")
+  //   form.append("file",file);
+  //   var result = new HttpRequest('POST',"http://localhost:3000/upload",form,{
+  //     reportProgress: true,
+  //   });
 
-    return await this.http.request(result).toPromise()
+  //   return await this.http.request(result).toPromise()
     
-  }
+  // }
 
   async startUpload() {
 
-    await this.uploadFile(this.file)
+    // await this.uploadFile(this.file)
     
     // The storage path
     const path = `test/${Date.now()}_${this.file.name}`;

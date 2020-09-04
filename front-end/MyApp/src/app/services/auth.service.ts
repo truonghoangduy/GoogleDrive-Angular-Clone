@@ -34,7 +34,8 @@ export class AuthService {
   }
     public async Logout(){
       await this.Auth.signOut()
-      location.reload();     
-        }
+      location.reload();  
+      this.router.navigate(['']);
+      }
 }
 

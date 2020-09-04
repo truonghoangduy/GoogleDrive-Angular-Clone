@@ -1,11 +1,3 @@
-<h3>Result now </h3>
-<div class="row">
-    <div class="col-sm-2" *ngFor="let list of listitem">
-        {{'name: '+list.path}}
-        <img [src]="list.downloadURL" alt="" style="width: 200px;height: 200px; border-radius: 15px;">
-    </div>
-</div>
-
 <div *ngIf="percentage | async as pct">
     <progress [value]="pct" max="100"></progress> {{ pct | number }}%
 </div>
@@ -15,11 +7,18 @@
     <strong>{{ snap.bytesTransferred }} of {{ snap.totalBytes }} Bytes</strong>
     <div *ngIf="downloadURL as url">
         <h3>Result</h3>
-        <img [src]="url"><br>
+        <img [src]="url" style="width: 150px;height: 150px; border-radius: 15px;"><br>
         <a [href]="url" target="_blank" rel="noopener">Download Me!</a>
     </div>
 
     <button (click)="task.pause()" [disabled]="!isActive(snap)">Pause</button>
     <button (click)="task.cancel()" [disabled]="!isActive(snap)">Cancel</button>
     <button (click)="task.resume()" [disabled]="!(snap?.state === 'paused')">Resume</button>
+</div>
+<h3>Result now </h3>
+<div class="row">
+    <div class="col-sm-2" *ngFor="let list of listitem">
+        {{'name: '+list.path}}
+        <img [src]="list.downloadURL" alt="" style="width: 150px;height: 150px; border-radius: 15px;">
+    </div>
 </div>

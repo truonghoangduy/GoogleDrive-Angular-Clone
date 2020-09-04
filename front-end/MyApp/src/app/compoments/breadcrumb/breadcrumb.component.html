@@ -1,9 +1,16 @@
-<div class="bread1">
-    <div *ngIf="auth.user != null" id="breadcrumb">
-        <div *ngFor="let item of items;let i = index" class="breadcrumb-con">
-            <span *ngIf="i != 0">/</span>
-            <!-- {{i}} -->
-            <button style="outline: none;" mat-button (click)="onClickItem(item)"> {{item.displayName}}</button>
-        </div>
-    </div>
-</div>
+<ul class="Crumbs">
+    <ng-container *ngFor="let item of crumbs; let i = index">
+        <li *ngIf="i !== crumbs.length - 1" class="Crumbs-Link">
+
+            <a [routerLink]="item.link">{{ item.title }}</a>
+
+        </li>
+        <li *ngIf="i !== crumbs.length - 1" class="Crumbs-Separator">
+            >
+        </li>
+
+        <li *ngIf="i === crumbs.length - 1" class="Crumbs-Link Crumbs-Link_current">
+            <a [routerLink]="item.link">  {{ item.title }}</a>
+        </li>
+    </ng-container>
+</ul>

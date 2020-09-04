@@ -13,7 +13,12 @@ import { DropzoneDirective } from './dropzone.directive';
 import { ThumbnailComponent } from './thumbnail/thumbnail.component';
 import { FolderComponent } from './folder/folder.component';
 import { MThumbnailComponent } from './m-thumbnail/m-thumbnail.component';
-import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+import { BreadcrumComponent } from './breadcrumb/breadcrumb.component';
+import { DialogComponent } from './dialog/dialog.component';
+
+import { Routes, RouterModule } from '@angular/router';
+  import { from } from 'rxjs';
+// import { DialogComponent } from './dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -29,11 +34,14 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
     ThumbnailComponent,
     FolderComponent,
     MThumbnailComponent,
-    BreadcrumbComponent,
+    BreadcrumComponent,
+    DialogComponent
   ],
   imports: [
     CommonModule,
     UiModule,
+    RouterModule
+  
   ],
   exports:[
     NavBarComponent,
@@ -47,7 +55,7 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
     ThumbnailComponent,
     FolderComponent,
     MThumbnailComponent,
-    BreadcrumbComponent,
+    BreadcrumComponent,
   ]
 })
 export class ComponentsModule { }

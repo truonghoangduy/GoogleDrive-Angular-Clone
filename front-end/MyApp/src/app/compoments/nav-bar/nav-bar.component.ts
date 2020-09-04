@@ -1,6 +1,9 @@
 import {Component, OnInit,ViewChild, Output, EventEmitter} from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { HostListener } from "@angular/core";
+import { FolderService } from 'src/app/services/folder.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../dialog/dialog.component';
 
 
 @Component({
@@ -10,9 +13,8 @@ import { HostListener } from "@angular/core";
 })
 export class NavBarComponent implements OnInit {
   screenWidth:number;
-  constructor(public authService:AuthService){
-  
-  }
+  constructor(public authService:AuthService,public folderService:FolderService,public dialog: MatDialog){}
+
   clearIcon = false;
   txtSearch='';
    @Output() onShowMenu = new EventEmitter<any>();
@@ -22,13 +24,15 @@ export class NavBarComponent implements OnInit {
   clear(){
     this.txtSearch = '';
   }
-  ngOnInit(): void {
-    this.getScreenSize();
-  }
 
   @HostListener('window:resize', ['$event'])
   getScreenSize(event?) {
         this.screenWidth = window.innerWidth;
         // console.log( this.screenWidth);
+  } 
+   ngOnInit(): void {
+    this.getScreenSize();
   }
 }
+
+
