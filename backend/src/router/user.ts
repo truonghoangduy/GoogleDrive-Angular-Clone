@@ -8,11 +8,11 @@ const auth = admin.auth()
 router.post('/', async (res, reps) =>{
 const input = res.body;
     try{
-        if(input.firstName == null || input.lastName == null || input.phoneNumber == null){
+        if(input.firstName == "" || input.lastName == "" || input.phoneNumber == ""){
             reps.send({
                 message: "Please fill in all the information",
             })
-        }else if(input.password == null || input.password.length < 7 || input.retypePassword == null || input.password != input.retypePassword){
+        }else if(input.password == "" || input.password.length < 7 || input.retypePassword == "" || input.password != input.retypePassword){
             reps.send({
                 message: "Incorrect",
             })
