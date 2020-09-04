@@ -31,7 +31,7 @@ server.get("/", async (req, res) => {
 
 
 // Add route
-server.use('/createFile', require('./router/createFile'));
+server.use('/createFolder', require('./router/createFolder'));
 server.use('/upload', require('./router/uploader'));
 server.use('/remove', require('./router/removeFile'));
 server.use('/browse',require('./router/browse'));

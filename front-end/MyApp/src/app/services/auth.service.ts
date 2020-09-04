@@ -12,6 +12,7 @@ export class AuthService {
   public user: firebase.User=null;
   constructor(public Auth:AngularFireAuth,public router:Router) {
     this.debugUserOb$()
+    
    }
 
   public debugUserOb$(){
