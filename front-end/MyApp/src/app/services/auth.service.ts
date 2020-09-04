@@ -29,7 +29,7 @@ export class AuthService {
   public async loginGoogle(){
     let provider = new firebase.auth.GoogleAuthProvider();
     await this.Auth.signInWithPopup(provider).then(data=> this.user= data.user)
-    this.router.navigate(["drive/main-page"]);
+    this.router.navigate(["/drive"]);
 
   }
     public async Logout(){
