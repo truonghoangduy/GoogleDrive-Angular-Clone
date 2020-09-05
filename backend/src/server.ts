@@ -54,6 +54,10 @@ server.use('/auth', require('./router/authjwt'));
 
 server.use('/file',require('./router/dowloadFile'));
 
+server.use('/createFolder', require('./router/createFolder'));
+server.use('/browse',require('./router/browse'));
+server.use('/user', require('./router/user'));
+server.use('/share',require('./router/share'));
 
 
 

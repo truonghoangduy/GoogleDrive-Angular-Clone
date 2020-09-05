@@ -1,1 +1,0 @@
-GROUP Component to use in page

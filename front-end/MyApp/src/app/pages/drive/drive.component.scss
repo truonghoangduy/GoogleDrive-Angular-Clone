@@ -1,0 +1,116 @@
+.example-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+}
+
+.align {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 0;
+}
+
+.btn2 {
+    margin-right: 10px;
+}
+
+.side-bar {
+    max-width: 350px;
+    min-width: 200px;
+    width: 60%;
+}
+
+.New1 {
+    min-width: 120px;
+    height: 48px;
+    padding: 5px 0 0 0;
+    border-radius: 24px;
+    border-width: 1px;
+    outline: none;
+    font-weight: 500;
+    font-size: 14px;
+    display: inline-flex;
+    background-color: white;
+    text-align: center;
+}
+
+.overflow {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 78vh;
+    // height: 73.5vh;
+    padding: 0 10px;
+}
+
+.New:hover {
+    background-color: white;
+}
+
+.btn1 {
+    display: flex;
+    padding: 15px 0 15px;
+    color: #333;
+    padding-left: 20px;
+    border-right: 1px solid rgb(243, 239, 239);
+    border-left: 1px solid rgb(243, 239, 239);
+}
+
+.search {
+    display: flex;
+    margin: 0 10px;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+a {
+    padding-left: 15px;
+}
+
+.container {
+    max-width: 1500px;
+}
+
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.user-icon>img {
+    border-radius: 17px;
+    height: 34px;
+}
+
+.user-icon {
+    font-weight: 500;
+}
+
+body {
+    background-color: yellow;
+}

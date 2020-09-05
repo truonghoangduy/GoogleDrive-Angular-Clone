@@ -14,49 +14,29 @@ router.use(expressFileupload({
     debug:true,
 }))
 
-
-function createFileFromJSON(uuid:string,fileName:string,owneruuid:string,size:string,pictureURL:string,parrentNode:string){
-    return {
-        uuid:uuid,
-        pictureURL:'',
-        name:fileName,
-        volume:size,
-        owner:"",
-        createDate:"",
-        parrentNode:parrentNode
-    }
-}
-// This Router only for upload File in paricific Folder
-
 router.post('/',async (req,res)=>{
-    const {parrentNode} = req.body;
-    // console.log(currentFolder);
-    let uploadedFile = []
-    for (let fileKey of Object.keys(req.files)) { // GET the files form the FORM-DATA
-        let fileRef = await generateFile.createFileRef()
+    console.log(req)
+    const {uploadDir} = req.body
+    let uploadedFile = [];
 
-        // Hmmm
+
+    for (let fileKey of Object.keys(req.files)) { 
         let file = <expressFileupload.UploadedFile>req.files[fileKey];
-        let fileType = '.'+file.name.split('.')[1];;
+        // let hashName = uuid();
+        //ts-ignore
+        let fileLocation = uploadDir+file.name;
 
-        // CALL FILE SYSTEM TO UPLOAD ( PRMOISE BASE ) Hmmm need fix ?
-        uploadedFile.push(await uploader.writeFileToDirV2(fileRef.id+fileType,file.data));
-
-        let createFileMetaData = createFileFromJSON("",file.name,"",file.size.toString(),"",parrentNode);
-       
-        await generateFile.addFileToFolderRef(parrentNode,createFileMetaData)
-        await fileRef.set(createFileMetaData)
-
-
+        uploader.writeFileToDir(fileLocation,file.data,uploadDir)
     }
 
     res.send({
-        payload:{
-            uploaded:uploadedFile,
-            uploadLocation:parrentNode
-        }
+        // payload:{
+        //     uploaded:uploadedFile,
+        //     uploadLocation:parrentNode
+        // }
     })
 })
+
 
 
 export = router
