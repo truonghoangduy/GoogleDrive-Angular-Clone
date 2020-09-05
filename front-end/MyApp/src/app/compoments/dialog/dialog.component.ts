@@ -1,6 +1,4 @@
-import {Component, Inject} from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { Folder } from 'src/app/models/folder.model';
+import { Component, OnInit } from '@angular/core';
 import { FolderService } from 'src/app/services/folder.service';
 
 
@@ -9,6 +7,14 @@ import { FolderService } from 'src/app/services/folder.service';
   templateUrl: './dialog.component.html',
   styleUrls: ['./dialog.component.scss']
 })
+export class DialogComponent implements OnInit {
+  name:string;
+  constructor(public folderService :FolderService) { }
+
+  ngOnInit(): void {
+  }
+
+=======
 export class DialogComponent{
   constructor(){}
   //   public dƠialogRef: MatDialogRef<DialogComponent>,

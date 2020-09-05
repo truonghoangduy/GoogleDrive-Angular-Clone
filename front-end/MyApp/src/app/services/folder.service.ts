@@ -6,6 +6,15 @@ import {ApiService}  from '../services/api.service'
   providedIn: 'root'
 })
 export class FolderService {
+  folderBD:Array<Folder>=[
+    {name:"Folder test"},
+    {name:"Folder-test"},
+  ];
+  constructor() { }
+  newFolder(name:string){
+    this.folderBD.push(
+      {name:name},
+      );
   // folderBD:Array<Folder>=[];
   constructor(public apiService:ApiService, public httpClient:HttpClient) { }
   public async browse(uid, token, directory: string) {
