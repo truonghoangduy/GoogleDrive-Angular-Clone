@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
-import {Folder} from '../models/folder.model';
-import {HttpClient} from '@angular/common/http';
-import {ApiService}  from '../services/api.service'
+import { Folder } from '../models/folder.model';
+import { HttpClient } from '@angular/common/http';
+import { ApiService } from '../services/api.service'
 @Injectable({
   providedIn: 'root'
 })
 export class FolderService {
-  folderBD:Array<Folder>=[
-    {name:"Folder test"},
-    {name:"Folder-test"},
+  folderBD: Array<Folder> = [
+    { name: "Folder test" },
+    { name: "Folder-test" },
   ];
 
   newFolder(name:string){
@@ -31,8 +31,8 @@ export class FolderService {
       let result = await this.httpClient.post(this.apiService.root + "/browse", {
         uid: uid,
         token: token,
-        currentDirectory:directory
-        
+        currentDirectory: directory
+
       }).toPromise();
       return { ...result };
 

@@ -13,7 +13,7 @@ import { from } from 'rxjs';
   templateUrl: './breadcrumb.component.html',
   styleUrls: ['./breadcrumb.component.scss']
 })
-export class BreadcrumComponent implements OnInit,DoCheck {
+export class BreadcrumbComponent implements OnInit,DoCheck {
 
   constructor(public auth:AuthService,public breadcrumbs:BreadcrumbsService) { }
 

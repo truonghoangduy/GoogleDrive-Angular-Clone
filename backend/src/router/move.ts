@@ -9,23 +9,25 @@ const firestore = admin.firestore();
 import fakeData = require('../../fakeData/temperData')
 import evn = require('../../environment')
 import path = require('path');
+import { options } from './browse';
 
 router.post('/', async (res, resp) => {
-    const { currentDirectory, delDirectory } = res.body;
+    const { currentDirectory, directoryMove } = res.body;
 
     try {
         let currentDirectoryExist = await fs.pathExists(evn.environment.warehouse + "/" + currentDirectory);
-        let delDirectoryExist = await fs.pathExists(evn.environment.warehouse + "/" + currentDirectory+"/" +delDirectory);
-        if (currentDirectoryExist && delDirectoryExist) {
+        let directoryMoveExist = await fs.pathExists(evn.environment.warehouse + "/" + directoryMove);
+        if (currentDirectoryExist && directoryMoveExist) {
 
-            await fs.rmdirSync(evn.environment.warehouse + "/" + currentDirectory + "/" + delDirectory,{ recursive: true });
+            await fs.moveSync(evn.environment.warehouse + "/" + currentDirectory + "/", evn.environment.warehouse + "/" + directoryMove);
+            resp.send("Folder/file " + directoryMove + " is moved");
         } else {
             resp.send('Folder/file is not exist !!!');
         }
     } catch (error) {
         resp.send(error)
     }
-    resp.send("Folder/file " +delDirectory+ " is removed");
+    
 })
 
 

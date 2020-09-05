@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {UiModule} from '../ui/ui.module';
-import { NavBarComponent} from './nav-bar/nav-bar.component';
+import { UiModule } from '../ui/ui.module';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SideBarContentComponent } from './side-bar-content/side-bar-content.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { SignInComponent } from './sign-in/sign-in.component';
@@ -13,7 +13,7 @@ import { DropzoneDirective } from './dropzone.directive';
 import { ThumbnailComponent } from './thumbnail/thumbnail.component';
 import { FolderComponent } from './folder/folder.component';
 
-import {  BreadcrumComponent} from './breadcrumb/breadcrumb.component';
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { DialogSearchComponent } from './dialog-search/dialog-search.component';
 
@@ -35,7 +35,7 @@ import { Routes, RouterModule } from '@angular/router';
     ThumbnailComponent,
     FolderComponent,
 
-    BreadcrumComponent,
+    BreadcrumbComponent,
     DialogComponent,
     DialogSearchComponent,
 
@@ -45,9 +45,9 @@ import { Routes, RouterModule } from '@angular/router';
     CommonModule,
     UiModule,
     RouterModule
-  
+
   ],
-  exports:[
+  exports: [
     NavBarComponent,
     SideBarContentComponent,
     SideBarComponent,
@@ -58,12 +58,12 @@ import { Routes, RouterModule } from '@angular/router';
     UploaderComponent,
     ThumbnailComponent,
     FolderComponent,
-// <<<<<<< master
-//     BreadcrumbComponent,
-// =======
-//     MThumbnailComponent,
-//     BreadcrumComponent,
-// >>>>>>> master
+    // <<<<<<< master
+    //     BreadcrumbComponent,
+    // =======
+    //     MThumbnailComponent,
+    //     BreadcrumComponent,
+    // >>>>>>> master
   ]
 })
 export class ComponentsModule { }
