@@ -3,7 +3,7 @@ import { HostListener } from "@angular/core";
 import {MatSidenav} from '@angular/material/sidenav';
 import { Router } from '@angular/router';
 import {AuthService} from '../../services/auth.service'
-
+import {FolderService} from '../../services/folder.service'
 @Component({
   selector: 'app-drive',
   templateUrl: './drive.component.html',
@@ -13,7 +13,7 @@ export class DriveComponent implements OnInit {
   
   
   @ViewChild('sidenav') sidenav: MatSidenav;
-  constructor(private router:Router, public authService:AuthService){}
+  constructor(private router:Router, public authService:AuthService, public folder:FolderService){}
   reason = '';
 
   close(reason: string) {

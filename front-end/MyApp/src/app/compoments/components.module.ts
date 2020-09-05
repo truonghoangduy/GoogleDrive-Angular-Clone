@@ -12,13 +12,14 @@ import { UploaderComponent } from './uploader/uploader.component';
 import { DropzoneDirective } from './dropzone.directive';
 import { ThumbnailComponent } from './thumbnail/thumbnail.component';
 import { FolderComponent } from './folder/folder.component';
-import { MThumbnailComponent } from './m-thumbnail/m-thumbnail.component';
-import { BreadcrumComponent } from './breadcrumb/breadcrumb.component';
+
+import {  BreadcrumComponent} from './breadcrumb/breadcrumb.component';
 import { DialogComponent } from './dialog/dialog.component';
+import { DialogSearchComponent } from './dialog-search/dialog-search.component';
+
 
 import { Routes, RouterModule } from '@angular/router';
-  import { from } from 'rxjs';
-// import { DialogComponent } from './dialog/dialog.component';
+
 
 @NgModule({
   declarations: [
@@ -33,9 +34,12 @@ import { Routes, RouterModule } from '@angular/router';
     DropzoneDirective,
     ThumbnailComponent,
     FolderComponent,
-    MThumbnailComponent,
+
     BreadcrumComponent,
-    DialogComponent
+    DialogComponent,
+    DialogSearchComponent,
+
+
   ],
   imports: [
     CommonModule,
@@ -54,8 +58,12 @@ import { Routes, RouterModule } from '@angular/router';
     UploaderComponent,
     ThumbnailComponent,
     FolderComponent,
-    MThumbnailComponent,
-    BreadcrumComponent,
+// <<<<<<< master
+//     BreadcrumbComponent,
+// =======
+//     MThumbnailComponent,
+//     BreadcrumComponent,
+// >>>>>>> master
   ]
 })
 export class ComponentsModule { }

@@ -2,18 +2,18 @@
 <mat-sidenav-container class="example-container" (backdropClick)="close('backdrop')">
     <mat-sidenav class="side-bar" #sidenav (keydown.escape)="close('escape')" disableClose>
         <!-- custom here -->
-        <div style="justify-content: left; margin:10px 0 ;" class="align">
+        <div style="justify-content: left; padding:10px 0 ; border-bottom: 1px solid #f3efef;;" class="align">
             <mat-icon (click)="close( 'toggle button')" style="margin:0 20px;">keyboard_arrow_left
             </mat-icon>
-            <div class="user-icon">
+            <div class="user-icon" *ngIf="authService.user != null">
                 <img [src]="authService.user.photoURL"> {{authService.user.displayName}}
             </div>
         </div>
         <!-- search -->
-        <div class="search">
+        <!-- <div class="search">
             <input class="form-control mr-sm-2 min" type="search" placeholder="Search" aria-label=" Search ">
             <button class="btn btn-outline-success my-2 my-sm-0 " type="submit ">Search</button>
-        </div>
+        </div> -->
         <!-- side-bar-items -->
         <app-side-bar (navigateTo)="navigated($event)" (click)="close( 'toggle button');"></app-side-bar>
         <app-side-bar-content (click)="authService.Logout()">

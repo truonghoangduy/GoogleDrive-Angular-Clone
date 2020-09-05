@@ -13,6 +13,35 @@ import { from } from 'rxjs';
   templateUrl: './breadcrumb.component.html',
   styleUrls: ['./breadcrumb.component.scss']
 })
+// <<<<<<< master
+// export class BreadcrumbComponent implements OnInit {
+
+//   constructor(public auth:AuthService) { }
+
+//   // @Input()
+//   items:Array<BreadcrumbItem> = new Array<BreadcrumbItem>();
+
+
+//   @Output()
+//   clickItem: EventEmitter<BreadcrumbItem> = new EventEmitter<BreadcrumbItem>();
+
+
+//   ngOnInit(): void {
+//     this.items.push({
+//       displayName:"Root-folder",
+//     })
+//     this.items.push({
+//       displayName:"Demo1",
+//     })
+//   }
+
+//   public onClickItem(item:BreadcrumbItem){
+//     let startIndex = this.items.findIndex((i)=>i.id == item.id);
+//     if(startIndex != -1 && startIndex< this.items.length){
+//        this.items.splice(startIndex+1,this.items.length-startIndex-1);
+//        this.clickItem.emit(item);
+//     }
+// =======
 export class BreadcrumComponent implements OnInit,DoCheck {
 
   constructor(public auth:AuthService,public breadcrumbs:BreadcrumbsService) { }
@@ -22,11 +51,8 @@ export class BreadcrumComponent implements OnInit,DoCheck {
 //   folder:Array<Folder> = new Array<Folder>();
 //   @Output()
 //   clickItem: EventEmitter<BreadcrumItem> = new EventEmitter<BreadcrumItem>();
-
-
 //   ngOnInit(): void {
-//   }
-
+//   
 //   public onClickItem(item:BreadcrumItem){
 //     let startIndex = this.items.findIndex((i)=>i.id == item.id);
 //     if(startIndex != -1 && startIndex< this.items.length){
