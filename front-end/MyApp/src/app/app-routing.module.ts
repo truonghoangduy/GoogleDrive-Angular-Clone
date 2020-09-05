@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SignInComponent } from './compoments/sign-in/sign-in.component';
+import { FolderComponent } from './compoments/folder/folder.component';
 
 const routes: Routes = [
   { path: 'drive', loadChildren: () => import('./pages/drive/drive.module').then(m => m.DriveModule) }, 

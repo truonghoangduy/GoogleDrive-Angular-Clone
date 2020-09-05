@@ -1,4 +1,6 @@
-<div>
+<!-- <h1 mat-dialog-title>Hi {{data.name}}</h1>
+<div mat-dialog-content>
+    <p>What's your favorite animal?</p>
     <mat-form-field>
         <mat-label>Folder name</mat-label>
         <input matInput [(ngModel)]="name">
@@ -8,3 +10,7 @@
     <button style="outline: none;" mat-button mat-dialog-close>Cancel</button>
     <button style="outline: none;" mat-button mat-dialog-close mat-button (click)="folderService.newFolder(name)">OK</button>
 </div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button mat-button [mat-dialog-close]="data.name" cdkFocusInitial>Ok</button>
+</div> -->

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FolderService } from 'src/app/services/folder.service';
 
+
 @Component({
   selector: 'app-dialog',
   templateUrl: './dialog.component.html',
@@ -13,4 +14,12 @@ export class DialogComponent implements OnInit {
   ngOnInit(): void {
   }
 
+=======
+export class DialogComponent{
+  constructor(){}
+  //   public dƠialogRef: MatDialogRef<DialogComponent>,
+  //   @Inject(MAT_DIALOG_DATA) public data: Folder,public folderService:FolderService) {}
+  // onNoClick(): void {
+  //   this.dialogRef.close();
+  // }
 }

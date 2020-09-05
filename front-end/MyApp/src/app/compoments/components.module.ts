@@ -6,11 +6,24 @@ import { SideBarContentComponent } from './side-bar-content/side-bar-content.com
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+// import {  } from './login-tab/login-tab.component';
+import { UploadTaskComponent } from './upload-task/upload-task.component';
+import { UploaderComponent } from './uploader/uploader.component';
+import { DropzoneDirective } from './dropzone.directive';
 import { ThumbnailComponent } from './thumbnail/thumbnail.component';
 import { FolderComponent } from './folder/folder.component';
-import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
-import { DialogComponent } from './dialog/dialog.component';
-import { DialogSearchComponent } from './dialog-search/dialog-search.component';
+// <<<<<<< master
+// import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+// import { DialogComponent } from './dialog/dialog.component';
+// import { DialogSearchComponent } from './dialog-search/dialog-search.component';
+// =======
+// import { MThumbnailComponent } from './m-thumbnail/m-thumbnail.component';
+// import { BreadcrumComponent } from './breadcrumb/breadcrumb.component';
+// import { DialogComponent } from './dialog/dialog.component';
+
+// import { Routes, RouterModule } from '@angular/router';
+//   import { from } from 'rxjs';
+// >>>>>>> master
 // import { DialogComponent } from './dialog/dialog.component';
 
 @NgModule({
@@ -20,15 +33,27 @@ import { DialogSearchComponent } from './dialog-search/dialog-search.component';
     SideBarComponent,
     SignInComponent,
     SignUpComponent,
+    // LoginTabComponent,
+    UploadTaskComponent,
+    UploaderComponent,
+    DropzoneDirective,
     ThumbnailComponent,
     FolderComponent,
-    BreadcrumbComponent,
-    DialogComponent,
-    DialogSearchComponent,
+// <<<<<<< master
+//     BreadcrumbComponent,
+//     DialogComponent,
+//     DialogSearchComponent,
+// =======
+//     MThumbnailComponent,
+//     BreadcrumComponent,
+//     DialogComponent
+// >>>>>>> master
   ],
   imports: [
     CommonModule,
     UiModule,
+    RouterModule
+  
   ],
   exports:[
     NavBarComponent,
@@ -36,9 +61,17 @@ import { DialogSearchComponent } from './dialog-search/dialog-search.component';
     SideBarComponent,
     SignInComponent,
     SignUpComponent,
+    // LoginTabComponent,
+    UploadTaskComponent,
+    UploaderComponent,
     ThumbnailComponent,
     FolderComponent,
-    BreadcrumbComponent,
+// <<<<<<< master
+//     BreadcrumbComponent,
+// =======
+//     MThumbnailComponent,
+//     BreadcrumComponent,
+// >>>>>>> master
   ]
 })
 export class ComponentsModule { }

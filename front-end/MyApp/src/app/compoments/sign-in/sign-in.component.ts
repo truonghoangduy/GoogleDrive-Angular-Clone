@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, RouterLink } from '@angular/router'
 
 import { FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
@@ -8,11 +9,25 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./sign-in.component.scss']
 })
 export class SignInComponent implements OnInit {
-
-  constructor(public auth:AuthService) { }
+  
+  constructor(public auth:AuthService, public router:Router, ) { }
   hide = true;
-  email = new FormControl('', [Validators.required, Validators.email]);
+  public email = '';
+  public password =  '';
   ngOnInit(): void {
   }
-
+  public async onClickLoginWithEmail(email, password) {
+    console.log(this.email, this.password);
+    email= this.email;
+    password = this.password
+    try {
+      let result = await this.auth.loginWithEmail(email, password);
+      if (result != null) {
+        this.router.navigate(["drive"]);
+      }
+    }
+    catch (e) {
+     console.log(e);
+    }
+  }
 }

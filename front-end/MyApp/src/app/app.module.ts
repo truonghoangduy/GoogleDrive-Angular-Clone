@@ -14,12 +14,16 @@ import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
+import{AngularFireStorageModule} from '@angular/fire/storage'
+import {AngularFirestore} from '@angular/fire/firestore'
+import { AngularBreadcrumbsLightModule } from 'angular-breadcrumbs-light';
 
 
-
+import { from } from 'rxjs';
 @NgModule({
   declarations: [
     AppComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -29,12 +33,14 @@ import { AngularFireModule } from '@angular/fire';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireModule,
     AngularFireAuthModule,
+    AngularFireStorageModule,
     UiModule,
     ComponentsModule,
     NgbModule,
     DriveModule,
+    AngularBreadcrumbsLightModule
   ],
-  providers: [AuthService],
+  providers: [AuthService,AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
