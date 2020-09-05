@@ -13,17 +13,17 @@ import { from } from 'rxjs';
   templateUrl: './breadcrumb.component.html',
   styleUrls: ['./breadcrumb.component.scss']
 })
-// <<<<<<< master
-// export class BreadcrumbComponent implements OnInit {
+export class BreadcrumbComponent implements OnInit,DoCheck {
 
-//   constructor(public auth:AuthService) { }
+  constructor(public auth:AuthService,public breadcrumbs:BreadcrumbsService) { }
 
-//   // @Input()
-//   items:Array<BreadcrumbItem> = new Array<BreadcrumbItem>();
+  @Input()
+  items:Array<BreadcrumbItem> = new Array<BreadcrumbItem>();
+  folder:Array<Folder> = new Array<Folder>();
+  @Output()
+  clickItem: EventEmitter<BreadcrumbItem> = new EventEmitter<BreadcrumbItem>();
 
 
-//   @Output()
-//   clickItem: EventEmitter<BreadcrumbItem> = new EventEmitter<BreadcrumbItem>();
 
 
 //   ngOnInit(): void {
@@ -42,9 +42,7 @@ import { from } from 'rxjs';
 //        this.clickItem.emit(item);
 //     }
 // =======
-export class BreadcrumComponent implements OnInit,DoCheck {
 
-  constructor(public auth:AuthService,public breadcrumbs:BreadcrumbsService) { }
 
 //   @Input()
 //   items:Array<BreadcrumItem> = new Array<BreadcrumItem>();
