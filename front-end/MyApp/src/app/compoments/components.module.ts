@@ -13,18 +13,13 @@ import { DropzoneDirective } from './dropzone.directive';
 import { ThumbnailComponent } from './thumbnail/thumbnail.component';
 import { FolderComponent } from './folder/folder.component';
 
-import { BreadcrumComponent } from './breadcrumb/breadcrumb.component';
+import {  BreadcrumComponent} from './breadcrumb/breadcrumb.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { DialogSearchComponent } from './dialog-search/dialog-search.component';
-// =======
-// import { MThumbnailComponent } from './m-thumbnail/m-thumbnail.component';
-// import { BreadcrumComponent } from './breadcrumb/breadcrumb.component';
-// import { DialogComponent } from './dialog/dialog.component';
+
 
 import { Routes, RouterModule } from '@angular/router';
-//   import { from } from 'rxjs';
-// >>>>>>> master
-// import { DialogComponent } from './dialog/dialog.component';
+
 
 @NgModule({
   declarations: [
@@ -39,14 +34,12 @@ import { Routes, RouterModule } from '@angular/router';
     DropzoneDirective,
     ThumbnailComponent,
     FolderComponent,
+
     BreadcrumComponent,
     DialogComponent,
     DialogSearchComponent,
-// =======
-//     MThumbnailComponent,
-//     BreadcrumComponent,
-//     DialogComponent
-// >>>>>>> master
+
+
   ],
   imports: [
     CommonModule,

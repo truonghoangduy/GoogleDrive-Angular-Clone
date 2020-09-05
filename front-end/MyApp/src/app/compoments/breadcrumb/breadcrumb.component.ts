@@ -25,15 +25,41 @@ export class BreadcrumComponent implements OnInit,DoCheck {
 
 
 
-  public onClickItem(item:BreadcrumbItem){
-    let startIndex = this.items.findIndex((i)=>i.id == item.id);
-    if(startIndex != -1 && startIndex< this.items.length){
-       this.items.splice(startIndex+1,this.items.length-startIndex-1);
-       this.clickItem.emit(item);
-    }
-  }
-  private location: string;
-  public crumbs: any;
+
+//   ngOnInit(): void {
+//     this.items.push({
+//       displayName:"Root-folder",
+//     })
+//     this.items.push({
+//       displayName:"Demo1",
+//     })
+//   }
+
+//   public onClickItem(item:BreadcrumbItem){
+//     let startIndex = this.items.findIndex((i)=>i.id == item.id);
+//     if(startIndex != -1 && startIndex< this.items.length){
+//        this.items.splice(startIndex+1,this.items.length-startIndex-1);
+//        this.clickItem.emit(item);
+//     }
+// =======
+
+
+//   @Input()
+//   items:Array<BreadcrumItem> = new Array<BreadcrumItem>();
+//   folder:Array<Folder> = new Array<Folder>();
+//   @Output()
+//   clickItem: EventEmitter<BreadcrumItem> = new EventEmitter<BreadcrumItem>();
+//   ngOnInit(): void {
+//   
+//   public onClickItem(item:BreadcrumItem){
+//     let startIndex = this.items.findIndex((i)=>i.id == item.id);
+//     if(startIndex != -1 && startIndex< this.items.length){
+//        this.items.splice(startIndex+1,this.items.length-startIndex-1);
+//        this.clickItem.emit(item);
+//     }
+// }
+private location: string;
+public crumbs: any;
 
 /* ------------------------------------------------------------------- */
 /*                             Constructor
@@ -43,7 +69,7 @@ export class BreadcrumComponent implements OnInit,DoCheck {
 /*                              Lifecycle
 /* ------------------------------------------------------------------- */
 
-public ngOnInit(): void {
+public ngOnInit() {
   // Get first crumbs
   this.updateCrumbs();
   this.ngDoCheck();
