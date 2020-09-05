@@ -13,6 +13,16 @@ export class DialogComponent implements OnInit {
 
   ngOnInit(): void {
   }
+<<<<<<< HEAD
+=======
+
+
+  //   public dƠialogRef: MatDialogRef<DialogComponent>,
+  //   @Inject(MAT_DIALOG_DATA) public data: Folder,public folderService:FolderService) {}
+  // onNoClick(): void {
+  //   this.dialogRef.close();
+  // }
+>>>>>>> 40b6e065a4457bb5757d81f8f0230896e27e7ed3
 }
 
 // =======

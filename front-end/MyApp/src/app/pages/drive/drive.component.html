@@ -5,7 +5,7 @@
         <div style="justify-content: left; padding:10px 0 ; border-bottom: 1px solid #f3efef;;" class="align">
             <mat-icon (click)="close( 'toggle button')" style="margin:0 20px;">keyboard_arrow_left
             </mat-icon>
-            <div class="user-icon">
+            <div class="user-icon" *ngIf="authService.user != null">
                 <img [src]="authService.user.photoURL"> {{authService.user.displayName}}
             </div>
         </div>

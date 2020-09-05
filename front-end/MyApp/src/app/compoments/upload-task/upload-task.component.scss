@@ -1,0 +1,15 @@
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -10px;
+}
+
+.col-sm-2 {
+    display: inline-flex;
+    // border: 1px solid gray;
+    padding-top: 1%;
+    padding-left: 2%;
+    border-radius: 10px;
+    margin-right: 1%;
+}

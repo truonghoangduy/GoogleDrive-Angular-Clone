@@ -10,6 +10,7 @@ export class FolderService {
     { name: "Folder test" },
     { name: "Folder-test" },
   ];
+<<<<<<< HEAD
   public newFolder(name: string) {
     this.folderBD.push(
       { name: name }
@@ -19,6 +20,16 @@ export class FolderService {
   // folderBD:Array<Folder>=[];
   constructor(public apiService: ApiService, public httpClient: HttpClient) { }
 
+=======
+  // constructor() { }
+  // newFolder(name:string){
+  //   this.folderBD.push(
+  //     {name:name},
+  //     );
+  // folderBD:Array<Folder>=[];
+  constructor(public apiService:ApiService, public httpClient:HttpClient) 
+  {}
+>>>>>>> 40b6e065a4457bb5757d81f8f0230896e27e7ed3
   public async browse(uid, token, directory: string) {
     try {
       let result = await this.httpClient.post(this.apiService.root + "/browse", {
