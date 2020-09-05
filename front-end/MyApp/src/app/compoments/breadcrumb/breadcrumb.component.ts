@@ -25,15 +25,6 @@ export class BreadcrumbComponent implements OnInit,DoCheck {
 
 
 
-<<<<<<< HEAD
-  public onClickItem(item:BreadcrumbItem){
-    let startIndex = this.items.findIndex((i)=>i.id == item.id);
-    if(startIndex != -1 && startIndex< this.items.length){
-       this.items.splice(startIndex+1,this.items.length-startIndex-1);
-       this.clickItem.emit(item);
-    }
-}
-=======
 
 //   ngOnInit(): void {
 //     this.items.push({
@@ -51,9 +42,7 @@ export class BreadcrumbComponent implements OnInit,DoCheck {
 //        this.clickItem.emit(item);
 //     }
 // =======
-export class BreadcrumComponent implements OnInit,DoCheck {
 
-  constructor(public auth:AuthService,public breadcrumbs:BreadcrumbsService) { }
 
 //   @Input()
 //   items:Array<BreadcrumItem> = new Array<BreadcrumItem>();
@@ -69,7 +58,6 @@ export class BreadcrumComponent implements OnInit,DoCheck {
 //        this.clickItem.emit(item);
 //     }
 // }
->>>>>>> 40b6e065a4457bb5757d81f8f0230896e27e7ed3
 private location: string;
 public crumbs: any;
 

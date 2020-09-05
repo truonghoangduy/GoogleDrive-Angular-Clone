@@ -13,8 +13,6 @@ export class DialogComponent implements OnInit {
 
   ngOnInit(): void {
   }
-<<<<<<< HEAD
-=======
 
 
   //   public dƠialogRef: MatDialogRef<DialogComponent>,
@@ -22,7 +20,6 @@ export class DialogComponent implements OnInit {
   // onNoClick(): void {
   //   this.dialogRef.close();
   // }
->>>>>>> 40b6e065a4457bb5757d81f8f0230896e27e7ed3
 }
 
 // =======
