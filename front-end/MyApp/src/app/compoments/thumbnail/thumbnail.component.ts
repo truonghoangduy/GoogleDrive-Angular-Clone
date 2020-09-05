@@ -11,7 +11,7 @@ export class ThumbnailComponent implements OnInit {
   constructor() { }
   // @Input() thumbnails: File = null;
   thumbnails : File = 
-  {  name: "abcsssssssssssssssssssssssssssssssssssssssssssss",
+  {  name: "Demo1ssssssssssssssssssssssssssssssssssss",
     // pictureURL: "https://www.optomaeurope.com/images/ProductApplicationFeatures/4kuhd/banner.jpg",
     volume: 'abc',
     createDate: "21/5/2020",
