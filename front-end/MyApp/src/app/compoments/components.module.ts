@@ -58,12 +58,8 @@ import { Routes, RouterModule } from '@angular/router';
     UploaderComponent,
     ThumbnailComponent,
     FolderComponent,
-    // <<<<<<< master
-    //     BreadcrumbComponent,
-    // =======
-    //     MThumbnailComponent,
-    //     BreadcrumComponent,
-    // >>>>>>> master
+    BreadcrumbComponent,
+
   ]
 })
 export class ComponentsModule { }
