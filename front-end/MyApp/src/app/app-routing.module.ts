@@ -5,7 +5,7 @@ import { SignInComponent } from './compoments/sign-in/sign-in.component';
 const routes: Routes = [
   { path: 'drive', loadChildren: () => import('./pages/drive/drive.module').then(m => m.DriveModule) }, 
   { path: '', loadChildren: () => import('./pages/registration-page/registration-page.module').then(m => m.RegistrationPageModule) },
-  // { path: 'main-page', loadChildren: () => import('./pages/main-page/main-page.module').then(m => m.MainPageModule) }
+  { path: '**', loadChildren: () => import('./pages/error-page/error-page.module').then(m => m.ErrorPageModule) },
 ]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

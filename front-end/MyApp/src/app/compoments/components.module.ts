@@ -8,8 +8,9 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { ThumbnailComponent } from './thumbnail/thumbnail.component';
 import { FolderComponent } from './folder/folder.component';
-import { MThumbnailComponent } from './m-thumbnail/m-thumbnail.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+import { DialogComponent } from './dialog/dialog.component';
+import { DialogSearchComponent } from './dialog-search/dialog-search.component';
 // import { DialogComponent } from './dialog/dialog.component';
 
 @NgModule({
@@ -21,8 +22,9 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
     SignUpComponent,
     ThumbnailComponent,
     FolderComponent,
-    MThumbnailComponent,
     BreadcrumbComponent,
+    DialogComponent,
+    DialogSearchComponent,
   ],
   imports: [
     CommonModule,
@@ -36,7 +38,6 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
     SignUpComponent,
     ThumbnailComponent,
     FolderComponent,
-    MThumbnailComponent,
     BreadcrumbComponent,
   ]
 })

@@ -4,23 +4,22 @@ import { HostListener } from "@angular/core";
 import { FolderService } from 'src/app/services/folder.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
-
-
+import { DialogSearchComponent} from '../dialog-search/dialog-search.component';
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent implements OnInit {
-  screenWidth:number;
   constructor(public authService:AuthService,public folderService:FolderService,public dialog: MatDialog){}
-
+  screenWidth:number;
   clearIcon = false;
   txtSearch='';
    @Output() onShowMenu = new EventEmitter<any>();
   showMenu(){
     this.onShowMenu.emit();
   }
+
   clear(){
     this.txtSearch = '';
   }
@@ -33,6 +32,13 @@ export class NavBarComponent implements OnInit {
    ngOnInit(): void {
     this.getScreenSize();
   }
+  openDialog1() {
+    this.dialog.open(DialogSearchComponent);
+  }
+  openDialog() {
+    this.dialog.open(DialogComponent);
+  }
+  
 }
 
 

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MThumbnailComponent } from './m-thumbnail.component';
+import { DialogSearchComponent } from './dialog-search.component';
 
-describe('MThumbnailComponent', () => {
-  let component: MThumbnailComponent;
-  let fixture: ComponentFixture<MThumbnailComponent>;
+describe('DialogSearchComponent', () => {
+  let component: DialogSearchComponent;
+  let fixture: ComponentFixture<DialogSearchComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MThumbnailComponent ]
+      declarations: [ DialogSearchComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MThumbnailComponent);
+    fixture = TestBed.createComponent(DialogSearchComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -21,19 +21,10 @@ export class BreadcrumbComponent implements OnInit {
 
   ngOnInit(): void {
     this.items.push({
-      displayName:"abssssssc1",
+      displayName:"Root-folder",
     })
     this.items.push({
-      displayName:"abc12",
-    })
-    this.items.push({
-      displayName:"abc123",
-    })
-    this.items.push({
-      displayName:"abc123",
-    })
-    this.items.push({
-      displayName:"abc123",
+      displayName:"Demo1",
     })
   }
 
