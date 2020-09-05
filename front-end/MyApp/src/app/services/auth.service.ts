@@ -10,7 +10,8 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AuthService {
-
+  public idToken: string;
+  public uid: string;
   public user: firebase.User = null;
   constructor(public Auth: AngularFireAuth, public router: Router, private api: ApiService, private client: HttpClient) { }
 
@@ -34,17 +35,18 @@ export class AuthService {
     this.router.navigate(["/drive"]);
 
   }
-  public loginEmail(email,password) {
-    
-    this.Auth.signInWithEmailAndPassword(email,password).then((data) => this.user=data.user) 
-    try{
-      
-      this.router.navigate(['./drive']);
-    }catch(err){
-      console.log(err);
+  public async loginWithEmail(email: string, password: string) {
+    try {
+      let credential = await this.Auth.signInWithEmailAndPassword(email,password);
+      this.idToken = await credential.user.getIdToken();
+      this.uid = (await this.Auth.currentUser).uid;
+      return { uid: this.uid, idToken: this.idToken };
     }
-
+    catch {
+      return null;
+    }
   }
+  
   public async Logout() {
     await this.Auth.signOut()
     location.reload();
