@@ -10,7 +10,7 @@
     height: 300px;
     border: 2px solid lightblue;
     border-radius: 5px;
-    background: rgb(102, 101, 101);
+    background: white;
     margin: 10px 0;
 }
 
@@ -29,10 +29,9 @@ progress::-webkit-progress-value {
 
 .row {
     width: 100%;
-    justify-content: center;
     margin-top: 10%;
     display: flex;
     flex-wrap: wrap;
     margin-right: -15px;
-    margin-left: -15px;
+    margin-left: -10px;
 }

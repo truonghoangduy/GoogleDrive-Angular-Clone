@@ -42,20 +42,17 @@ import { from } from 'rxjs';
 //        this.clickItem.emit(item);
 //     }
 // =======
-// export class BreadcrumComponent implements OnInit,DoCheck {
+export class BreadcrumComponent implements OnInit,DoCheck {
 
-//   constructor(public auth:AuthService,public breadcrumbs:BreadcrumbsService) { }
+  constructor(public auth:AuthService,public breadcrumbs:BreadcrumbsService) { }
 
 //   @Input()
 //   items:Array<BreadcrumItem> = new Array<BreadcrumItem>();
 //   folder:Array<Folder> = new Array<Folder>();
 //   @Output()
 //   clickItem: EventEmitter<BreadcrumItem> = new EventEmitter<BreadcrumItem>();
-
-
 //   ngOnInit(): void {
-//   }
-
+//   
 //   public onClickItem(item:BreadcrumItem){
 //     let startIndex = this.items.findIndex((i)=>i.id == item.id);
 //     if(startIndex != -1 && startIndex< this.items.length){
@@ -74,17 +71,16 @@ public crumbs: any;
 /*                              Lifecycle
 /* ------------------------------------------------------------------- */
 
-// public ngOnInit() {
-//   // Get first crumbs
-//   this.updateCrumbs();
-//   this.ngDoCheck();
-// >>>>>>> master
-// }
+public ngOnInit() {
+  // Get first crumbs
+  this.updateCrumbs();
+  this.ngDoCheck();
+}
 
-// public ngDoCheck() {
-//   if (this.location !== window.location.pathname)
-//     this.updateCrumbs();
-// }
+public ngDoCheck() {
+  if (this.location !== window.location.pathname)
+    this.updateCrumbs();
+}
 
 
 private updateCrumbs() {
