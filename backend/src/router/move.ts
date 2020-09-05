@@ -18,8 +18,10 @@ router.post('/', async (res, resp) => {
         let currentDirectoryExist = await fs.pathExists(evn.environment.warehouse + "/" + currentDirectory);
         let directoryMoveExist = await fs.pathExists(evn.environment.warehouse + "/" + directoryMove);
         if (currentDirectoryExist && directoryMoveExist) {
-
-            await fs.moveSync(evn.environment.warehouse + "/" + currentDirectory + "/", evn.environment.warehouse + "/" + directoryMove);
+            console.log(evn.environment.warehouse + "/" + currentDirectory , evn.environment.warehouse + "/" + directoryMove);
+            
+            await fs.copy(evn.environment.warehouse + "/" + currentDirectory , evn.environment.warehouse + "/" + directoryMove);
+            await fs.remove(evn.environment.warehouse + "/" + currentDirectory);
             resp.send("Folder/file " + directoryMove + " is moved");
         } else {
             resp.send('Folder/file is not exist !!!');
