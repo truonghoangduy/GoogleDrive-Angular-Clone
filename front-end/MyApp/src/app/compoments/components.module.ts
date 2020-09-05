@@ -12,16 +12,16 @@ import { UploaderComponent } from './uploader/uploader.component';
 import { DropzoneDirective } from './dropzone.directive';
 import { ThumbnailComponent } from './thumbnail/thumbnail.component';
 import { FolderComponent } from './folder/folder.component';
-// <<<<<<< master
-// import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
-// import { DialogComponent } from './dialog/dialog.component';
-// import { DialogSearchComponent } from './dialog-search/dialog-search.component';
+
+import { BreadcrumComponent } from './breadcrumb/breadcrumb.component';
+import { DialogComponent } from './dialog/dialog.component';
+import { DialogSearchComponent } from './dialog-search/dialog-search.component';
 // =======
 // import { MThumbnailComponent } from './m-thumbnail/m-thumbnail.component';
 // import { BreadcrumComponent } from './breadcrumb/breadcrumb.component';
 // import { DialogComponent } from './dialog/dialog.component';
 
-// import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 //   import { from } from 'rxjs';
 // >>>>>>> master
 // import { DialogComponent } from './dialog/dialog.component';
@@ -39,10 +39,9 @@ import { FolderComponent } from './folder/folder.component';
     DropzoneDirective,
     ThumbnailComponent,
     FolderComponent,
-// <<<<<<< master
-//     BreadcrumbComponent,
-//     DialogComponent,
-//     DialogSearchComponent,
+    BreadcrumComponent,
+    DialogComponent,
+    DialogSearchComponent,
 // =======
 //     MThumbnailComponent,
 //     BreadcrumComponent,

@@ -13,58 +13,27 @@ import { from } from 'rxjs';
   templateUrl: './breadcrumb.component.html',
   styleUrls: ['./breadcrumb.component.scss']
 })
-// <<<<<<< master
-// export class BreadcrumbComponent implements OnInit {
+export class BreadcrumComponent implements OnInit,DoCheck {
 
-//   constructor(public auth:AuthService) { }
+  constructor(public auth:AuthService,public breadcrumbs:BreadcrumbsService) { }
 
-//   // @Input()
-//   items:Array<BreadcrumbItem> = new Array<BreadcrumbItem>();
-
-
-//   @Output()
-//   clickItem: EventEmitter<BreadcrumbItem> = new EventEmitter<BreadcrumbItem>();
+  @Input()
+  items:Array<BreadcrumbItem> = new Array<BreadcrumbItem>();
+  folder:Array<Folder> = new Array<Folder>();
+  @Output()
+  clickItem: EventEmitter<BreadcrumbItem> = new EventEmitter<BreadcrumbItem>();
 
 
-//   ngOnInit(): void {
-//     this.items.push({
-//       displayName:"Root-folder",
-//     })
-//     this.items.push({
-//       displayName:"Demo1",
-//     })
-//   }
 
-//   public onClickItem(item:BreadcrumbItem){
-//     let startIndex = this.items.findIndex((i)=>i.id == item.id);
-//     if(startIndex != -1 && startIndex< this.items.length){
-//        this.items.splice(startIndex+1,this.items.length-startIndex-1);
-//        this.clickItem.emit(item);
-//     }
-// =======
-// export class BreadcrumComponent implements OnInit,DoCheck {
-
-//   constructor(public auth:AuthService,public breadcrumbs:BreadcrumbsService) { }
-
-//   @Input()
-//   items:Array<BreadcrumItem> = new Array<BreadcrumItem>();
-//   folder:Array<Folder> = new Array<Folder>();
-//   @Output()
-//   clickItem: EventEmitter<BreadcrumItem> = new EventEmitter<BreadcrumItem>();
-
-
-//   ngOnInit(): void {
-//   }
-
-//   public onClickItem(item:BreadcrumItem){
-//     let startIndex = this.items.findIndex((i)=>i.id == item.id);
-//     if(startIndex != -1 && startIndex< this.items.length){
-//        this.items.splice(startIndex+1,this.items.length-startIndex-1);
-//        this.clickItem.emit(item);
-//     }
-// }
-private location: string;
-public crumbs: any;
+  public onClickItem(item:BreadcrumbItem){
+    let startIndex = this.items.findIndex((i)=>i.id == item.id);
+    if(startIndex != -1 && startIndex< this.items.length){
+       this.items.splice(startIndex+1,this.items.length-startIndex-1);
+       this.clickItem.emit(item);
+    }
+  }
+  private location: string;
+  public crumbs: any;
 
 /* ------------------------------------------------------------------- */
 /*                             Constructor
@@ -74,17 +43,16 @@ public crumbs: any;
 /*                              Lifecycle
 /* ------------------------------------------------------------------- */
 
-// public ngOnInit() {
-//   // Get first crumbs
-//   this.updateCrumbs();
-//   this.ngDoCheck();
-// >>>>>>> master
-// }
+public ngOnInit(): void {
+  // Get first crumbs
+  this.updateCrumbs();
+  this.ngDoCheck();
+}
 
-// public ngDoCheck() {
-//   if (this.location !== window.location.pathname)
-//     this.updateCrumbs();
-// }
+public ngDoCheck() {
+  if (this.location !== window.location.pathname)
+    this.updateCrumbs();
+}
 
 
 private updateCrumbs() {
