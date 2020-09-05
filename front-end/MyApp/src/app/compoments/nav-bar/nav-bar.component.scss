@@ -30,13 +30,6 @@
     z-index: 1000;
 }
 
-// .New {
-//     height: 60px;
-//     width: 60px;
-//     border-radius: 30px;
-//     outline: none;
-//     background-color: white;
-// }
 .btn>img {
     border-radius: 30px;
 }
@@ -71,8 +64,9 @@
     border-bottom-width: 1px;
 }
 
-#icon {
+.st>img {
     margin-left: 20px;
+    height: 60px;
 }
 
 a {
@@ -125,9 +119,14 @@ a {
 
 .add {
     border-right: 1px solid rgb(245, 245, 245);
-    // border-left: 0.5px solid rgb(245, 245, 245);
     padding: 0;
     display: flex;
     align-items: center;
     height: 70px;
+}
+
+@media only screen and (max-width: 850px) {
+    .st>img {
+        height: 40px;
+    }
 }
