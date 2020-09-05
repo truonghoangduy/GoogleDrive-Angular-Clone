@@ -30,7 +30,7 @@ export class UploadTaskComponent implements OnInit {
   ngOnInit() {
   
     this.startUpload();
-    
+
   }
 
   async Getdata(){
@@ -61,7 +61,8 @@ export class UploadTaskComponent implements OnInit {
     
     // The storage path
     const path = `test/${Date.now()}_${this.file.name}`;
-
+    const name =`${this.file.name}`;
+    const size =`${this.file.size}`;
     // Reference to storage bucket
     const ref = this.storage.ref(path);
 
@@ -76,7 +77,7 @@ export class UploadTaskComponent implements OnInit {
       // The file's download URL
       finalize( async() =>  {
         this.downloadURL = await ref.getDownloadURL().toPromise();
-        await this.db.collection('files').add( { downloadURL: this.downloadURL, path });
+        await this.db.collection('files').add( { downloadURL: this.downloadURL, path,name,size });
         // this.db.collection('users').doc('files').set({downloadURL: this.downloadURL, path});
         this.Getdata()
       }),
