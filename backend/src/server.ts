@@ -6,6 +6,8 @@ import cors = require('cors')
 import bodyPraser = require('body-parser')
 import admin = require('firebase-admin');
 import fakedata = require('./temp')
+
+import cookiePraser = require('cookie-parser');
 import { Folder } from './models/folder.model';
 admin.initializeApp({
     credential: admin.credential.cert(firebaseSDK.firebaseAdminSDK),
@@ -21,6 +23,7 @@ const logger = (req, res, next) => {
     }
 };
 
+server.use(cookiePraser())
 server.use(logger);
 server.use(cors());
 // server.use(bodyPraser());
@@ -47,6 +50,10 @@ server.get("/", async (req, res) => {
 server.use('/createfolder', require('./router/createFile'));
 server.use('/upload', require('./router/uploader'));
 server.use('/remove', require('./router/removeFile'));
+server.use('/auth', require('./router/authjwt'));
+
+server.use('/file',require('./router/dowloadFile'));
+
 
 
 
