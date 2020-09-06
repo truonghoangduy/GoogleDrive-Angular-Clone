@@ -14,7 +14,7 @@ const server = express();
 const logger = (req, res, next) => {
     if (env.environment.logging) {
         console.log(`${req.method} : ${req.url.toString()}`),
-        next();
+            next();
     } else {
         next();
     }
@@ -30,14 +30,22 @@ server.get("/", async (req, res) => {
 })
 
 
-
+//create new Folder
 server.use('/createFolder', require('./router/createFolder'));
+//upload
 server.use('/upload', require('./router/uploader'));
+//delete File/Folder
 server.use('/remove', require('./router/removeFile'));
-server.use('/browse',require('./router/browse'));
+//browser 
+server.use('/browse', require('./router/browse'));
+
 server.use('/user', require('./router/user'));
-server.use('/share',require('./router/share'));
+//share File
+server.use('/share', require('./router/share'));
+//move file
 server.use('/move', require('./router/move'));
+//copy file
+server.use('/copy', require('./router/copy'))
 
 
 
