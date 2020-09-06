@@ -10,7 +10,9 @@ import {Folder } from '../../models/folder.model';
   styleUrls: ['./dialog.component.scss']
 })
 export class DialogComponent implements OnInit {
+
   name:string;
+
 
   
   constructor(
@@ -22,3 +24,13 @@ export class DialogComponent implements OnInit {
     ngOnInit(): void {
     }
 }
+
+// =======
+// export class DialogComponent{
+//   constructor(){}
+//   //   public dƠialogRef: MatDialogRef<DialogComponent>,
+//   //   @Inject(MAT_DIALOG_DATA) public data: Folder,public folderService:FolderService) {}
+//   // onNoClick(): void {
+//   //   this.dialogRef.close();
+//   // }
+// }
