@@ -12,7 +12,7 @@ const input = res.body;
             reps.send({
                 message: "Please fill in all the information",
             })
-        }else if(input.password == "" || input.password.length < 7 || input.retypePassword == "" || input.password != input.retypePassword){
+        }else if(input.password == "" || input.password.length < 7){
             reps.send({
                 message: "Incorrect",
             })
@@ -40,7 +40,7 @@ const input = res.body;
         }
     }catch(e){
         reps.send({
-            message: input.email + " is created."
+            message: input.email + " is created failed."
         });
     }
 })
