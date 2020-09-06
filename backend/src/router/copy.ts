@@ -1,3 +1,4 @@
+// import * as expressLib from "express";
 import fs = require('fs-extra');
 import express = require('express');
 import createFile = require('../ults/generateGoblePath')
@@ -8,24 +9,27 @@ const firestore = admin.firestore();
 import fakeData = require('../../fakeData/temperData')
 import evn = require('../../environment')
 import path = require('path');
+import { options } from './browse';
 
 router.post('/', async (res, resp) => {
-    const { currentDirectory, copyDicretory } = res.body;
+    const { currentDirectory, directoryMove } = res.body;
 
     try {
         let currentDirectoryExist = await fs.pathExists(evn.environment.warehouse + "/" + currentDirectory);
-        let delDirectoryExist = await fs.pathExists(evn.environment.warehouse + "/" + currentDirectory+"/" +copyDicretory);
-        
-        if (currentDirectoryExist && delDirectoryExist) {
+        let directoryCopyExist = await fs.pathExists(evn.environment.warehouse + "/" + directoryMove);
+        if (currentDirectoryExist && directoryCopyExist) {
+            console.log(evn.environment.warehouse + "/" + currentDirectory , evn.environment.warehouse + "/" + directoryMove);
+            
+            await fs.copy(evn.environment.warehouse + "/" + currentDirectory , evn.environment.warehouse + "/" + directoryMove);
 
-            await fs.rmdirSync(evn.environment.warehouse + "/" + currentDirectory + "/" + copyDicretory,{ recursive: true });
+            resp.send("Folder/file " + directoryMove + " is copied");
         } else {
-            resp.send('Folder is not exist !!!');
+            resp.send('Folder/file is not exist !!!');
         }
     } catch (error) {
         resp.send(error)
     }
-    resp.send("Folder/file " +copyDicretory+ " is copied");
+    
 })
 
 

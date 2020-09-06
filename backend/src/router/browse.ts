@@ -21,7 +21,6 @@ router.post('/',async (res,resp)=>{
                 files.push(current[i]);
             }else{
                 folders.push(current[i])
-
             }
         }
         resp.send({
