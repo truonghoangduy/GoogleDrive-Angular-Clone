@@ -18,7 +18,6 @@ import{AngularFireStorageModule} from '@angular/fire/storage'
 import {AngularFirestore} from '@angular/fire/firestore'
 import { AngularBreadcrumbsLightModule } from 'angular-breadcrumbs-light';
 
-
 import { from } from 'rxjs';
 @NgModule({
   declarations: [
@@ -38,7 +37,8 @@ import { from } from 'rxjs';
     ComponentsModule,
     NgbModule,
     DriveModule,
-    AngularBreadcrumbsLightModule
+    AngularBreadcrumbsLightModule,
+   
   ],
   providers: [AuthService,AngularFirestore],
   bootstrap: [AppComponent]

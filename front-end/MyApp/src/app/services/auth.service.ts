@@ -46,7 +46,7 @@ export class AuthService {
       return null;
     }
   }
-  
+
   public async Logout() {
     await this.Auth.signOut()
     location.reload();

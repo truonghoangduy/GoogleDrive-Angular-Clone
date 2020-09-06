@@ -20,10 +20,10 @@ export class FolderService {
   constructor(public apiService:ApiService, public httpClient:HttpClient) { }
   
   // constructor() { }
-  // newFolder(name:string){
-  //   this.folderBD.push(
-  //     {name:name},
-  //     );
+  newFolder(name:string){
+    this.folderBD.push(
+      {name:name},
+      )};
   // folderBD:Array<Folder>=[];
 
   public async browse(uid, token, directory: string) {

@@ -12,24 +12,22 @@ import path = require('path');
 import { options } from './browse';
 
 router.post('/', async (res, resp) => {
-    const { currentDirectory, directoryMove } = res.body;
-
+    let fileName = res.body["source"].split('/');
+    fileName = fileName[fileName.length - 1];
     try {
-        let currentDirectoryExist = await fs.pathExists(evn.environment.warehouse + "/" + currentDirectory);
-        let directoryCopyExist = await fs.pathExists(evn.environment.warehouse + "/" + directoryMove);
-        if (currentDirectoryExist && directoryCopyExist) {
-            console.log(evn.environment.warehouse + "/" + currentDirectory , evn.environment.warehouse + "/" + directoryMove);
-            
-            await fs.copy(evn.environment.warehouse + "/" + currentDirectory , evn.environment.warehouse + "/" + directoryMove);
-
-            resp.send("Folder/file " + directoryMove + " is copied");
+        let sourceExist = await fs.pathExists(evn.environment.warehouse + "/" + res.body["uid"] + "/" + res.body["source"]);
+        console.log(evn.environment.warehouse + "/" + res.body["source"]);
+        if (sourceExist) {
+            console.log(evn.environment.warehouse + "/" + res.body["source"], evn.environment.warehouse + "/" + res.body["destination"]);
+            await fs.copySync("./warehouse/" + res.body["uid"] + "/" + res.body["source"], "./warehouse/" + res.body["uid"] + "/" + res.body["destination"] + "/" + fileName);
+            resp.send("Folder/file " + res.body["destination"] + " is copy");
         } else {
             resp.send('Folder/file is not exist !!!');
         }
     } catch (error) {
-        resp.send(error)
+        resp.send(error);
     }
-    
+
 })
 
 
