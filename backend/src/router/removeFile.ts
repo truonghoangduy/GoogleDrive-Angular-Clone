@@ -18,7 +18,7 @@ router.post('/', async (res, resp) => {
         if (currentDirectoryExist && delDirectoryExist) {
             await fs.rmdirSync(evn.environment.warehouse + "/" + currentDirectory + "/" + delDirectory,{ recursive: true });
         } else {
-            resp.send('Folder is not exist !!!');
+            resp.send('Folder/file is not exist !!!');
         }
     } catch (error) {
         resp.send(error)

@@ -48,6 +48,8 @@ server.get("/", async (req, res) => {
 
 // Add route
 server.use('/createfolder', require('./router/createFile'));
+
+server.use('/createFolder', require('./router/createFolder'));
 server.use('/upload', require('./router/uploader'));
 server.use('/remove', require('./router/removeFile'));
 server.use('/auth', require('./router/authjwt'));
@@ -58,7 +60,7 @@ server.use('/createFolder', require('./router/createFolder'));
 server.use('/browse',require('./router/browse'));
 server.use('/user', require('./router/user'));
 server.use('/share',require('./router/share'));
-
+server.use('/move', require('./router/move'));
 
 
 
