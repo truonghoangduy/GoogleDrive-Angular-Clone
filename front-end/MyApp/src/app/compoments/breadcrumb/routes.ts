@@ -11,16 +11,15 @@ export const clients = home + '/clients';
 /* ------------------------------------------------------------------- */
 
 const routes = [
-  { link: home, title: 'Home', icon: '✅' },
+  { link: home, title: 'Home'},
   {
     link: clients,
     title: 'Clients',
-    icon: '📋',
     children: [
-      { link: clients + '/settings', title: 'Clients Settings', icon: '✋' },
-      { link: clients + '/:id', title: 'Client - ', suffix: ', welcome!', icon: '🙂' },
+      { link: clients + '/settings', title: 'Clients Settings' },
+      { link: clients + '/:id', title: 'Client - ' },
   ] },
-  { link: folder, title: 'Folder1', icon: '✋' },
+  { link: folder, title: 'Folder1' },
 ];
 
 /* ------------------------------------------------------------------- */
