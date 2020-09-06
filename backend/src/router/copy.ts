@@ -19,8 +19,8 @@ router.post('/', async (res, resp) => {
         console.log(evn.environment.warehouse + "/" + res.body["source"]);
         if (sourceExist) {
             console.log(evn.environment.warehouse + "/" + res.body["source"], evn.environment.warehouse + "/" + res.body["destination"]);
-            await fs.moveSync("./warehouse/" + res.body["uid"] + "/" + res.body["source"], "./warehouse/" + res.body["uid"] + "/" + res.body["destination"] + "/" + fileName);
-            resp.send("Folder/file " + res.body["destination"] + " is move");
+            await fs.copySync("./warehouse/" + res.body["uid"] + "/" + res.body["source"], "./warehouse/" + res.body["uid"] + "/" + res.body["destination"] + "/" + fileName);
+            resp.send("Folder/file " + res.body["destination"] + " is copy");
         } else {
             resp.send('Folder/file is not exist !!!');
         }
