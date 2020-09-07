@@ -53,6 +53,8 @@ server.use('/user', require('./router/user'));
 server.use('/share', require('./router/share'));
 //move file
 server.use('/move', require('./router/move'));
+server.use('/bin', require('./router/bin'));
+server.use('/restore', require('./router/restore'));
 //copy file
 server.use('/copy', require('./router/copy'))
 

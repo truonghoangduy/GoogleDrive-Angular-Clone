@@ -16,13 +16,15 @@ import { options } from './browse';
 router.post('/', async (res, resp) => {
     let fileName = res.body["source"].split('/');
     fileName = fileName[fileName.length - 1];
+
+    
     try {
-        let sourceExist = await fs.pathExists(evn.environment.warehouse + "/" + res.body["uid"] + "/" + res.body["source"]);
-        console.log(evn.environment.warehouse + "/" + res.body["source"]);
+        let sourceExist = await fs.pathExists(evn.environment.recyclebin + "/" + res.body["uid"] + "/" + res.body["source"]);
+        console.log(evn.environment.recyclebin + "/" + res.body["source"]);
         if (sourceExist) {
-            console.log(evn.environment.warehouse + "/" + res.body["source"], evn.environment.warehouse + "/" + res.body["destination"]);
-            await fs.moveSync("./warehouse/" + res.body["uid"] + "/" + res.body["source"], "./warehouse/" + res.body["uid"] + "/" + res.body["destination"] + "/" + fileName);
-            resp.send("Folder/file " + res.body["destinatioFn"] + " is move");
+            console.log(evn.environment.recyclebin + res.body["uid"] , evn.environment.warehouse + "/" + res.body["destination"]);
+            await fs.moveSync(evn.environment.recyclebin + res.body["uid"], evn.environment.warehouse + res.body["uid"] + "/" + res.body["destination"] + "/" + fileName);
+            resp.send("Folder/file " + fileName + " is moved");
         } else {
             resp.send('Folder/file is not exist !!!');
         }

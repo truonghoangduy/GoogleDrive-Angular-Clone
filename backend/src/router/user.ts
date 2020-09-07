@@ -3,7 +3,8 @@ import express = require('express');
 
 const router = express.Router();
 import admin = require('firebase-admin');
-const auth = admin.auth()
+const auth = admin.auth();
+import * as checkUser from '../ults/checkAuth';
 
 router.post('/', async (res, reps) => {
     const input = res.body;
@@ -18,7 +19,7 @@ router.post('/', async (res, reps) => {
             })
         } else {
 
-            let doc = await admin.firestore().collection('User').doc(input.email);
+            let doc =  admin.firestore().collection('User').doc(input.email);
             if ((await (doc.get())).exists) {
                 reps.send({
                     message: input.email + " is already existed.",
@@ -44,4 +45,8 @@ router.post('/', async (res, reps) => {
         });
     }
 })
+
+
+
+
 export = router;

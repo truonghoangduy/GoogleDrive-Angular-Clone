@@ -63,8 +63,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     UploaderComponent,
     ThumbnailComponent,
     FolderComponent,
-    BreadcrumComponent,
-
+    BreadcrumbComponent,
 
   ]
 })
