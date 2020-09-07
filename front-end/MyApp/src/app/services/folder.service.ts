@@ -11,11 +11,11 @@ export class FolderService {
     { name: "Folder-test" },
   ];
 
-  newFolder(name:string){
-    this.folderBD.push(
-      {name:name},
-      );
-  }
+  // newFolder(name:string){
+  //   this.folderBD.push(
+  //     {name:name},
+  //     );
+  // }
   // folderBD:Array<Folder>=[];
   constructor(public apiService:ApiService, public httpClient:HttpClient) { }
   
