@@ -24,6 +24,7 @@ router.post('/', async (res, resp) => {
             }
         }
         resp.send({
+            requestPath:currentDirectory,
             files,
             folders
         })

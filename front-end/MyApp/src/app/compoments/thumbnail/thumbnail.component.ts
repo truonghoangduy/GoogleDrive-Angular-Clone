@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {File} from '../../models/file.model'
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-thumbnail',
@@ -8,7 +9,9 @@ import {File} from '../../models/file.model'
 })
 export class ThumbnailComponent implements OnInit {
 
-  constructor() { }
+  @Input() file;
+  
+  constructor(private http:HttpClient) { }
   // @Input() thumbnails: File = null;
   thumbnails : File = 
   {  name: "abcsssssssssssssssssssssssssssssssssssssssssssss",
