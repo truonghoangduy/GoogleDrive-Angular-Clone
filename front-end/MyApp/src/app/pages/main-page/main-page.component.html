@@ -37,7 +37,7 @@
 <mat-menu #contextMenu="matMenu" #contextMenu2="matMenu">
     <ng-template matMenuContent let-item="item">
         <div mat-menu-item [disableRipple]='true'>{{item}}</div>
-        <div mat-menu-item (click)='onDelete'><mat-icon>delete</mat-icon>Delete</div>
+        <div mat-menu-item ><mat-icon>delete</mat-icon>Delete</div>
         
         <button mat-menu-item (click)="onContextMenuAction(item)">Action 1</button>
     </ng-template>
