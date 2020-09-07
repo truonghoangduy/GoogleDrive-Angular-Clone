@@ -19,7 +19,6 @@ router.post('/', async (res, resp) => {
     let fileName = fileURL.split('/');
     fileName = fileName[fileName.length - 1];
 
-
     try {
         let fileUrlExist = await fs.pathExists(evn.environment.warehouse + "/" +uuid+"/"+ fileURL);
         let uuidExist = await fs.pathExists(evn.environment.warehouse + "/" + uuid);

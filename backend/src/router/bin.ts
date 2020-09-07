@@ -17,23 +17,34 @@ function isEmpty(obj) {
 }
 
 router.post('/', async (res, resp) => {
-    let user = res.body["uid"];
+    let user = res.body["owner"];
     let fileName = res.body["source"].split('/');
     fileName = fileName[fileName.length - 1];
     try {
-        let bin = await admin.firestore().collection('bin').doc(user);
         let sourceExist = await fs.pathExists(evn.environment.warehouse + "/" + user + "/" + res.body["source"]);
+        let uuidExist = await fs.pathExists(evn.environment.warehouse + "/" + user);
         
-        console.log(evn.environment.warehouse + "/" + res.body["source"]);
-        if (sourceExist) {
-            console.log(evn.environment.warehouse + "/" + res.body["source"], evn.environment.recyclebin + "/" + user);
-            await fs.moveSync("./warehouse/" + user + "/" + res.body["source"], evn.environment.recyclebin+ "/" + user + "/" + fileName);
-            resp.send("Folder/file " + fileName + " is move");
-        } else {
+        // console.log(evn.environment.warehouse + "/" + res.body["source"]);
+        // if (sourceExist) {
+        //     console.log(evn.environment.warehouse + "/" + res.body["source"], evn.environment.recyclebin + "/" + user);
+        //     await fs.moveSync("./warehouse/" + user + "/" + res.body["source"], evn.environment.recyclebin+ "/" + user + "/" + fileName);
+        //     resp.send("Folder/file " + fileName + " is move");
+        // } else {
+        //     resp.send('Folder/file is not exist !!!');
+        // }
+
+        if (uuidExist && sourceExist) {
+            await admin.firestore().collection("bin").doc(user).collection(fileName).doc(fileName).set({ [fileName]: user+"/"+fileName});
+            
+                console.log(evn.environment.warehouse + "/" + res.body["source"], evn.environment.recyclebin + "/" + user);
+                await fs.moveSync("./warehouse/" + user + "/" + res.body["source"], evn.environment.recyclebin+ "/" + user + "/" + fileName);
+                resp.send("Folder/file " + fileName + " is move");
+        }
+        else {
             resp.send('Folder/file is not exist !!!');
         }
     } catch (error) {
-        resp.send(error);
+        resp.send("error");
     }
 })
 

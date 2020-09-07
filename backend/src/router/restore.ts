@@ -16,6 +16,8 @@ import { options } from './browse';
 router.post('/', async (res, resp) => {
     let fileName = res.body["source"].split('/');
     fileName = fileName[fileName.length - 1];
+
+    
     try {
         let sourceExist = await fs.pathExists(evn.environment.recyclebin + "/" + res.body["uid"] + "/" + res.body["source"]);
         console.log(evn.environment.recyclebin + "/" + res.body["source"]);
