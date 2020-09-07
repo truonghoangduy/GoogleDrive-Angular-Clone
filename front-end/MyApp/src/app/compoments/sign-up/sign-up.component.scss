@@ -1,0 +1,44 @@
+.sign-up {
+    margin: 30px 0;
+}
+
+p {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #394d5c;
+    margin-bottom: 3px;
+}
+
+.algin {
+    display: flex;
+    justify-content: center;
+}
+
+.btnlogin {
+    background-color: #DD4B39;
+    color: white;
+    border: 0.5px solid #DD4B39;
+    width: 100px;
+    outline: none;
+}
+
+.btnlogin:hover {
+    background-color: white;
+    color: #DD4B39;
+    border-color: #DD4B39;
+    border-style: solid;
+    border-width: 0.5px;
+}
+
+.btnlogin:focus {
+    background-color: white;
+    color: #DD4B39;
+    border-color: #DD4B39;
+    border-style: solid;
+    border-width: 0.5px;
+}
+
+input {
+    width: 100%;
+}

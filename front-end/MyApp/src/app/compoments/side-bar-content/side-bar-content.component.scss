@@ -1,0 +1,25 @@
+p {
+    padding: 15px 30px;
+    font-size: 1rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    color: rgb(57, 77, 92);
+    border: 1px solid rgb(243, 239, 239);
+    border-top: none;
+}
+
+div {
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+div:hover {
+    background-color: ghostwhite;
+    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
+}
+
+div:focus {
+    background-color: black;
+}
