@@ -9,7 +9,7 @@ export async function checkAuth(idtoken:string, uuid:string): Promise<boolean>{
         // await fs.access(evn.environment.warehouse+"/"+uuidName);
  
         let user = await auth.verifyIdToken(<string>idtoken);
-        if(uuid == user.uid){
+        if(uuid == user.email){
               return true;
         }else{
              return false;

@@ -22,7 +22,7 @@ router.post('/', async (res, resp) => {
         if (sourceExist) {
             console.log(evn.environment.warehouse + "/" + res.body["source"], evn.environment.warehouse + "/" + res.body["destination"]);
             await fs.moveSync("./warehouse/" + res.body["uid"] + "/" + res.body["source"], "./warehouse/" + res.body["uid"] + "/" + res.body["destination"] + "/" + fileName);
-            resp.send("Folder/file " + res.body["destination"] + " is move");
+            resp.send("Folder/file " + res.body["destinatioFn"] + " is move");
         } else {
             resp.send('Folder/file is not exist !!!');
         }

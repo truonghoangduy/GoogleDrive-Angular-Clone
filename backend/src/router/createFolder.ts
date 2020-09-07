@@ -15,11 +15,11 @@ router.post('/', async (res, resp) => {
 
     try {
         let currentDirectoryExist = await fs.pathExists(evn.environment.warehouse + "/" + currentDirectory);
-        let makeDirectoryExist = await fs.pathExists(evn.environment.warehouse+"/"+ currentDirectory + "/" + makeDirectory);
+        let makeDirectoryExist = await fs.pathExists(evn.environment.warehouse + "/" + currentDirectory + "/" + makeDirectory);
         if (currentDirectoryExist && !makeDirectoryExist) {
 
             await fs.mkdir(evn.environment.warehouse + "/" + currentDirectory + "/" + makeDirectory);
-        } else { 
+        } else {
             resp.send('Folder is already exists !!!');
         }
 
