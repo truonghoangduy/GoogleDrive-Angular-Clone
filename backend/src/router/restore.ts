@@ -9,29 +9,36 @@ const firestore = admin.firestore();
 import fakeData = require('../../fakeData/temperData')
 import evn = require('../../environment')
 import path = require('path');
-import { options } from './browse';
+const fieldValue = admin.firestore.FieldValue;
+import * as checkUser from '../ults/checkAuth';
 
-
+function isEmpty(obj) {
+    return Object.keys(obj).length === 0;
+}
 
 router.post('/', async (res, resp) => {
-    let fileName = res.body["source"].split('/');
-    fileName = fileName[fileName.length - 1];
-
-    
+    let list = res.body["source"].split('/');
+    let fileName = list[list.length - 1];
+    let user = list[0];
     try {
-        let sourceExist = await fs.pathExists(evn.environment.recyclebin + "/" + res.body["uid"] + "/" + res.body["source"]);
-        console.log(evn.environment.recyclebin + "/" + res.body["source"]);
-        if (sourceExist) {
-            console.log(evn.environment.recyclebin + res.body["uid"] , evn.environment.warehouse + "/" + res.body["destination"]);
-            await fs.moveSync(evn.environment.recyclebin + res.body["uid"], evn.environment.warehouse + res.body["uid"] + "/" + res.body["destination"] + "/" + fileName);
-            resp.send("Folder/file " + fileName + " is moved");
-        } else {
+        let sourceExist = await fs.pathExists(evn.environment.recyclebin  + "/" + res.body["source"]);
+        let uuidExist = await fs.pathExists(evn.environment.recyclebin + "/" + user);
+        
+
+        if (uuidExist && sourceExist) {
+            let path = await admin.firestore().collection("bin").doc(user).collection(fileName).doc(fileName).get();
+            
+                console.log(evn.environment.recyclebin + "/" + res.body["source"], evn.environment.warehouse + "/" + user + "/" + path);
+                await fs.moveSync(evn.environment.recyclebin  + "/" + res.body["source"], evn.environment.warehouse+ "/" + user + "/" + path );
+                await admin.firestore().collection("bin").doc(user).collection(fileName).doc(fileName).delete();
+                resp.send("Folder/file " + fileName + " is move");
+        }
+        else {
             resp.send('Folder/file is not exist !!!');
         }
     } catch (error) {
-        resp.send(error);
+        resp.send("error");
     }
-
 })
 
 
