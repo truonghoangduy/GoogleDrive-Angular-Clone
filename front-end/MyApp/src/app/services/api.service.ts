@@ -17,6 +17,7 @@ export class ApiService {
   }
 
   removeFolder(){
+
     // UUID/A
               //B
               //C
