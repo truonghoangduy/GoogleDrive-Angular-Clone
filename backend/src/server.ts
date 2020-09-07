@@ -6,10 +6,11 @@ import cors = require('cors')
 import bodyPraser = require('body-parser')
 import admin = require('firebase-admin');
 
-admin.initializeApp({
+let firebaseApp = admin.initializeApp({
     credential: admin.credential.cert(firebaseSDK.firebaseAdminSDK),
     databaseURL: "https://u-space-drive.firebaseio.com"
 })
+let auth = firebaseApp.auth();
 const server = express();
 const logger = (req, res, next) => {
     if (env.environment.logging) {
@@ -28,7 +29,15 @@ server.use(express.json());
 server.get("/", async (req, res) => {
     res.send("Hello World")
 })
-
+// async function checkAuth(uid, token) {
+//     try {
+//         let decodedIdToken = await auth.verifyIdToken(token);
+//         return uid == decodedIdToken.uid;
+//     }
+//     catch {
+//         return null;
+//     }
+// }
 
 //create new Folder
 server.use('/createFolder', require('./router/createFolder'));
