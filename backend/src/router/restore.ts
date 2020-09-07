@@ -26,10 +26,10 @@ router.post('/', async (res, resp) => {
         
 
         if (uuidExist && sourceExist) {
-            let path = await admin.firestore().collection("bin").doc(user).collection(fileName).doc(fileName).get();
+            let path = await (await admin.firestore().collection("bin").doc(user).collection(fileName).doc(fileName).get()).data();
             
-                console.log(evn.environment.recyclebin + "/" + res.body["source"], evn.environment.warehouse + "/" + user + "/" + path);
-                await fs.moveSync(evn.environment.recyclebin  + "/" + res.body["source"], evn.environment.warehouse+ "/" + user + "/" + path );
+                console.log(evn.environment.recyclebin + "/" + res.body["source"], evn.environment.warehouse  + "/" + path);
+                await fs.moveSync(evn.environment.recyclebin  + "/" + res.body["source"], evn.environment.warehouse+ "/" + path );
                 await admin.firestore().collection("bin").doc(user).collection(fileName).doc(fileName).delete();
                 resp.send("Folder/file " + fileName + " is move");
         }
