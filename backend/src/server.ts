@@ -13,11 +13,12 @@ admin.initializeApp({
     credential: admin.credential.cert(firebaseSDK.firebaseAdminSDK),
     databaseURL: "https://u-space-drive.firebaseio.com"
 })
+let auth = admin.auth();
 const server = express();
 const logger = (req, res, next) => {
     if (env.environment.logging) {
         console.log(`${req.method} : ${req.url.toString()}`),
-        next();
+            next();
     } else {
         next();
     }
@@ -44,12 +45,23 @@ server.get("/", async (req, res) => {
     let fullTree = listATree(fakedata.fakedata);
     res.send("Hello World" + fullTree);
 })
+// async function checkAuth(uid, token) {
+//     try {
+//         let decodedIdToken = await auth.verifyIdToken(token);
+//         return uid == decodedIdToken.uid;
+//     }
+//     catch {
+//         return null;
+//     }
+// }
 
 
 // Add route
 
 server.use('/createFolder', require('./router/createFolder'));
+//upload
 server.use('/upload', require('./router/uploader'));
+//delete File/Folder
 server.use('/remove', require('./router/removeFile'));
 server.use('/auth', require('./router/authjwt'));
 
@@ -57,9 +69,18 @@ server.use('/file',require('./router/dowloadFile'));
 
 server.use('/createFolder', require('./router/createFolder'));
 server.use('/browse',require('./router/browse'));
+//browser 
+server.use('/browse', require('./router/browse'));
+
 server.use('/user', require('./router/user'));
-server.use('/share',require('./router/share'));
+//share File
+server.use('/share', require('./router/share'));
+//move file
 server.use('/move', require('./router/move'));
+server.use('/bin', require('./router/bin'));
+server.use('/restore', require('./router/restore'));
+//copy file
+server.use('/copy', require('./router/copy'))
 
 
 

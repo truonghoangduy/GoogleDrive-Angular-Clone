@@ -6,6 +6,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { ApiService } from './api.service';
 import {User} from '../models/user.model'
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
@@ -32,6 +33,13 @@ export class AuthService {
   public async loginGoogle() {
     let provider = new firebase.auth.GoogleAuthProvider();
     await this.Auth.signInWithPopup(provider).then(data => this.user = data.user)
+
+
+    await this.client.post(environment.endpoint+"user/checkauth",{},{
+     "headers":{
+       'idToken':await this.user.getIdToken()
+     }
+    }).toPromise()
     this.router.navigate(["/drive"]);
 
   }

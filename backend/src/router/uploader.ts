@@ -14,19 +14,20 @@ router.use(expressFileupload({
     debug:true,
 }))
 
-router.post('/',async (req,res)=>{
+router.post('/', async (req, res) => {
     console.log(req)
-    const {uploadDir} = req.body
-    let uploadedFile = [];
+    const { uploadDir } = req.body
 
 
-    for (let fileKey of Object.keys(req.files)) { 
+    for (let fileKey of Object.keys(req.files)) {
         let file = <expressFileupload.UploadedFile>req.files[fileKey];
         // let hashName = uuid();
         //ts-ignore
-        let fileLocation = uploadDir+file.name;
+        let fileLocation = uploadDir + file.name;
 
-        uploader.writeFileToDir(fileLocation,file.data,uploadDir)
+        uploader.writeFileToDir(fileLocation, file.data, uploadDir)
+
+
     }
 
     res.send({
