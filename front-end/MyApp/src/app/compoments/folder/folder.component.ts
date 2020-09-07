@@ -7,8 +7,17 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class FolderComponent implements OnInit {
 
+  @Input() folders;
+
   constructor() { }
   ngOnInit(): void {
   }
-  @Input() name:string;
+
+
+  public openFolder(){
+    // this.router.navigate(["/folder-format"]);
+  }
+
+
+
 }
