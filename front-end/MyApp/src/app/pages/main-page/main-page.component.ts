@@ -7,6 +7,7 @@ import { Folder } from 'src/app/models/folder.model';
   styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent implements OnInit {
+  clients="/drive/folder-format"
   // db :Array<Folder>=[];
   constructor(public folerService: FolderService) { }
 

@@ -23,7 +23,7 @@ export class SignInComponent implements OnInit {
     try {
       let result = await this.auth.loginWithEmail(email, password);
       if (result != null) {
-        this.router.navigate(["drive"]);
+        this.router.navigate(["drive/main-page"]);
       }
     }
     catch (e) {

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {UiModule} from '../ui/ui.module';
-import { NavBarComponent} from './nav-bar/nav-bar.component';
+import { UiModule } from '../ui/ui.module';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SideBarContentComponent } from './side-bar-content/side-bar-content.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { SignInComponent } from './sign-in/sign-in.component';
@@ -13,7 +13,7 @@ import { DropzoneDirective } from './dropzone.directive';
 import { ThumbnailComponent } from './thumbnail/thumbnail.component';
 import { FolderComponent } from './folder/folder.component';
 
-import {  BreadcrumComponent} from './breadcrumb/breadcrumb.component';
+import {BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { DialogSearchComponent } from './dialog-search/dialog-search.component';
 
@@ -36,7 +36,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ThumbnailComponent,
     FolderComponent,
 
-    BreadcrumComponent,
+    BreadcrumbComponent,
     DialogComponent,
     DialogSearchComponent,
 
@@ -48,7 +48,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     RouterModule,
     ReactiveFormsModule
   ],
-  exports:[
+  exports: [
     NavBarComponent,
     SideBarContentComponent,
     SideBarComponent,
@@ -59,8 +59,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     UploaderComponent,
     ThumbnailComponent,
     FolderComponent,
-    BreadcrumComponent,
-
+    BreadcrumbComponent
   ]
 })
 export class ComponentsModule { }
