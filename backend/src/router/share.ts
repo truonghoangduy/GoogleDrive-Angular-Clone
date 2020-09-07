@@ -8,53 +8,47 @@ const firestore = admin.firestore();
 import fakeData = require('../../fakeData/temperData')
 import evn = require('../../environment')
 import path = require('path');
+import { isBuffer } from 'util';
 const fieldValue = admin.firestore.FieldValue;
 
 function isEmpty(obj) {
     return Object.keys(obj).length === 0;
 }
 router.post('/', async (res, resp) => {
-    let { sender, receiver, fileURL } = res.body;
+    let { uuid, receiver, fileURL, enable } = res.body;
+    let fileName = fileURL.split('/');
+    fileName = fileName[fileName.length - 1];
 
 
-    let fileUrlExist = await fs.pathExists(evn.environment.warehouse + "/" + fileURL);
     try {
-
-        if (fileUrlExist) {
-            let checkForExistedShare = (await admin.firestore().collection("Share").doc(sender).collection("Receiver").doc(receiver).get()).data();
-            if (isEmpty(checkForExistedShare)) {
-                await admin.firestore().collection("Share").doc(sender)
-                    .collection("Receiver")
-                    .doc(receiver).set({ [fileURL]: fileURL });
-
-            } else {
-                console.log({
-                    [fileURL]: fileURL
-                })
-
-                await admin.firestore().collection("Share").doc(sender)
-                    .collection("Receiver").doc(receiver).set({
-                        [fileURL]: fieldValue.delete()
-                    }, {
-                        merge: true
-                    })
-
-                // await admin.firestore().collection("Share").doc(sender).collection("Receiver").doc(receiver).set({[fileURL]:fileURL},{
-                //     merge:true
-                // })
-
-            }
-            resp.send("File is shared ");
+        let fileUrlExist = await fs.pathExists(evn.environment.warehouse + "/" +uuid+"/"+ fileURL);
+        let uuidExist = await fs.pathExists(evn.environment.warehouse + "/" + uuid);
+        let receiverExist = await fs.pathExists(evn.environment.warehouse + "/" + receiver);
+        if (receiver == uuid) {
+            resp.send("False to shared");
         }
         else {
-            resp.send("File is not available !!!");
+            if (fileUrlExist && uuidExist && receiverExist) {
+                await admin.firestore().collection("share").doc(uuid).collection("sharable").doc(receiver).collection(fileName).doc(fileName).set({ [fileName]: uuid+"/"+fileURL, "permission": enable });
+
+                if (enable == "enable") {
+                    resp.send(fileName + " is shared !!!!");
+                }
+                else if (enable = "disable") {
+                    await admin.firestore().collection("share").doc(uuid).collection("sharable").doc(receiver).collection(fileName).doc(fileName).delete();
+                    resp.send(fileName + " is not for share !!!!");
+                }
+
+            }
+            else {
+                resp.send("Can't share it !!!!!!!!");
+            }
         }
+
+
 
     } catch (e) {
         console.log(e);
     }
-
 })
-
-
 export = router
