@@ -38,6 +38,8 @@ server.use('/browse',require('./router/browse'));
 server.use('/user', require('./router/user'));
 server.use('/share',require('./router/share'));
 server.use('/move', require('./router/move'));
+server.use('/bin', require('./router/bin'));
+server.use('/restore', require('./router/restore'));
 
 
 

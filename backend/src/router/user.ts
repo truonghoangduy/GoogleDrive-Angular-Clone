@@ -3,7 +3,8 @@ import express = require('express');
 
 const router = express.Router();
 import admin = require('firebase-admin');
-const auth = admin.auth()
+const auth = admin.auth();
+import * as checkUser from '../ults/checkAuth';
 
 router.post('/', async (res, reps) =>{
 const input = res.body;
@@ -44,4 +45,8 @@ const input = res.body;
         });
     }
 })
+
+
+
+
 export = router;

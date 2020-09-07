@@ -39,9 +39,6 @@ router.post('/', async (res, resp) => {
                         merge: true
                     })
 
-                // await admin.firestore().collection("Share").doc(sender).collection("Receiver").doc(receiver).set({[fileURL]:fileURL},{
-                //     merge:true
-                // })
 
             }
             resp.send("File is shared ");
