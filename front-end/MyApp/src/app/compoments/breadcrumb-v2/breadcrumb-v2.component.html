@@ -1,0 +1,8 @@
+<div>
+    <span *ngFor = "let item of items;let i = index" >
+        <span *ngIf="i != 0">/</span>
+        <button mat-button *ngIf="i == 0" (click) = "onClickItem(item)">My Drive</button>
+        <!-- {{i}} -->
+        <button *ngIf='i!=0' mat-button (click) = "onClickItem(item)"> {{this.getFolderName(item)}}</button>
+    </span>
+</div>
