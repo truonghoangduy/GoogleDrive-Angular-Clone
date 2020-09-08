@@ -21,6 +21,8 @@ import { DialogSearchComponent } from './dialog-search/dialog-search.component';
 import { Routes, RouterModule } from '@angular/router';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { BreadcrumbV2Component } from './breadcrumb-v2/breadcrumb-v2.component';
+import { ContextMenuComponent } from './context-menu/context-menu.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     BreadcrumbComponent,
     DialogComponent,
     DialogSearchComponent,
+    BreadcrumbV2Component,
+    ContextMenuComponent,
 
 
   ],
@@ -64,6 +68,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ThumbnailComponent,
     FolderComponent,
     BreadcrumbComponent,
+    BreadcrumbV2Component
+
 
   ]
 })

@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import { BreadcrumbService } from '../app/services/breadcrumb/breadcrumb.service';
 
 
 @Component({
@@ -8,4 +9,9 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
   title = 'MyApp';
+
+  constructor(public breadServices:BreadcrumbService){
+
+
+  }
 }

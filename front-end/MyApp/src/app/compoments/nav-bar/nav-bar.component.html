@@ -41,7 +41,8 @@
                 </div>
             </div>
             <div class="col">
-                <app-breadcrumb></app-breadcrumb>
+                <!-- <app-breadcrumb></app-breadcrumb> -->
+                <app-breadcrumb-v2 [items]="breadCrumbServices.fakeData" (clickItem)="breadCrumbServices.removeAt($event)"></app-breadcrumb-v2>
             </div>
         </div>
     </div>

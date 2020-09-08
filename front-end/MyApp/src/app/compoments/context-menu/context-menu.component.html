@@ -1,0 +1,11 @@
+<div style="visibility: hidden; position: fixed" [style.left]="contextMenuPosition.x" [style.top]="contextMenuPosition.y" [matMenuTriggerFor]="contextMenu">
+</div>
+
+<mat-menu #contextMenu="matMenu" #contextMenu2="matMenu">
+    <ng-template matMenuContent let-item="item">
+        <div mat-menu-item [disableRipple]='true'>{{item}}</div>
+        <!-- <div mat-menu-item (click)="onDelete(item.path)"><mat-icon>delete</mat-icon>Delete</div> -->
+        
+        <button mat-menu-item (click)="onContextMenuAction(item)">Action 1</button>
+    </ng-template>
+</mat-menu>

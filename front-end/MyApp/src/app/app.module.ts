@@ -22,7 +22,6 @@ import { from } from 'rxjs';
 @NgModule({
   declarations: [
     AppComponent,
-    
   ],
   imports: [
     BrowserModule,
