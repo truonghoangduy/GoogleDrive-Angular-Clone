@@ -56,8 +56,8 @@ server.use('/move', require('./router/move'));
 //copy file
 server.use('/copy', require('./router/copy'))
 
-
-
+server.use('/info',require('./router/info'));
+server.use('/renderShare',require('./router/renderShare'));
 
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {

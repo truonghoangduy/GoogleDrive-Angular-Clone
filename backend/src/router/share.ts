@@ -30,12 +30,13 @@ router.post('/', async (res, resp) => {
         else {
             if (fileUrlExist && uuidExist && receiverExist) {
                 await admin.firestore().collection("share").doc(uuid).collection("sharable").doc(receiver).collection(fileName).doc(fileName).set({ [fileName]: uuid+"/"+fileURL, "permission": enable });
-
+                await admin.firestore().collection("shareUser").doc(receiver).collection("whoShare").doc(uuid).set({"uuid":uuid});
                 if (enable == "enable") {
                     resp.send(fileName + " is shared !!!!");
                 }
                 else if (enable = "disable") {
                     await admin.firestore().collection("share").doc(uuid).collection("sharable").doc(receiver).collection(fileName).doc(fileName).delete();
+                    await admin.firestore().collection("shareUser").doc(receiver).collection("whoShare").doc(uuid).delete();
                     resp.send(fileName + " is not for share !!!!");
                 }
 
