@@ -20,9 +20,9 @@ router.get("", async (req, res) => {
         try {
 
             // TODO CHECK AUTH
-            var requestedPath = path.join(pathToWareHouse, <string>uuid, <string>requestfile)
+            var requestedPath = path.join(pathToWareHouse,<string>requestfile)
             if (await fileInfo.fileExistFromRoot(requestedPath)) {
-                res.sendFile(requestedPath)
+                res.download(requestedPath)
             } else {
                 res.send("File not exits").status(HTTP_CODE.BAD_REQUEST)
             }
