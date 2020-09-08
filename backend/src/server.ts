@@ -80,7 +80,7 @@ server.use('/move', require('./router/move'));
 server.use('/bin', require('./router/bin'));
 server.use('/restore', require('./router/restore'));
 //copy file
-server.use('/copy', require('./router/copy'))
+server.use('/copy', require('./router/copy'));
 
 server.use('/info',require('./router/info'));
 server.use('/renderShare',require('./router/renderShare'));
