@@ -30,7 +30,16 @@ router.post('/', async (res, resp) => {
         else if (fileUrlExist && uuidExist && receiverExist) {
             let listDoc = await (await admin.firestore().collection("shareUser").doc(receiver).collection("whoShare").get()).docs.map(doc => doc.data());
             console.log(listDoc);
-            resp.send({"massage":"get uuid success"});
+            let sharedPath = []
+            for (let iterator of listDoc) {
+                let path =  (await admin.firestore().collection("share").doc(iterator.uuid).get()).data();
+                sharedPath.push({
+                    key:iterator.uuid,
+                    refPath:path,
+                })
+
+            }
+            resp.send(sharedPath);
 
         }
 
