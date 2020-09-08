@@ -22,6 +22,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { BreadcrumbV2Component } from './breadcrumb-v2/breadcrumb-v2.component';
+import { ContextMenuComponent } from './context-menu/context-menu.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { BreadcrumbV2Component } from './breadcrumb-v2/breadcrumb-v2.component';
     DialogComponent,
     DialogSearchComponent,
     BreadcrumbV2Component,
+    ContextMenuComponent,
 
 
   ],

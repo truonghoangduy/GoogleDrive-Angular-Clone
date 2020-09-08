@@ -6,3 +6,4 @@ export interface File {
     owner: string;
     icon :string;
 }
+// HTTP SERVER FILE INFO 

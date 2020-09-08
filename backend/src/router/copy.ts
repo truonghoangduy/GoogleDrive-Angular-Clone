@@ -4,7 +4,6 @@ import express = require('express');
 import createFile = require('../ults/generateGoblePath')
 const router = express.Router();
 import admin = require('firebase-admin');
-import { VirtualFile } from '../models/file.model';
 const firestore = admin.firestore();
 import fakeData = require('../../fakeData/temperData')
 import evn = require('../../environment')

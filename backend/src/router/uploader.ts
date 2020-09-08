@@ -23,6 +23,7 @@ router.post('/', async (req, res) => {
         let file = <expressFileupload.UploadedFile>req.files[fileKey];
         // let hashName = uuid();
         //ts-ignore
+        
         let fileLocation = uploadDir + file.name;
 
         uploader.writeFileToDir(fileLocation, file.data, uploadDir)
