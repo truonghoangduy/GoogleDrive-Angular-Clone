@@ -61,6 +61,11 @@ export class BreadcrumbService {
     
   }
 
+  async refreshAfterAction(){
+    this.currentViewFolder.next(await this.browseApi.getFolderV2(this.currentPath))
+    // await this.requestPath(this.currentPath);
+  }
+
   async requestPath(path:string){
     let requestValue = await this.browseApi.getFolderV2(path);
     // console.log(this.fakeData.length)
