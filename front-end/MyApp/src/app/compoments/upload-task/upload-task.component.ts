@@ -34,7 +34,7 @@ export class UploadTaskComponent implements OnInit {
   }
 
   async Getdata(){
-    let allDocs =  this.db.collection('files').get().toPromise();
+    let allDocs =  this.db.collection('user').get().toPromise();
     (await allDocs).forEach((value)=>{
       this.listitem.push(value.data())
       console.log(this.listitem)
@@ -43,21 +43,21 @@ export class UploadTaskComponent implements OnInit {
   }// Cho` duoc goi
 
 
-  // async uploadFile(file:File){
-  //   let form = new FormData();
-  //   form.append("uploadDir","admin/abcasd/hola/bello/")
-  //   form.append("file",file);
-  //   var result = new HttpRequest('POST',"http://localhost:3000/upload",form,{
-  //     reportProgress: true,
-  //   });
+  async uploadFile(file:File){
+    let form = new FormData();
+    form.append("uploadDir","admin/1/abc")
+    form.append("file",file);
+    var result = new HttpRequest('POST',"http://localhost:3000/upload",form,{
+      reportProgress: true,
+    });
 
-  //   return await this.http.request(result).toPromise()
+    return await this.http.request(result).toPromise()
     
-  // }
+  }
 
   async startUpload() {
 
-    // await this.uploadFile(this.file)
+    await this.uploadFile(this.file)
     
     // The storage path
     const path = `test/${Date.now()}_${this.file.name}`;
@@ -77,6 +77,8 @@ export class UploadTaskComponent implements OnInit {
       // The file's download URL
       finalize( async() =>  {
         this.downloadURL = await ref.getDownloadURL().toPromise();
+        
+
         await this.db.collection('files').add( { downloadURL: this.downloadURL, path,name,size });
         // this.db.collection('users').doc('files').set({downloadURL: this.downloadURL, path});
         this.Getdata()

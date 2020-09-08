@@ -21,6 +21,7 @@ import { DialogSearchComponent } from './dialog-search/dialog-search.component';
 import { Routes, RouterModule } from '@angular/router';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { BreadcrumbV2Component } from './breadcrumb-v2/breadcrumb-v2.component';
 
 @NgModule({
   declarations: [
@@ -39,14 +40,19 @@ import { ReactiveFormsModule } from '@angular/forms';
     BreadcrumbComponent,
     DialogComponent,
     DialogSearchComponent,
+    BreadcrumbV2Component,
 
 
   ],
   imports: [
     CommonModule,
     UiModule,
+
     RouterModule,
     ReactiveFormsModule
+
+ 
+
   ],
   exports: [
     NavBarComponent,
@@ -59,7 +65,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     UploaderComponent,
     ThumbnailComponent,
     FolderComponent,
-    BreadcrumbComponent
+    BreadcrumbComponent,
+    BreadcrumbV2Component
+
+
   ]
 })
 export class ComponentsModule { }

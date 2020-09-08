@@ -6,32 +6,32 @@ import fs = require('fs-extra');
 const router = express.Router();
 import admin = require('firebase-admin');
 import evn = require('../../environment');
-const path = require('path'); 
+const path = require('path');
 
 
 
-router.post('/',async (res,resp)=>{
-    const {currentDirectory} = res.body;
-    try{
+router.post('/', async (res, resp) => {
+    const { currentDirectory } = res.body;
+    try {
         let current = await fs.readdir(evn.environment.warehouse + "/" + currentDirectory)
         let files = [];
         let folders = [];
-        for(let i = 0; i < current.length; i++){
-            if(current[i].includes('.')){
+        for (let i = 0; i < current.length; i++) {
+            if (current[i].includes('.')) {
                 files.push(current[i]);
-            }else{
+            } else {
                 folders.push(current[i])
-
             }
         }
         resp.send({
+            requestPath:currentDirectory,
             files,
             folders
         })
-    }catch(err){
+    } catch (err) {
         resp.send(err);
     }
-    
+
 })
 
 

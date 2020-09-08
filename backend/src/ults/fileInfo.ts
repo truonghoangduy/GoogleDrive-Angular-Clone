@@ -12,3 +12,15 @@ export async function fileExist(uuidName:string): Promise<boolean>{
         return false;
     }
 }
+
+export async function fileExistFromRoot(uuidName:string): Promise<boolean>{
+
+    try {
+        // to send Dowload path Nodejs require path from root
+        await fs.access(uuidName);
+        return true;
+    } catch (error) {
+        console.log(error)
+        return false;
+    }
+}

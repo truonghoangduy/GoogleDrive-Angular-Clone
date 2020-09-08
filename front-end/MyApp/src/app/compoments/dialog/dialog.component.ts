@@ -10,7 +10,9 @@ import {Folder } from '../../models/folder.model';
   styleUrls: ['./dialog.component.scss']
 })
 export class DialogComponent implements OnInit {
+
   name:string;
+
 
   
   constructor(

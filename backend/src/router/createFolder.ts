@@ -4,7 +4,6 @@ import express = require('express');
 import createFile = require('../ults/generateGoblePath')
 const router = express.Router();
 import admin = require('firebase-admin');
-import { VirtualFile } from '../../models/file.model';
 const firestore = admin.firestore();
 import fakeData = require('../../fakeData/temperData')
 import evn = require('../../environment')
@@ -15,11 +14,11 @@ router.post('/', async (res, resp) => {
 
     try {
         let currentDirectoryExist = await fs.pathExists(evn.environment.warehouse + "/" + currentDirectory);
-        let makeDirectoryExist = await fs.pathExists(evn.environment.warehouse+"/"+ currentDirectory + "/" + makeDirectory);
+        let makeDirectoryExist = await fs.pathExists(evn.environment.warehouse + "/" + currentDirectory + "/" + makeDirectory);
         if (currentDirectoryExist && !makeDirectoryExist) {
 
             await fs.mkdir(evn.environment.warehouse + "/" + currentDirectory + "/" + makeDirectory);
-        } else { 
+        } else {
             resp.send('Folder is already exists !!!');
         }
 

@@ -4,28 +4,27 @@ import express = require('express');
 import createFile = require('../ults/generateGoblePath')
 const router = express.Router();
 import admin = require('firebase-admin');
-import { VirtualFile } from '../../models/file.model';
 const firestore = admin.firestore();
 import fakeData = require('../../fakeData/temperData')
 import evn = require('../../environment')
 import path = require('path');
 
 router.post('/', async (res, resp) => {
-    const { currentDirectory, delDirectory } = res.body;
+    const { uid, source, delDirectory } = res.body;
 
     try {
-        let currentDirectoryExist = await fs.pathExists(evn.environment.warehouse + "/" + currentDirectory);
-        let delDirectoryExist = await fs.pathExists(evn.environment.warehouse + "/" + currentDirectory+"/" +delDirectory);
-        if (currentDirectoryExist && delDirectoryExist) {
+        let sourceExist = await fs.pathExists(evn.environment.warehouse + "/" + uid + "/" + source);
+        let delDirectoryExist = await fs.pathExists(evn.environment.warehouse + "/" + uid + "/" + source + "/" + delDirectory);
+        if (sourceExist && delDirectoryExist) {
 
-            await fs.rmdirSync(evn.environment.warehouse + "/" + currentDirectory + "/" + delDirectory,{ recursive: true });
+            fs.rmdirSync(evn.environment.warehouse + "/" + uid + "/" + source + "/" + delDirectory, { recursive: true });
         } else {
             resp.send('Folder/file is not exist !!!');
         }
     } catch (error) {
         resp.send(error)
     }
-    resp.send("Folder/file " +delDirectory+ " is removed");
+    resp.send("Folder/file " + delDirectory + " is removed");
 })
 
 
