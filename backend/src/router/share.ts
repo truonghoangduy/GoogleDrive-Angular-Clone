@@ -3,7 +3,6 @@ import express = require('express');
 import createFile = require('../ults/generateGoblePath')
 const router = express.Router();
 import admin = require('firebase-admin');
-import { VirtualFile } from '../../models/file.model';
 const firestore = admin.firestore();
 import fakeData = require('../../fakeData/temperData')
 import evn = require('../../environment')
@@ -18,7 +17,6 @@ router.post('/', async (res, resp) => {
     let { uuid, receiver, fileURL, enable } = res.body;
     let fileName = fileURL.split('/');
     fileName = fileName[fileName.length - 1];
-
 
     try {
         let fileUrlExist = await fs.pathExists(evn.environment.warehouse + "/" +uuid+"/"+ fileURL);

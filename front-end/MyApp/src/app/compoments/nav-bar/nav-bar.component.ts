@@ -5,13 +5,17 @@ import { FolderService } from 'src/app/services/folder.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
 import { DialogSearchComponent} from '../dialog-search/dialog-search.component';
+import { BreadcrumbService } from 'src/app/services/breadcrumb/breadcrumb.service';
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent implements OnInit {
-  constructor(public authService:AuthService,public folderService:FolderService,public dialog: MatDialog){}
+  constructor(public authService:AuthService,
+    public folderService:FolderService,
+    public breadCrumbServices:BreadcrumbService,
+    public dialog: MatDialog){}
   screenWidth:number;
   clearIcon = false;
   txtSearch='';
