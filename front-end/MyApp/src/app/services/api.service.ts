@@ -7,7 +7,7 @@ import { BreadcrumbService } from './breadcrumb/breadcrumb.service';
 import {saveFile} from '../ults/dowload-helper';
 const API_BIN = "bin"
 const API_DOWNLOAD = "file"
-
+const API_CREATEFOLDER="createFolder"
 @Injectable({
   providedIn: 'root'
 })
@@ -43,14 +43,27 @@ export class ApiService {
     let listofDefautName = folders.folders.filter(name => name.includes("New Folder"))
   }
 
+  async createFolderD(path:string, name: string){
+try {
+  await this.http.post(environment.endpoint+API_CREATEFOLDER,{
+    currentDirectory: path,
+    makeDirectory: name
+  } ).toPromise()
+} catch (error) {
+  console.log(error)
+}
+  }
+
+
   async dowloadFile(path: string) {
     let index = path.split('/');
     let filename = index[index.length-1]
+    console.log(path)
     try {
       let request = await this.http.get(environment.endpoint + API_DOWNLOAD, {
         responseType: 'blob',
         headers: {
-          uuid: "faking",
+          uuid: "admin",
           requestfile: path,
 
         }

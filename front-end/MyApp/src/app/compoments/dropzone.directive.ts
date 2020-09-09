@@ -10,6 +10,7 @@ export class DropzoneDirective {
 
   @HostListener('drop', ['$event'])
   onDrop($event) {
+    $event.stopPropagation();
     $event.preventDefault();
     this.dropped.emit($event.dataTransfer.files);
     this.hovered.emit(false);
@@ -17,12 +18,16 @@ export class DropzoneDirective {
 
   @HostListener('dragover', ['$event'])
   onDragOver($event) {
+    $event.stopPropagation();
+
     $event.preventDefault();
     this.hovered.emit(true);
   }
 
   @HostListener('dragleave', ['$event'])
   onDragLeave($event) {
+    $event.stopPropagation();
+
     $event.preventDefault();
     this.hovered.emit(false);
   }
