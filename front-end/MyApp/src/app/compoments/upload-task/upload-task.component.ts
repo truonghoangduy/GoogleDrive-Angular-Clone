@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 import { finalize, tap } from 'rxjs/operators';
 import { HttpRequest, HttpClient, HttpEvent, HttpEventType } from '@angular/common/http';
 import { map, last, catchError } from 'rxjs/operators';
+import { BreadcrumbService } from 'src/app/services/breadcrumb/breadcrumb.service';
+import { ApiBrowseService } from 'src/app/services/browse/api-browse.service';
 
 @Component({
   selector: 'upload-task',
@@ -21,9 +23,9 @@ export class UploadTaskComponent implements OnInit {
   snapshot: Observable<any>;
   downloadURL: string;
 
-  constructor(private storage: AngularFireStorage, private db: AngularFirestore,private http: HttpClient) {
+  constructor(private storage: AngularFireStorage, private db: AngularFirestore,private http: HttpClient, private breadcrumbservice:BreadcrumbService,private broweService:ApiBrowseService) {
     
-    this.Getdata();
+    // this.Getdata();
    }
 
   listitem:any=[];
@@ -33,55 +35,59 @@ export class UploadTaskComponent implements OnInit {
 
   }
 
-  async Getdata(){
-    let allDocs =  this.db.collection('files').get().toPromise();
-    (await allDocs).forEach((value)=>{
-      this.listitem.push(value.data())
-      console.log(this.listitem)
-    })    
+  // async Getdata(){
+  //   let allDocs =  this.db.collection('user').get().toPromise();
+  //   (await allDocs).forEach((value)=>{
+  //     this.listitem.push(value.data())
+  //     console.log(this.listitem)
+  //   })    
    
-  }// Cho` duoc goi
+  // }// Cho` duoc goi
 
 
-  // async uploadFile(file:File){
-  //   let form = new FormData();
-  //   form.append("uploadDir","admin/abcasd/hola/bello/")
-  //   form.append("file",file);
-  //   var result = new HttpRequest('POST',"http://localhost:3000/upload",form,{
-  //     reportProgress: true,
-  //   });
-
-  //   return await this.http.request(result).toPromise()
+  async uploadFile(file:File){
+    let form = new FormData();
+    form.append("uploadDir",this.breadcrumbservice.currentPath)
+    form.append("file",file);
+    var result = new HttpRequest('POST',"http://localhost:3000/upload",form,{
+      reportProgress: true,
+    });
     
-  // }
+    
+
+    return await this.http.request(result).toPromise()
+    
+  }
 
   async startUpload() {
 
-    // await this.uploadFile(this.file)
-    
+    await this.uploadFile(this.file)
+    this.breadcrumbservice.refreshAfterAction();
     // The storage path
-    const path = `test/${Date.now()}_${this.file.name}`;
-    const name =`${this.file.name}`;
-    const size =`${this.file.size}`;
+    // const path = `test/${Date.now()}_${this.file.name}`;
+    // const name =`${this.file.name}`;
+    // const size =`${this.file.size}`;
     // Reference to storage bucket
-    const ref = this.storage.ref(path);
+    // const ref = this.storage.ref(path);
 
     // The main task
-    this.task = this.storage.upload(path, this.file);
+    // this.task = this.storage.upload(path, this.file);
 
     // Progress monitoring
-    this.percentage = this.task.percentageChanges();
+    // this.percentage = this.task.percentageChanges();
 
-    this.snapshot   = this.task.snapshotChanges().pipe(
-      tap(console.log),
-      // The file's download URL
-      finalize( async() =>  {
-        this.downloadURL = await ref.getDownloadURL().toPromise();
-        await this.db.collection('files').add( { downloadURL: this.downloadURL, path,name,size });
-        // this.db.collection('users').doc('files').set({downloadURL: this.downloadURL, path});
-        this.Getdata()
-      }),
-    );
+    // this.snapshot   = this.task.snapshotChanges().pipe(
+    //   tap(console.log),
+    //   // The file's download URL
+    //   finalize( async() =>  {
+    //     this.downloadURL = await ref.getDownloadURL().toPromise();
+        
+
+    //     // await this.db.collection('files').add( { downloadURL: this.downloadURL, path,name,size });
+    //     // this.db.collection('users').doc('files').set({downloadURL: this.downloadURL, path});
+    //     // this.Getdata()
+    //   }),
+    // );
   }
 
   isActive(snapshot) {

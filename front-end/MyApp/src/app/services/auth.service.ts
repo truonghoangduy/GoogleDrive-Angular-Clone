@@ -40,7 +40,11 @@ export class AuthService {
     //    'idToken':await this.user.getIdToken()
     //  }
     // }).toPromise()
+<<<<<<< HEAD
     this.router.navigate(["/drive"]);
+=======
+    this.router.navigate(["/drive/"]);
+>>>>>>> 654423c11fd9ecaafc2e30e2d75f418a6501c848
 
   }
   public async loginWithEmail(email: string, password: string) {

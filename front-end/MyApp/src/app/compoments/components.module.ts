@@ -13,7 +13,7 @@ import { DropzoneDirective } from './dropzone.directive';
 import { ThumbnailComponent } from './thumbnail/thumbnail.component';
 import { FolderComponent } from './folder/folder.component';
 
-import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+import {BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { DialogSearchComponent } from './dialog-search/dialog-search.component';
 

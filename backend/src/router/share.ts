@@ -82,7 +82,10 @@ router.post('/', async (res, resp) => {
                             path: fileURL,
 
                         })
-                        await addToReciverShareList(receiver, uuid)
+                        await admin.firestore().collection('user').doc(receiver).set({ 'shareFrom': fieldValue.arrayUnion(uuid) }, {
+                            merge: true,
+                        });
+                        
                         resp.send('OK');
                     } else {
 
@@ -91,12 +94,26 @@ router.post('/', async (res, resp) => {
                         });
                     }
                 } else {
-                    let doc=[];
-                    let sharedFolderFromReciver = await query.docs.map(doc =>doc.id )
-                    for(let i of sharedFolderFromReciver){
-                        (await shareRef.doc(i).delete());
+                    let doc = [];
+                    if (query.empty) {
+                        (await admin.firestore().collection('user').doc(receiver)).delete();
+
+                        let sharedFolderFromReciver = await query.docs.map(doc => doc.id)
+                        for (let i of sharedFolderFromReciver) {
+
+                            (await shareRef.doc(i).delete());
+                        }
+                        resp.send("delete successful all");
                     }
-                    resp.send("delete successful");
+                    else{
+                        let sharedFolderFromReciver = await query.docs.map(doc => doc.id)
+                        for (let i of sharedFolderFromReciver) {
+
+                            (await shareRef.doc(i).delete());
+                        }
+                        resp.send("delete successful");
+                    }
+
                 }
 
             }

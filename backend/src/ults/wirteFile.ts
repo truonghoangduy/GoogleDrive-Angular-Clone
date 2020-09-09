@@ -1,7 +1,7 @@
 import fs = require('fs-extra')
 import evn = require('../../environment')
 import { FileUploadState } from '../models/fileState.model';
-import * as thumbnail from '../ults/thumbnail/generateThumb';
+// import * as thumbnail from '../ults/thumbnail/generateThumb';
 import path = require('path')
 const pathToWareHouse = path.join(__dirname, "..", "..", "warehouse")
 
