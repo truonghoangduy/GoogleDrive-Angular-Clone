@@ -25,14 +25,18 @@ export async function generateThumbnail(path:string){
     let thumbnailPath = await generatethumbnailPath(path);
     let getFristPic = "";
     let pdfFlag = false
-    let fileExtension = (/\.(gif|jpe?g|tiff?|png|webp|bmp|pdf)$/i).exec(thumbnailPath);
-    if (fileExtension[1].includes("pdf")) {
+    let fileExtension = (/\.(gif|jpe?g|tiff?|png|webp|bmp|pdf|txt)$/i).exec(thumbnailPath);
+    if (fileExtension[1].includes("pdf") ||fileExtension[1].includes("text") ) {
         getFristPic="[0]"
         pdfFlag = true
     }
-    gm(path+getFristPic).resize(500,500).write(pdfFlag?thumbnailPath+".png":thumbnailPath,function (err) {
+    gm(path+getFristPic).resize(500,500).write(thumbnailPath+".png",function (err) {
         if (!err) {console.log('done')};
       }
     );
+    // gm(path+getFristPic).resize(500,500).write(pdfFlag?thumbnailPath+".png":thumbnailPath,function (err) {
+    //     if (!err) {console.log('done')};
+    //   }
+    // );
 }
 

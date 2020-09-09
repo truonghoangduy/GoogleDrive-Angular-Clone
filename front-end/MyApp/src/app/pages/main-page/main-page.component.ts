@@ -24,7 +24,7 @@ export class MainPageComponent implements OnInit {
       console.log("Change"),
         console.log(data)
       this.files = [...data.files],
-        this.folders = [...data.folders]
+      this.folders = [...data.folders]
     })
   }
 

@@ -35,11 +35,11 @@ export class AuthService {
     await this.Auth.signInWithPopup(provider).then(data => this.user = data.user)
 
 
-    await this.client.post(environment.endpoint+"user/checkauth",{},{
-     "headers":{
-       'idToken':await this.user.getIdToken()
-     }
-    }).toPromise()
+    // await this.client.post(environment.endpoint+"user/checkauth",{},{
+    //  "headers":{
+    //    'idToken':await this.user.getIdToken()
+    //  }
+    // }).toPromise()
     this.router.navigate(["/drive"]);
 
   }

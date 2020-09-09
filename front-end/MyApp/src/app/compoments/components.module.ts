@@ -23,6 +23,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BreadcrumbV2Component } from './breadcrumb-v2/breadcrumb-v2.component';
 import { ContextMenuComponent } from './context-menu/context-menu.component';
+import { LazyloadthumbnailDirective } from '../directives/lazyloadthumbnail/lazyloadthumbnail.directive';
+import { PreviewDialogComponent } from './preview-dialog/preview-dialog.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,9 @@ import { ContextMenuComponent } from './context-menu/context-menu.component';
     DialogSearchComponent,
     BreadcrumbV2Component,
     ContextMenuComponent,
+    LazyloadthumbnailDirective,
+    PreviewDialogComponent,
+
 
 
   ],
@@ -68,7 +73,9 @@ import { ContextMenuComponent } from './context-menu/context-menu.component';
     ThumbnailComponent,
     FolderComponent,
     BreadcrumbComponent,
-    BreadcrumbV2Component
+    BreadcrumbV2Component,
+    LazyloadthumbnailDirective,
+
 
 
   ]
