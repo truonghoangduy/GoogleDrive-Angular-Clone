@@ -33,6 +33,6 @@ export class DriveComponent implements OnInit {
 
   ngOnInit(): void {
     this.getScreenSize(); 
- 
+    this.router.navigate(['drive', 'main-page']);
   }
 }
