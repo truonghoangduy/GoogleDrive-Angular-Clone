@@ -35,12 +35,12 @@ export class AuthService {
     await this.Auth.signInWithPopup(provider).then(data => this.user = data.user)
 
 
-    await this.client.post(environment.endpoint+"user/checkauth",{},{
-     "headers":{
-       'idToken':await this.user.getIdToken()
-     }
-    }).toPromise()
-    this.router.navigate(["/drive"]);
+    // await this.client.post(environment.endpoint+"user/checkauth",{},{
+    //  "headers":{
+    //    'idToken':await this.user.getIdToken()
+    //  }
+    // }).toPromise()
+    this.router.navigate(["/drive/"]);
 
   }
   public async loginWithEmail(email: string, password: string) {
