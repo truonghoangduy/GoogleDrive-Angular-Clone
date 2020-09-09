@@ -7,6 +7,9 @@ const firestore = admin.firestore();
 import fakeData = require('../../fakeData/temperData')
 import uploader = require('../ults/wirteFile');
 import generateFile = require('../ults/generateGoblePath');
+
+import path = require('path');
+
 router.use(expressFileupload({
     limits: { fileSize: 50 * 1024 * 1024 },
     useTempFiles:false,
@@ -23,7 +26,7 @@ router.post('/', async (req, res) => {
         // let hashName = uuid();
         //ts-ignore
         
-        let fileLocation = uploadDir + file.name;
+        let fileLocation = path.join(uploadDir,file.name);
 
         uploader.writeFileToDir(fileLocation, file.data, uploadDir)
 

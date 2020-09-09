@@ -3,10 +3,10 @@
     <p>What's your favorite animal?</p>
     <mat-form-field>
         <mat-label>Folder name</mat-label>
-        <input matInput [(ngModel)]="name">
+        <input matInput [(ngModel)]="name">{{name}}
     </mat-form-field>
 </div>
 <div>
     <button style="outline: none;" mat-button mat-dialog-close>Cancel</button>
-    <button style="outline: none;" mat-button mat-dialog-close mat-button (click)="folderService.newFolder(name)">OK</button>
+    <button style="outline: none;" mat-button mat-dialog-close mat-button (click)="CreateFolder(this.breadcrumbService.currentPath,name)">OK</button>
 </div>

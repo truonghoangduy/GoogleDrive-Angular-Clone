@@ -1,11 +1,10 @@
-<div class="container">
+<div class="container" style="position: relative;">
+    <uploader></uploader>
     <p *ngIf="this.folders.length != 0">Folder</p>
     <div class="row">
         <div class="col" *ngIf="this.folders.length != 0">
-            <app-folder *ngFor="let folder of this.folders" 
-            [folders]=folder 
-            (contextmenu)="onContextMenu($event, folder)"
-            (click)="onFolderClick(folder)"></app-folder>
+
+            <app-folder *ngFor="let folder of this.folders" [folders]=folder (contextmenu)="onContextMenu($event, folder)" (click)="onFolderClick(folder)" style="cursor: pointer;"></app-folder>
             <!-- <app-folder *ngFor="let item of this.folerService.folderBD" [name]="item.name"></app-folder> -->
         </div>
     </div>
@@ -35,13 +34,18 @@
 </div>
 
 <mat-menu #contextMenu="matMenu" #contextMenu2="matMenu">
-    <ng-template matMenuContent let-item="item" >
+    <ng-template matMenuContent let-item="item">
         <div mat-menu-item [disableRipple]='true'>{{item.name}}</div>
-        <div mat-menu-item><mat-icon>share</mat-icon>Share</div>
+        <div mat-menu-item>
+            <mat-icon>share</mat-icon>Share</div>
 
-        <div mat-menu-item (click)='onDowload(item.path)'><mat-icon>get_app</mat-icon>Dowload</div>
-        <div mat-menu-item (click)="onDelete(item.path)"><mat-icon>delete</mat-icon>Delete</div>
-
+        <div mat-menu-item (click)='onDowload(item.path)'>
+            <mat-icon>get_app</mat-icon>Dowload</div>
+        <div mat-menu-item (click)="onDelete(item.path)">
+            <mat-icon>delete</mat-icon>Delete</div>
+        <div mat-menu-item>
+            <mat-icon>content_copy</mat-icon>Make a copy
+        </div>
         <button mat-menu-item (click)="onContextMenuAction(item)">Action 1</button>
     </ng-template>
 </mat-menu>
