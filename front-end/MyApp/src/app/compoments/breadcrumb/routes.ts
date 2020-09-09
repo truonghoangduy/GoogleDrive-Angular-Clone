@@ -3,8 +3,8 @@
 export const path= [{path:'main-page'},{path:'folder-format'}];
 export const dashboard = '/drive/'+path[0].path;
 export const home = dashboard;
-export const folder = '/drive/'+ path[1].path;
-export const clients = home + '/clients';
+// export const folder = '/drive/'+ path[1].path;
+export const folders = '/drive/'+ path[1].path;
 
 /* ------------------------------------------------------------------- */
 /*                          Routes for nav
@@ -13,13 +13,13 @@ export const clients = home + '/clients';
 const routes = [
   { link: home, title: 'Home'},
   {
-    link: clients,
-    title: 'Clients',
+    link: folders ,
+    title: 'Folder1',
     children: [
-      { link: clients + '/settings', title: 'Clients Settings' },
-      { link: clients + '/:id', title: 'Client - ' },
+      { link: folders  + '/settings', title: 'Clients Settings' },
+      { link: folders  + '/:id', title: 'Client - ' },
   ] },
-  { link: folder, title: 'Folder1' },
+  // { link: folder, title: 'Folder1' },
 ];
 
 /* ------------------------------------------------------------------- */

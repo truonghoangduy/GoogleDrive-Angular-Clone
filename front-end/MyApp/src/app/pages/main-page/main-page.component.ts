@@ -10,6 +10,7 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent implements OnInit {
+  clients="/drive/folder-format"
   // db :Array<Folder>=[];
   @ViewChild(MatMenuTrigger) contextMenu: MatMenuTrigger;
 
