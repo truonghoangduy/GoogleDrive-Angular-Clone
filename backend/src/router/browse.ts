@@ -13,21 +13,31 @@ const path = require('path');
 router.post('/', async (res, resp) => {
     const { currentDirectory } = res.body;
     try {
-        let current = await fs.readdir(evn.environment.warehouse + "/" + currentDirectory)
+        let currentPath = await path.join(evn.environment.warehouse, currentDirectory)
+        let current = await fs.readdir(currentPath)
         let files = [];
         let folders = [];
-        for (let i = 0; i < current.length; i++) {
-            if (current[i].includes('.')) {
-                files.push(current[i]);
-            } else {
-                folders.push(current[i])
+        
+        if(currentPath){
+            for (let i = 0; i < current.length; i++) {
+                if(current[i] != '.thumbnail'){
+                    let isPath = await path.join(currentPath, current[i]);
+                    let isType = await fs.statSync(isPath);
+                    if (isType.isFile()) {
+                        files.push(current[i]);
+                    }else if(isType.isDirectory()){
+                        folders.push(current[i])
+                    }
+                }
             }
-        }
-        resp.send({
-            requestPath:currentDirectory,
-            files,
-            folders
-        })
+            resp.send({
+                requestPath:currentDirectory,
+                files,
+                folders
+            })
+        }else{
+            resp.send("Folder/File does not exist.")
+        }     
     } catch (err) {
         resp.send(err);
     }
@@ -37,25 +47,37 @@ router.post('/', async (res, resp) => {
 router.post('/browse/share', async (res, resp) => {
     const { currentDirectory } = res.body;
     try {
-        let current = await fs.readdir(evn.environment.warehouse + "/" + currentDirectory)
+        let currentPath = await path.join(evn.environment.warehouse, currentDirectory)
+        let current = await fs.readdir(currentPath)
         let files = [];
         let folders = [];
-        for (let i = 0; i < current.length; i++) {
-            if (current[i].includes('.')) {
-                files.push(current[i]);
-            } else {
-                folders.push(current[i])
+
+        // let fileShare = await 
+        
+        if(currentPath){
+            for (let i = 0; i < current.length; i++) {
+                if(current[i] != '.thumbnail'){
+                    let isPath = await path.join(currentPath, current[i]);
+                    let isType = await fs.statSync(isPath);
+                    if (isType.isFile()) {
+                        files.push(current[i]);
+                    }else if(isType.isDirectory()){
+                        folders.push(current[i])
+                    }
+                }  
             }
+            resp.send({
+                requestPath:currentDirectory,
+                files,
+                folders
+            })
+        }else{
+            resp.send("Folder/File does not exist.")
         }
-        resp.send({
-            requestPath:currentDirectory,
-            files,
-            folders
-        })
+
     } catch (err) {
         resp.send(err);
     }
-
 })
 
 

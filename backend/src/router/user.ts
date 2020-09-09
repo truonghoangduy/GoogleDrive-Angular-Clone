@@ -19,7 +19,7 @@ router.post('/', async (res, reps) => {
             })
         } else {
 
-            let doc =  admin.firestore().collection('User').doc(input.email);
+            let doc =  admin.firestore().collection('user').doc(input.email);
             if ((await (doc.get())).exists) {
                 reps.send({
                     message: input.email + " is already existed.",
