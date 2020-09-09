@@ -14,8 +14,41 @@ function isEmpty(obj) {
     return Object.keys(obj).length === 0;
 }
 
-router.post('/', async (res, resp) => {
+router.post('/test', async (res, resp) => {
     let { receiver } = res.body;
+    try {
+       
+        let receiverExist = await fs.pathExists(evn.environment.warehouse + "/" + receiver);
+        
+
+        if (receiverExist) {
+            let listDoc = await (await admin.firestore().collection("shareUser").doc(receiver).collection("whoShare").get()).docs.map(doc => doc.id);
+            console.log(listDoc);
+            let sharedPath = []
+            for (let iterator of listDoc) {
+                let File = await (await admin.firestore().collection("share").doc(iterator).collection("sharable").doc(receiver).listCollections()).map(doc => doc.id);
+                sharedPath.push(File);
+            }
+            console.log(sharedPath);
+            let doc = [];
+            for (let j = 0; j < listDoc.length; j++) {
+                for (let i = 0; i < sharedPath[j].length; i++) {
+                    let path = await admin.firestore().collection("share").doc(listDoc[j]).collection("sharable").doc(receiver).collection(sharedPath[j][i]).doc(sharedPath[j][i]).get();
+                        let test = path.data();
+                        console.log(test);
+                        doc.push(test);
+                }
+            }
+            console.log(doc);
+            resp.send(doc);
+        }
+    } catch (e) {
+        console.log(e);
+    }
+})
+
+router.post('/', async (req, res) => {
+    let { receiver } = req.body;
     // let fileName = fileURL.split('/');
     // fileName = fileName[fileName.length - 1];
 
@@ -26,34 +59,24 @@ router.post('/', async (res, resp) => {
         // if (receiver == this.uuid) {
         //     resp.send("False to shared");
         // }
-
+        let responeData = [];
         if (receiverExist) {
-            let listDoc = await (await admin.firestore().collection("shareUser").doc(receiver).collection("whoShare").get()).docs.map(doc => doc.id);
-            // let doc=listDoc.find(p=>p.uuid===uuid);
-            console.log(listDoc);
-            let sharedPath = []
-            for (let iterator of listDoc) {
-                let File = await (await admin.firestore().collection("share").doc(iterator).collection("sharable").doc(receiver).listCollections()).map(doc => doc.id);
+            let shareFromList:Array<string> = (await admin.firestore().collection('user').doc(receiver).get()).get('shareFrom')
+            for (let shareSender of shareFromList) {
+                let shareRef = ( await admin.firestore().collection('share').doc(shareSender).collection('sharable').doc(receiver).collection('shared').get())
+                let sharedFolderFromReciver = shareRef.docs.map(doc=>{
+                    return {
+                        ...doc.data(),
+                        id:doc.id
+                    }
+                })
 
-                sharedPath.push(File);
-
+                responeData.push(...sharedFolderFromReciver)
             }
-            console.log(sharedPath);
-            let doc = [];
-
             
-                // for (let j = 0; j < listDoc.length;) {
-                //     for (let i = 0; i < sharedPath.length; i++) {
-                //         let path = await admin.firestore().collection("share").doc(listDoc[j]).collection("sharable").doc(receiver).collection(sharedPath[i][j]).doc(sharedPath[i][j]);
 
-                //         doc.push(path);
-                //     }
-                //     j++;
-                // }
-                // console.log(doc);
-            
-            resp.send(doc);
         }
+        res.send(responeData)
 
 
 
