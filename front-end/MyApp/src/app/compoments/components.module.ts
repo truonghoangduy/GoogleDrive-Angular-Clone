@@ -24,6 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BreadcrumbV2Component } from './breadcrumb-v2/breadcrumb-v2.component';
 import { ContextMenuComponent } from './context-menu/context-menu.component';
 import { DialogshareComponent } from './dialogshare/dialogshare.component';
+import { DialogrenameComponent } from './dialogrename/dialogrename.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { DialogshareComponent } from './dialogshare/dialogshare.component';
     BreadcrumbV2Component,
     ContextMenuComponent,
     DialogshareComponent,
+    DialogrenameComponent,
 
 
   ],

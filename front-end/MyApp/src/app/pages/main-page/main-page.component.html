@@ -57,6 +57,9 @@
             Share
 
         </div>
+        <div mat-menu-item (click)="onOpenDialogRename()" *ngIf="item.name != null">
+            Rename
+        </div>
 
         <div mat-menu-item (click)='onDowload(item.path)' *ngIf="item.name != null">
             <mat-icon>get_app</mat-icon>Dowload
