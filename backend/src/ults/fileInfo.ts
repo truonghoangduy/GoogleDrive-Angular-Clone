@@ -13,6 +13,19 @@ export async function fileExist(uuidName:string): Promise<boolean>{
     }
 }
 
+export function fileSize(stat:number){
+    let size = '';
+    if (stat / 1024 / 1024 >= 1) {
+        size = Math.round(stat / 1024 / 1024 * 100) / 100 + ' MB';
+    } else if (stat / 1024 >= 1) {
+        size = Math.round(stat / 1024 * 100) / 100 + ' KB';
+    } else if (stat >= 0) {
+        size = Math.round(stat * 100) / 100 + ' Byte';
+    }
+    return size
+    
+}
+
 export async function fileExistFromRoot(uuidName:string): Promise<boolean>{
 
     try {

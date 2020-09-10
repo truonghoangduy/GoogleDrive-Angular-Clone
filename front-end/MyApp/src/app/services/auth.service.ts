@@ -14,7 +14,7 @@ export class AuthService {
   public idToken: string;
   public uid: string;
   public user: firebase.User = null;
-  constructor(public Auth: AngularFireAuth, public router: Router, private api: ApiService, private client: HttpClient) { }
+  constructor(public Auth: AngularFireAuth, public router: Router, private client: HttpClient) { }
 
 
 
@@ -29,17 +29,18 @@ export class AuthService {
       this.user = user;
     })
   }
-
+  username = '';
   public async loginGoogle() {
     let provider = new firebase.auth.GoogleAuthProvider();
-    await this.Auth.signInWithPopup(provider).then(data => this.user = data.user)
+    await this.Auth.signInWithPopup(provider).then(data => {this.user = data.user;
+    this.username=data.user.email})
 
-
-    await this.client.post(environment.endpoint+"user/checkauth",{},{
-     "headers":{
-       'idToken':await this.user.getIdToken()
-     }
-    }).toPromise()
+    console.log(await this.client.post(environment.endpoint+'user/googleUser',this.username).toPromise())
+    // await this.client.post(environment.endpoint+"user/checkauth",{},{
+    //  "headers":{
+    //    'idToken':await this.user.getIdToken()
+    //  }
+    // }).toPromise()
     this.router.navigate(["/drive"]);
 
   }

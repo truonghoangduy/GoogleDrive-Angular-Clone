@@ -32,7 +32,9 @@ export class DriveComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getScreenSize(); 
+    this.getScreenSize();
+    // this.router.navigate(['drive','main-page'])
+    this.router.navigate(['drive',"share-page"])
  
   }
 }

@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class FolderComponent implements OnInit {
 
   @Input() folders;
-
+  @Input() numberOfModify:number;
   constructor() { }
   ngOnInit(): void {
   }

@@ -1,0 +1,18 @@
+<div mat-dialog-content>
+    <p>Who are you one to share ???</p>
+    <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput [(ngModel)]="this.receiver">
+    </mat-form-field>
+</div>
+<div>
+    <mat-dialog-actions>
+        <button style="outline: none;" mat-button mat-dialog-close>Cancel</button>
+
+        <button type="submit" style="outline: none;" mat-button mat-dialog-close mat-button
+            (click)="onDisShare()">Delete Share</button>
+        <button type="submit" style="outline: none;" mat-button mat-dialog-close mat-button
+            (click)="onShare()">Share</button>
+    </mat-dialog-actions>
+
+</div>

@@ -4,6 +4,7 @@ import {environment} from '../../../environments/environment';
 import { ViewCurrentFolder } from "../../models/view.model";
 import { map } from 'rxjs/operators';
 const BROWSE_ENDPOINT = 'browse';
+const API_GET_SHARE_LIST ='renderShare'
 
 @Injectable({
   providedIn: 'root'
@@ -34,4 +35,12 @@ export class ApiBrowseService {
       currentDirectory:moveto,
     }).toPromise()
   }
+  async getFolderForShareList(pathToShare:string,pathOwner,acesstor){
+    return await this.http.post<ViewCurrentFolder>(environment.endpoint + BROWSE_ENDPOINT,{
+      pathUUID:pathToShare,
+      owner:pathOwner,
+      shareUUID:acesstor
+    }).toPromise()
+  }
+
 }

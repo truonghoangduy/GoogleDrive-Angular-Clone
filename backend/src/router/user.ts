@@ -13,13 +13,13 @@ router.post('/', async (res, reps) => {
             reps.send({
                 message: "Please fill in all the information",
             })
-        } else if (input.password == "" || input.password.length < 7) {
+        } else if (input.password == "" || input.password.length < 7 || input.password != input.retypepassword) {
             reps.send({
                 message: "Incorrect",
             })
         } else {
 
-            let doc =  admin.firestore().collection('User').doc(input.email);
+            let doc =  admin.firestore().collection('user').doc(input.email);
             if ((await (doc.get())).exists) {
                 reps.send({
                     message: input.email + " is already existed.",
@@ -39,6 +39,21 @@ router.post('/', async (res, reps) => {
                 })
             }
         }
+    } catch (e) {
+        reps.send({
+            message: input.email + " is created failed."
+        });
+    }
+})
+
+
+router.post('/googleUser', async (res, reps) => {
+    const input = res.body;
+    try {
+        let doc =  admin.firestore().collection('user').doc(input);
+        reps.send({
+            message: input.email + " is added."
+        });
     } catch (e) {
         reps.send({
             message: input.email + " is created failed."

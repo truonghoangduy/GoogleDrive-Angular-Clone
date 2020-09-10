@@ -10,7 +10,7 @@
         </li>
 
         <li *ngIf="i === crumbs.length - 1" class="Crumbs-Link Crumbs-Link_current">
-            <a [routerLink]="item.link">  {{ item.title }}</a>
+            {{ item.title }}
         </li>
     </ng-container>
 </ul>

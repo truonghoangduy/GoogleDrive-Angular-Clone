@@ -13,7 +13,7 @@ import { DropzoneDirective } from './dropzone.directive';
 import { ThumbnailComponent } from './thumbnail/thumbnail.component';
 import { FolderComponent } from './folder/folder.component';
 
-import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+import {BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { DialogSearchComponent } from './dialog-search/dialog-search.component';
 
@@ -22,6 +22,11 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { BreadcrumbV2Component } from './breadcrumb-v2/breadcrumb-v2.component';
+import { ContextMenuComponent } from './context-menu/context-menu.component';
+import { LazyloadthumbnailDirective } from '../directives/lazyloadthumbnail/lazyloadthumbnail.directive';
+import { PreviewDialogComponent } from './preview-dialog/preview-dialog.component';
+import { RestoreDialogComponent } from './restore-dialog/restore-dialog.component';
+import { DialogshareComponent } from './dialogshare/dialogshare.component';
 
 @NgModule({
   declarations: [
@@ -41,15 +46,21 @@ import { BreadcrumbV2Component } from './breadcrumb-v2/breadcrumb-v2.component';
     DialogComponent,
     DialogSearchComponent,
     BreadcrumbV2Component,
+    ContextMenuComponent,
+    LazyloadthumbnailDirective,
+    PreviewDialogComponent,
+    // RestoreDialogComponent,
+
+    DialogshareComponent,
 
 
   ],
   imports: [
     CommonModule,
+    RouterModule,
+    ReactiveFormsModule,
     UiModule,
 
-    RouterModule,
-    ReactiveFormsModule
 
  
 
@@ -66,9 +77,14 @@ import { BreadcrumbV2Component } from './breadcrumb-v2/breadcrumb-v2.component';
     ThumbnailComponent,
     FolderComponent,
     BreadcrumbComponent,
-    BreadcrumbV2Component
+    BreadcrumbV2Component,
+    LazyloadthumbnailDirective,
+    // RestoreDialogComponent
+    
 
 
-  ]
+
+  ],
+  // entryComponents:[RestoreDialogComponent]
 })
 export class ComponentsModule { }
