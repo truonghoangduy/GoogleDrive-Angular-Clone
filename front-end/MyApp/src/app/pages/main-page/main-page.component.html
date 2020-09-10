@@ -53,8 +53,9 @@
 <mat-menu #contextMenu="matMenu" #contextMenu2="matMenu">
     <ng-template matMenuContent let-item="item">
         <div mat-menu-item [disableRipple]='true' *ngIf="item.name != null">{{item.name}}</div>
-        <div mat-menu-item *ngIf="item.name != null">
-            <mat-icon>share</mat-icon>Share
+        <div mat-menu-item (click)="onOpenDialogShare()" *ngIf="item.name != null">
+            Share
+
         </div>
 
         <div mat-menu-item (click)='onDowload(item.path)' *ngIf="item.name != null">

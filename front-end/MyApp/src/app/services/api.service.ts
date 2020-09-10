@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment'
 import { ApiBrowseService } from './browse/api-browse.service';
 import { BreadcrumbService } from './breadcrumb/breadcrumb.service';
-import {saveFile} from '../ults/dowload-helper';
+import { saveFile } from '../ults/dowload-helper';
 import { AuthService } from './auth.service';
 import { auth } from 'firebase';
 const API_BIN = "bin"
@@ -21,7 +21,7 @@ export class ApiService {
   constructor(public router: ActivatedRoute, private http: HttpClient,
     private browseServies: ApiBrowseService,
     private breadCrumServoces: BreadcrumbService,
-    private authServices:AuthService
+    private authServices: AuthService
   ) {
     this.router.data.subscribe((route) => {
       route
@@ -58,26 +58,26 @@ export class ApiService {
     let listofDefautName = folders.folders.filter(name => name.includes("New Folder"))
   }
 
-  async move(url:string,des:string){
-    return  await this.http.post(environment.endpoint+"move",{
+  async move(url: string, des: string) {
+    return await this.http.post(environment.endpoint + "move", {
       "uid": this.authServices.user.email,
-    "source":url ,
-    "destination":des
+      "source": url,
+      "destination": des
     }).toPromise();
-    
+
   }
-  async copy(url:string,des:string){
-    return  await this.http.post(environment.endpoint+"copy",{
+  async copy(url: string, des: string) {
+    return await this.http.post(environment.endpoint + "copy", {
       "uid": this.authServices.user.email,
-    "source":url ,
-    "destination":des
+      "source": url,
+      "destination": des
     }).toPromise();
-    
+
   }
 
   async dowloadFile(path: string) {
     let index = path.split('/');
-    let filename = index[index.length-1]
+    let filename = index[index.length - 1]
     console.log(path)
     try {
       let request = await this.http.get(environment.endpoint + API_DOWNLOAD, {
@@ -89,11 +89,25 @@ export class ApiService {
         }
       }).toPromise()
       console.log(filename)
-      saveFile(request,filename)
+      saveFile(request, filename)
       console.log(request);
     } catch (error) {
 
     }
+  }
+  async share(receiver: string, path: string, enable: string) {
+    await this.http.post(environment.endpoint + "share", {
+      "uuid": this.authServices.user.email,
+      "receiver": receiver,
+      "fileURL": path,
+      "enable": enable,
+    }).toPromise();
+
+  }
+  async fileInfo(path: string) {
+    await this.http.post(environment.endpoint + "info", {
+      "source": path,
+    }).toPromise();
   }
 
   async removeFolder(path: string) {
@@ -120,7 +134,7 @@ export class ApiService {
 
   }
 
-  async copyFile(path: string){
+  async copyFile(path: string) {
     try {
       let res = await this.http.post(environment.endpoint + API_COPY, {
         source: path
