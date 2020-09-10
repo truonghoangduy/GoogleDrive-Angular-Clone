@@ -23,12 +23,13 @@ export class MainPageComponent implements OnInit {
     public apiServices:ApiService,
     private authServices:AuthService,
     public breadCrumbServices: BreadcrumbService) {
-    this.breadCrumbServices.currentViewFolder.subscribe((data) => {
-      console.log("Change"),
-        console.log(data)
-      this.files = [...data.files],
-        this.folders = [...data.folders]
-    })
+        this.breadCrumbServices.currentViewFolder.subscribe((data) => {
+          console.log("Change"),
+            console.log(data)
+          this.files = [...data.files],
+            this.folders = [...data.folders]
+        })
+    
   }
 
   screenWidth: number;

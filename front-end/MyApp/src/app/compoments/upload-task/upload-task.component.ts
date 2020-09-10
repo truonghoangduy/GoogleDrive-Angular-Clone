@@ -53,8 +53,6 @@ export class UploadTaskComponent implements OnInit {
       reportProgress: true,
     });
     
-    
-
     return await this.http.request(result).toPromise()
     
   }

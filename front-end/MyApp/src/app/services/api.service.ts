@@ -8,7 +8,7 @@ import {saveFile} from '../ults/dowload-helper';
 import { AuthService } from './auth.service';
 const API_BIN = "bin"
 const API_DOWNLOAD = "file"
-const API_CREATEFOLDER="createFolder"
+
 @Injectable({
   providedIn: 'root'
 })
@@ -56,16 +56,7 @@ export class ApiService {
     let listofDefautName = folders.folders.filter(name => name.includes("New Folder"))
   }
 
-  async createFolderD(path:string, name: string){
-try {
-  await this.http.post(environment.endpoint+API_CREATEFOLDER,{
-    currentDirectory: path,
-    makeDirectory: name
-  } ).toPromise()
-} catch (error) {
-  console.log(error)
-}
-  }
+  
 
 
   async dowloadFile(path: string) {
