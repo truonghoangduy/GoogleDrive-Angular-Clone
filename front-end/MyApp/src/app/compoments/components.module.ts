@@ -27,6 +27,7 @@ import { LazyloadthumbnailDirective } from '../directives/lazyloadthumbnail/lazy
 import { PreviewDialogComponent } from './preview-dialog/preview-dialog.component';
 import { RestoreDialogComponent } from './restore-dialog/restore-dialog.component';
 import { DialogshareComponent } from './dialogshare/dialogshare.component';
+import { DialogrenameComponent } from './dialogrename/dialogrename.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { DialogshareComponent } from './dialogshare/dialogshare.component';
     // RestoreDialogComponent,
 
     DialogshareComponent,
+    DialogrenameComponent,
 
 
   ],

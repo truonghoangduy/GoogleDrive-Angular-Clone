@@ -81,6 +81,13 @@ export class ApiService {
     }).toPromise();
 
   }
+  async rename(oname:string,nname:string){
+   await this.http.post(environment.endpoint + "rename", {
+      "uid":this.authServices.user.email,
+      "oldname":oname,
+      "newname":nname,
+    }).toPromise();
+  }
 
   async dowloadFile(path: string) {
     let index = path.split('/');

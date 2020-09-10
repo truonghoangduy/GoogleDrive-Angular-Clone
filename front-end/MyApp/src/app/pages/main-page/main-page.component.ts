@@ -7,7 +7,8 @@ import { ApiService } from 'src/app/services/api.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogshareComponent } from '../../compoments/dialogshare/dialogshare.component';
-import { DialogComponent } from 'src/app/compoments/dialog/dialog.component';
+import { DialogrenameComponent } from 'src/app/compoments/dialogrename/dialogrename.component';
+
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
@@ -81,6 +82,9 @@ export class MainPageComponent implements OnInit {
 
   onOpenDialogShare(){
     this.dialog.open(DialogshareComponent);
+  }
+  onOpenDialogRename(){
+    this.dialog.open(DialogrenameComponent);
   }
 
   onFolderClick(folderName: string) {
