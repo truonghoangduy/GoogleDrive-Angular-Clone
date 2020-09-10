@@ -3,29 +3,13 @@
 import express = require('express');
 import createFile = require('../ults/generateGoblePath')
 import fs = require('fs-extra');
-const router = express.Router();
 import admin = require('firebase-admin');
 import evn = require('../../environment');
 import path = require('path');
+const router = express.Router();
 
 import { ShareInfo, ShareOperation } from '../models/share.model'
-
-async function findPath(userOwner: string, uuidFolderPath: string, receiver: string): Promise<ShareOperation> {
-    let queryRef = await admin.firestore().collection('share').doc(userOwner).collection('sharable').doc(receiver).collection('shared').doc(uuidFolderPath)
-    let query = await queryRef.get();
-    if (query.exists) {
-        let queryData = <ShareInfo>query.data();
-        await queryRef.delete()
-        return {
-            pathOfShare: queryData.path,
-            ownerId: queryData.id
-        };
-    } else {
-        return null
-    }
-}
-
-
+import { HTTP_CODE } from '../models/HTTPCODE';
 
 router.post('/', async (res, resp) => {
     const { currentDirectory } = res.body;
@@ -65,11 +49,22 @@ router.post('/share', async (res, resp) => {
     let { pathUUID, owner, sharedUUID } = res.body;
     let files = [];
     let folders = [];
+    let currentHead = (<string>pathUUID).split("/")[0]
+    let continousPath = false;
+    let lastIndex = (<string>pathUUID).split("/");
+    if (lastIndex.length > 0) {
+        continousPath = true
+    }
 
     try {
-        let pathtoOwnerRef = await admin.firestore().collection('share').doc(owner).collection('sharable').doc(sharedUUID).collection('shared').doc(pathUUID).get();
+        let pathtoOwnerRef = await admin.firestore().collection('share').doc(owner).collection('sharable').doc(sharedUUID).collection('shared').doc(currentHead).get();
         if (pathtoOwnerRef.exists) {
             let decodedPathToOwner = <string>pathtoOwnerRef.get('path')
+            if (continousPath) {
+                let pathToContunous = (<string>pathUUID).slice(currentHead.length,(<string>pathUUID).length)
+                decodedPathToOwner = path.join(decodedPathToOwner,pathToContunous)
+            }
+            
             let pathToOnwer = path.join(evn.environment.warehouse, decodedPathToOwner)
             let systemToOwnerPath = await fs.pathExists(pathToOnwer);
             if (systemToOwnerPath) {
@@ -89,65 +84,45 @@ router.post('/share', async (res, resp) => {
                             }
                         }
                     }
-                }else{
+
+                    resp.send({
+                        requestPath: pathUUID,
+                        files: files,
+                        folders: folders
+                    })
+                } else {
                     let parrentPathToOnwer = path.dirname(pathToOnwer)
                     let parrentPathToOnwerDir = await fs.readdir(parrentPathToOnwer)
                     for (let iterator of parrentPathToOnwerDir) {
-                        if (path.join(parrentPathToOnwer,iterator)==path.join(pathToOnwer)) {
+                        if (path.join(parrentPathToOnwer, iterator) == path.join(pathToOnwer)) {
                             console.log(iterator)
                             files.push(iterator)
                             break;
                         }
                         // let isFile = (fs.stat(path.join(parrentPathToOnwer,iterator)))
                     }
-                    
+
                 }
 
 
                 resp.send({
                     requestPath: pathUUID,
-                    files:files,
-                    folders:folders
+                    files: files,
+                    folders: folders
                 })
 
+            }else{
+                resp.status(HTTP_CODE.BAD_REQUEST).send({
+                    result:false
+                })
             }
         }
 
 
     } catch (e) {
         console.log(e);
+        resp.send(e)
     }
-
-
-
-    // try {
-    //     let restoreDetail = await findPath(pathUUID, receiver)    
-    //     if (restoreDetail != null) {
-    //         let binsourceExistPath = path.join(evn.environment.recyclebin,onwerUUID,restoreDetail.pathToBin);
-    //         let sourceExist = await fs.pathExists(binsourceExistPath);
-    //         let uuidExist = await fs.pathExists(evn.environment.recyclebin + "/" + onwerUUID);
-
-
-    //         if (uuidExist && sourceExist) {
-
-    //                 // HOW THE FUCK THIS WOKR
-    //                 await fs.copy(binsourceExistPath , evn.environment.warehouse+ "/" + restoreDetail.pathToResotre ,{
-    //                     overwrite:true
-    //                 });
-    //                 await fs.remove(binsourceExistPath)
-    //                 resp.send("Folder/file " + restoreDetail.pathToResotre + " is Restored");
-    //         }
-    //         else {
-    //             resp.send('Folder/file is not exist !!!');
-    //         }
-    //     }else{
-    //         resp.send("not exites").status(HTTP_CODE.BAD_REQUEST)
-    //     }   
-
-
-    // } catch (error) {
-    //     resp.send(error).status(HTTP_CODE.INTERNAL_SERVER_ERROR);
-    // }
 })
 
 
