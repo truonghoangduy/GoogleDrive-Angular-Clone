@@ -14,6 +14,7 @@ export class RestoreDialogComponent implements OnInit {
   public dialogRef: MatDialogRef<RestoreDialogComponent>) { }
 
   ngOnInit(): void {
+    console.log(this.data)
   }
 
   public getTime(timeStamp){

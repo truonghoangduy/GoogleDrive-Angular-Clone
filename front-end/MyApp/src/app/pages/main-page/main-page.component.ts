@@ -83,8 +83,20 @@ export class MainPageComponent implements OnInit {
   onOpenDialogShare(){
     this.dialog.open(DialogshareComponent);
   }
-  onOpenDialogRename(){
-    this.dialog.open(DialogrenameComponent);
+  onOpenDialogRename(folderName:string){
+    // console.log(folderName)
+    let renameDialogRef = this.dialog.open(DialogrenameComponent);
+    renameDialogRef.afterClosed().subscribe(async (newName:string)=>{
+      let updatedName = folderName.split("/")
+      updatedName.pop()
+      if (newName != null) {
+        let newname = ([...updatedName,newName]).join('/')
+        await this.apiServices.rename(folderName,newname)
+        this.breadCrumbServices.refreshAfterAction()
+      }else{
+        console.log("DO NOTHINGS ON RENAME DIALGO")
+      }
+    })
   }
 
   onFolderClick(folderName: string) {

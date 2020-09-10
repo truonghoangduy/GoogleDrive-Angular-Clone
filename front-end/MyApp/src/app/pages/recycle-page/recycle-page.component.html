@@ -60,7 +60,7 @@
     <ng-template matMenuContent let-item="item">
         <!-- <div mat-menu-item [disableRipple]='true'>{{item.name}}</div> -->
         <div mat-menu-item (click)="recoverMenu(item['listOfVersion'])"><mat-icon>info</mat-icon>Restore Detail</div>
-
+        <div mat-menu-item (click)="onRemove(item['listOfVersion'])"><mat-icon>delete_forever</mat-icon>Remove</div>
         <!-- <div mat-menu-item (click)='onDowload(item.path)'>
             <mat-icon>get_app</mat-icon>Dowload</div>
         <div mat-menu-item (click)="onDelete(item.path)">

@@ -33,6 +33,10 @@ export class RecyclePageComponent implements OnInit {
 
   }
 
+  onRemove(listOfVersion:Array<BinInfo>){
+
+  }
+
 
 
 

@@ -57,7 +57,7 @@
             Share
 
         </div>
-        <div mat-menu-item (click)="onOpenDialogRename()" *ngIf="item.name != null">
+        <div mat-menu-item (click)="onOpenDialogRename(item.path)" *ngIf="item.name != null">
             Rename
         </div>
 

@@ -73,6 +73,15 @@ export class ApiService {
     }).toPromise();
 
   }
+
+  async removeFromBin(listOfVersion:Array<BinInfo>){
+    // SAME AS BINPATH FOR BOTH OF FILE SYSTEM AND FIRESTORE
+    let getListOfName = listOfVersion.map((version)=>version.binPath)
+    return await this.http.post(environment.endpoint+"removeFromBin",{
+      owner:this.authServices.user.email,
+      listOfVersion:getListOfName
+    }).toPromise()
+  }
   async copy(url: string, des: string) {
     return await this.http.post(environment.endpoint + "copy", {
       "uid": this.authServices.user.email,

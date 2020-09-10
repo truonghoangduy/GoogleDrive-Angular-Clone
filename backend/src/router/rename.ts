@@ -10,7 +10,9 @@ import fakeData = require('../../fakeData/temperData')
 import evn = require('../../environment')
 import path = require('path');
 import { options } from './browse';
-import fp = require('filepath');
+import { env } from 'process';
+// import fp = require('filepath');
+
 router.post('/', async (res, resp) => {
     let { oldname, newname,uid } = res.body;
     // let before = oldname.split("/").length - 1;
@@ -25,12 +27,14 @@ router.post('/', async (res, resp) => {
         //set a reference to the folder structure that leads up to the current file, add a trailing slash
         
         //set a reference to the old file path
-        let newFilePath = evn.environment.warehouse+"/" +uid+ (fs.existsSync(evn.environment.warehouse+"/" +uid+"/"+ oldname) ? oldname : newname);
-        //set a reference to the new file path
-        let oldFilePath = evn.environment.warehouse+"/" +uid+"/" +(fs.existsSync(evn.environment.warehouse+"/" +uid+"/"+ oldname) ? newname : oldname);
+        // let newFilePath = evn.environment.warehouse+"/" +uid+ (fs.existsSync(evn.environment.warehouse+"/" +uid+"/"+ oldname) ? oldname : newname);
+        // //set a reference to the new file path
+        // let oldFilePath = evn.environment.warehouse+"/" +uid+"/" +(fs.existsSync(evn.environment.warehouse+"/" +uid+"/"+ oldname) ? newname : oldname);
+        let oldpathWithWearhouse = path.join(evn.environment.warehouse,oldname)
+        let updatedpathWithWearhouse = path.join(evn.environment.warehouse,newname)
 
         //use the fs object's rename method to re-name the file
-        fs.rename(oldFilePath, newFilePath, function (err) {
+        fs.rename(oldpathWithWearhouse, updatedpathWithWearhouse, function (err) {
             if (err) { console.log(err); return; }
         });
         resp.send({

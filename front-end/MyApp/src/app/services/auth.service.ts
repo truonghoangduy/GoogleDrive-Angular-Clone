@@ -32,10 +32,11 @@ export class AuthService {
   username = '';
   public async loginGoogle() {
     let provider = new firebase.auth.GoogleAuthProvider();
-    await this.Auth.signInWithPopup(provider).then(data => {this.user = data.user;
-    this.username=data.user.email})
-
-    console.log(await this.client.post(environment.endpoint+'user/googleUser',this.username).toPromise())
+    let logeduser = await this.Auth.signInWithPopup(provider)
+    this.user = logeduser.user;
+    this.username = logeduser.user.email
+    await this.client.post(environment.endpoint+'user/googleUser',{
+      email:this.username}).toPromise()
     // await this.client.post(environment.endpoint+"user/checkauth",{},{
     //  "headers":{
     //    'idToken':await this.user.getIdToken()
