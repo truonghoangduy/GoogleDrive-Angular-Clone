@@ -23,7 +23,7 @@
             </div>
             <div style="justify-content: right;" *ngIf="screenWidth>=768" class="align col-md col-xl " style="justify-content: center;">
                 <span class="user-icon" [matMenuTriggerFor]="menu">
-                <img  [src]="authService.user.photoURL" style="margin-right: 5px;">
+                <img  [src]="authService.user.photoURL" style="margin-right: 5px;" *ngIf="authService.user != null">
                 {{authService.user.displayName}}</span>
             </div>
         </div>

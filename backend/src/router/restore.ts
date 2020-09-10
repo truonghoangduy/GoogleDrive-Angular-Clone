@@ -11,8 +11,10 @@ import path = require('path');
 const fieldValue = admin.firestore.FieldValue;
 import * as checkUser from '../ults/checkAuth';
 
-import {BinInfo, RestoreOperation} from '../models/bin.model'
+import { BinInfo, RestoreOperation } from '../models/bin.model'
 import { HTTP_CODE } from '../models/HTTPCODE';
+const pathToWareHouse = path.join(__dirname, "..", "..", "warehouse")
+const pathToBin = path.join(__dirname, "..", "..", "recyclebin")
 
 function isEmpty(obj) {
     return Object.keys(obj).length === 0;
@@ -20,17 +22,17 @@ function isEmpty(obj) {
 
 
 
-async function findPath(user:string,uuidFolderPath:string):Promise<RestoreOperation>{
+async function findPath(user: string, uuidFolderPath: string): Promise<RestoreOperation> {
     let queryRef = await admin.firestore().collection('bin').doc(user).collection('binList').doc(uuidFolderPath)
     let query = await queryRef.get();
     if (query.exists) {
         let queryData = <BinInfo>query.data();
         await queryRef.delete()
         return {
-            pathToBin:queryData.binPath,
-            pathToResotre:queryData.moveFrom
+            pathToBin: queryData.binPath,
+            pathToResotre: queryData.moveFrom
         };
-    }else{
+    } else {
         return null
     }
 }
@@ -38,32 +40,58 @@ async function findPath(user:string,uuidFolderPath:string):Promise<RestoreOperat
 
 
 router.post('/', async (req, res) => {
-    const {folderUUID,onwerUUID} = req.body
+    const { folderUUID, onwerUUID } = req.body
     try {
-        let restoreDetail = await findPath(onwerUUID,folderUUID)    
+        let restoreDetail = await findPath(onwerUUID, folderUUID)
         if (restoreDetail != null) {
-            let binsourceExistPath = path.join(evn.environment.recyclebin,onwerUUID,restoreDetail.pathToBin);
+            let binsourceExistPath = path.join(evn.environment.recyclebin, onwerUUID, restoreDetail.pathToBin);
             let sourceExist = await fs.pathExists(binsourceExistPath);
             let uuidExist = await fs.pathExists(evn.environment.recyclebin + "/" + onwerUUID);
-            
-    
-            if (uuidExist && sourceExist) {
 
-                    // HOW THE FUCK THIS WOKR
-                    await fs.copy(binsourceExistPath , evn.environment.warehouse+ "/" + restoreDetail.pathToResotre ,{
-                        overwrite:true
-                    });
-                    await fs.remove(binsourceExistPath)
-                    res.send("Folder/file " + restoreDetail.pathToResotre + " is Restored");
+
+            if (uuidExist && sourceExist) {
+                console.log(pathToBin)
+                let dirList = (await fs.readdir(binsourceExistPath))
+                
+                let isRecoverFile = dirList.includes("./thumbnail")? false : true
+
+                // HOW THE FUCK THIS WOKR
+                if (isRecoverFile) {
+                    let parrentNode = path.dirname(restoreDetail.pathToResotre);
+                    let pathToBinFile = path.join(binsourceExistPath,dirList[0])
+                    await fs.copyFile(pathToBinFile, evn.environment.warehouse + "/" + restoreDetail.pathToResotre)
+                } else {
+                    await fs.copy(binsourceExistPath, evn.environment.warehouse + "/" + restoreDetail.pathToResotre, {
+                        overwrite: true
+                    })
+                }
+                await fs.remove(binsourceExistPath);
+                res.send(
+                    { result: "Folder/file " + restoreDetail.pathToResotre + " is Restored" }
+                );
+                
+
+                // fs.copy(isRecoverFile ? binsourceExistPath + dirList[0] : binsourceExistPath, evn.environment.warehouse + "/" + restoreDetail.pathToResotre, {
+                //     overwrite: true
+                // }).then(() => {
+                //     fs.remove(binsourceExistPath).then(() => {
+                //         console.log("Folder/file " + restoreDetail.pathToResotre + " is Restored")
+                //         res.send(
+                //             { result: "Folder/file " + restoreDetail.pathToResotre + " is Restored" }
+                //         );
+
+                //     })
+                // })
+                // await 
             }
             else {
                 res.send('Folder/file is not exist !!!');
             }
-        }else{
+        } else {
             res.send("not exites").status(HTTP_CODE.BAD_REQUEST)
-        }   
+        }
 
- 
+
     } catch (error) {
         res.send(error).status(HTTP_CODE.INTERNAL_SERVER_ERROR);
     }
@@ -74,7 +102,7 @@ router.post('/', async (req, res) => {
 
 // FUTURE TODO pagingnate ?
 router.post('/recent/:number', async (res, resp) => {
-    
+
 })
 
 

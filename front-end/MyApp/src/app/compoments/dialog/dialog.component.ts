@@ -27,6 +27,8 @@ export class DialogComponent implements OnInit {
     ngOnInit(): void {
     }
     async CreateFolder(path:string,name:string){
+      console.log(path,name)
+
       this.apiService.createFolderD(path,name);
     }
 }

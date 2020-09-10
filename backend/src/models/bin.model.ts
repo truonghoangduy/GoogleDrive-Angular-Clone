@@ -2,7 +2,9 @@ export interface BinInfo{
     moveFrom:string,
     fileName:string,
     time?:any,
-    binPath:string
+    binPath:string,
+    isFolder?:boolean,
+    name?:string
 }
 export interface RestoreOperation{
     pathToBin:string,

@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, RouterLinkActive } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment'
 import { ApiBrowseService } from './browse/api-browse.service';
 import { BreadcrumbService } from './breadcrumb/breadcrumb.service';
 import {saveFile} from '../ults/dowload-helper';
+import {BinInfo} from '../models/bin.model'
 const API_BIN = "bin"
 const API_DOWNLOAD = "file"
 const API_CREATEFOLDER="createFolder"
+const API_RESTORE ='restore'
+
 @Injectable({
   providedIn: 'root'
 })
@@ -63,9 +66,8 @@ try {
       let request = await this.http.get(environment.endpoint + API_DOWNLOAD, {
         responseType: 'blob',
         headers: {
-          uuid: "admin",
+          uuid: "duybeo",
           requestfile: path,
-
         }
       }).toPromise()
       console.log(filename)
@@ -77,6 +79,38 @@ try {
 
 
 
+  }
+
+  async reStore(binUUID:string){
+    console.log(binUUID)
+    try {
+      let respone =  await this.http.post(environment.endpoint +API_RESTORE,
+        {
+        folderUUID:binUUID,
+        onwerUUID:'duybeo'
+      }).toPromise()
+      return respone
+    } catch (error) {
+      return null;
+    }
+
+  }
+
+  getBinList(){
+    try {
+      let salt = Date.now()
+      return this.http.get<Array<Array<BinInfo>>>(environment.endpoint + API_BIN+"?salt="+salt, {
+
+        headers:new HttpHeaders({
+          
+          uuid:'duybeo',
+        }),
+        
+      })
+    } catch (error) {
+      console.log("FAIL PARSING")
+      return null;
+    }
   }
 
   async removeFolder(path: string) {

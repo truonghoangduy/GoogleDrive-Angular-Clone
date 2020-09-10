@@ -25,6 +25,7 @@ import { BreadcrumbV2Component } from './breadcrumb-v2/breadcrumb-v2.component';
 import { ContextMenuComponent } from './context-menu/context-menu.component';
 import { LazyloadthumbnailDirective } from '../directives/lazyloadthumbnail/lazyloadthumbnail.directive';
 import { PreviewDialogComponent } from './preview-dialog/preview-dialog.component';
+import { RestoreDialogComponent } from './restore-dialog/restore-dialog.component';
 
 @NgModule({
   declarations: [
@@ -47,16 +48,17 @@ import { PreviewDialogComponent } from './preview-dialog/preview-dialog.componen
     ContextMenuComponent,
     LazyloadthumbnailDirective,
     PreviewDialogComponent,
+    // RestoreDialogComponent,
 
 
 
   ],
   imports: [
     CommonModule,
+    RouterModule,
+    ReactiveFormsModule,
     UiModule,
 
-    RouterModule,
-    ReactiveFormsModule
 
  
 
@@ -75,9 +77,12 @@ import { PreviewDialogComponent } from './preview-dialog/preview-dialog.componen
     BreadcrumbComponent,
     BreadcrumbV2Component,
     LazyloadthumbnailDirective,
+    // RestoreDialogComponent
+    
 
 
 
-  ]
+  ],
+  // entryComponents:[RestoreDialogComponent]
 })
 export class ComponentsModule { }

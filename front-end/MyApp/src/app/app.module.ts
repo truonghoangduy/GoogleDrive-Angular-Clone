@@ -17,11 +17,11 @@ import { AngularFireModule } from '@angular/fire';
 import{AngularFireStorageModule} from '@angular/fire/storage'
 import {AngularFirestore} from '@angular/fire/firestore'
 import { AngularBreadcrumbsLightModule } from 'angular-breadcrumbs-light';
-
-import { from } from 'rxjs';
+import {RestoreDialogComponent} from './compoments/restore-dialog/restore-dialog.component'
 @NgModule({
   declarations: [
     AppComponent,
+    RestoreDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +37,8 @@ import { from } from 'rxjs';
     NgbModule,
     DriveModule,
     AngularBreadcrumbsLightModule,
+    
+    
    
   ],
   providers: [AuthService,AngularFirestore],

@@ -6,5 +6,9 @@
             <mat-icon mat-list-icon>folder</mat-icon>
             <div mat-line>{{folders}}</div>
         </mat-list-item>
+        <mat-list-item *ngIf="numberOfModify != null">
+            Modify {{numberOfModify}} time
+            <!-- <div mat-line></div> -->
+        </mat-list-item>
     </div>
 </mat-list>

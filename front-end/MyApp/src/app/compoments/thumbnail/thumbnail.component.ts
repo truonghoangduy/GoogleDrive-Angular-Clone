@@ -9,9 +9,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ThumbnailComponent implements OnInit {
 
-  @Input() file;
-  
-  constructor(private http:HttpClient) { }
+  @Input() file:string;
+  @Input() numberOfModify:number;
+  constructor(private http:HttpClient) {
+    console.log(this.file)
+   }
   // @Input() thumbnails: File = null;
   thumbnails : File = 
   {  name: "abcsssssssssssssssssssssssssssssssssssssssssssss",

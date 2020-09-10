@@ -11,9 +11,12 @@ import path = require('path');
 const fieldValue = admin.firestore.FieldValue;
 import * as checkUser from '../ults/checkAuth';
 import {BinInfo} from '../models/bin.model'
+import { HTTP_CODE } from '../models/HTTPCODE';
+import { fileSize } from '../ults/fileInfo';
 function isEmpty(obj) {
     return Object.keys(obj).length === 0;
 }
+const pathToWareHouse = path.join(__dirname, "..", "..", "warehouse")
 
 function isFile(fileName:string,uuidFolder:string){
     if (fileName.includes(".")) {
@@ -24,6 +27,43 @@ function isFile(fileName:string,uuidFolder:string){
     
 }
 
+router.get("/",async (req, res)=>{
+    const {uuid} = req.headers;
+    console.log(req.query)
+    let binRef = firestore.collection('bin').doc(<string>uuid).collection('binList');
+
+    let binData = await binRef.get();
+    if (binData.empty) {
+        res.send({}).status(HTTP_CODE.BAD_REQUEST)
+    }else{
+       let bindataList =  binData.docs.map((data)=>{
+            return <BinInfo>data.data()
+        });
+
+        
+        let keys = Array.from(new Set(bindataList.map((doc)=>doc.moveFrom)))
+        let responeData = new Array<Array<BinInfo>>();
+        for (let iterator of bindataList) {
+            let indexLocation = keys.indexOf(iterator.moveFrom)
+            if ( responeData[indexLocation] == undefined) {
+                responeData.push([])
+            }
+            responeData[indexLocation].push(iterator)
+        }
+
+        for (let index = 0; index < keys.length; index++) {
+            // responeData[index] = [...responeData[index].sort((a,b)=>b.time.toDate() - a.time.toDate())]
+            responeData[index] = [...responeData[index].sort((a,b)=>a.time.toDate()-b.time.toDate()).reverse()]
+
+        }
+
+        console.log(responeData)
+        res.send(responeData);
+
+    }
+
+})
+
 
 router.post('/', async (res, resp) => {
     let list = res.body["source"].split('/');
@@ -32,7 +72,7 @@ router.post('/', async (res, resp) => {
     try {
         let sourceExist = await fs.pathExists(evn.environment.warehouse + "/" + res.body["source"]);
         let uuidExist = await fs.pathExists(evn.environment.warehouse + "/" + user);
-        
+        let isFolder = await fs.stat(path.join(evn.environment.warehouse,res.body["source"]))
 
         if (uuidExist && sourceExist) {
 
@@ -41,6 +81,12 @@ router.post('/', async (res, resp) => {
                 binPath:binPathRef.id, // PATH TO UUID FOLDER
                 fileName:res.body["source"],
                 moveFrom:res.body["source"],
+                info:{
+                    mtime:isFolder.mtime,
+                    size:fileSize(isFolder.size)
+                },
+                isFolder:isFolder.isDirectory(),
+                name:fileName,
                 time:fieldValue.serverTimestamp()
             }
             );
@@ -57,7 +103,7 @@ router.post('/', async (res, resp) => {
                     overwrite:false
                 });
 
-
+                console.log("REMOVE "+fileName)
                 resp.send("Folder/file " + fileName + " is move");
         }
         else {

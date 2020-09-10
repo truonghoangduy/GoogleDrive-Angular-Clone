@@ -30,10 +30,13 @@ export async function generateThumbnail(path:string){
         getFristPic="[0]"
         pdfFlag = true
     }
-    gm(path+getFristPic).resize(500,500).write(thumbnailPath+".png",function (err) {
-        if (!err) {console.log('done')};
-      }
-    );
+    return new Promise<boolean>((resolve,reject)=>{
+        gm(path+getFristPic).resize(500,500).write(thumbnailPath+".png",function (err) {
+            if (!err) {return resolve(true)};
+          }
+        );
+    })
+
     // gm(path+getFristPic).resize(500,500).write(pdfFlag?thumbnailPath+".png":thumbnailPath,function (err) {
     //     if (!err) {console.log('done')};
     //   }

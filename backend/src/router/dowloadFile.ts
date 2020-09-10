@@ -13,7 +13,7 @@ function nullChecker(key): boolean {
     }
     return false;
 }
-router.get("", async (req, res) => {
+router.get("/", async (req, res) => {
 
     const { requestfile, uuid } = req.headers
     if (!nullChecker(requestfile) && !nullChecker(uuid)) {
@@ -63,6 +63,27 @@ router.get("/share", async (req, res) => {
         }
     } else {
         res.send("BAD_REQUEST").status(HTTP_CODE.BAD_REQUEST)
+    }
+});
+
+router.get("/thumbnail", async (req, res) => {
+
+    const { requestfile, uuid } = req.headers
+    if (!nullChecker(requestfile) && !nullChecker(uuid)) {
+        try {
+
+            // TODO CHECK AUTH
+            var requestedPath = path.join(pathToWareHouse,<string>requestfile)
+            if (await fileInfo.fileExistFromRoot(requestedPath)) {
+                res.sendFile(requestedPath)
+            } else {
+                res.send("File not exits").status(HTTP_CODE.BAD_REQUEST)
+            }
+        } catch (error) {
+            res.status(HTTP_CODE.INTERNAL_SERVER_ERROR).send(HTTP_CODE.INTERNAL_SERVER_ERROR)
+        }
+    } else {
+        res.send("File not exits").status(HTTP_CODE.BAD_REQUEST)
     }
 });
 export = router

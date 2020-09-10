@@ -38,7 +38,7 @@ export class MainPageComponent implements OnInit {
   ngOnInit(): void {
     this.getScreenSize();
     this.breadCrumbServices.clearnBreadCrum();
-    this.breadCrumbServices.requestPath("admin") // UUID of someone
+    this.breadCrumbServices.requestPath("duybeo") // UUID of someone
 
   }
 

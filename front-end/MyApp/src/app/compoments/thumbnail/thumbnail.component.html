@@ -1,11 +1,15 @@
 <div *ngIf="thumbnails != null" class="grid">
     <mat-card style="padding: 0;">
-        <img [src]="thumbnails.pictureURL" width="100%">
+        <img width="100%" appLazyloadthumbnail [fileLocation]='file'>
         <div class="file-content">
             <div class="file-name">
                 <mat-icon mat-list-icon>{{thumbnails.icon}}</mat-icon>
                 <span style="overflow:hidden;text-overflow:ellipsis">{{file}}</span>
             </div>
+            <mat-list-item *ngIf="numberOfModify != null">
+                Modify {{numberOfModify}} time
+                <!-- <div mat-line></div> -->
+            </mat-list-item>
             <div>{{thumbnails.createDate}} </div>
         </div>
     </mat-card>
