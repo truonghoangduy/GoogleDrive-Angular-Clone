@@ -6,10 +6,12 @@ import { ApiBrowseService } from './browse/api-browse.service';
 import { BreadcrumbService } from './breadcrumb/breadcrumb.service';
 import {saveFile} from '../ults/dowload-helper';
 import {BinInfo} from '../models/bin.model'
-const API_BIN = "bin"
-const API_DOWNLOAD = "file"
+
 const API_CREATEFOLDER="createFolder"
 const API_RESTORE ='restore'
+import { AuthService } from './auth.service';
+const API_BIN = "bin"
+const API_DOWNLOAD = "file"
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +22,8 @@ export class ApiService {
   mainScreenDection = false
   constructor(public router: ActivatedRoute, private http: HttpClient,
     private browseServies: ApiBrowseService,
-    private breadCrumServoces: BreadcrumbService
+    private breadCrumServoces: BreadcrumbService,
+    private authServices:AuthService
   ) {
     this.router.data.subscribe((route) => {
       route
@@ -39,6 +42,17 @@ export class ApiService {
   //     }
 
   //   }
+  // }  
+  // async getUsedSize(path:string){
+  //   try {
+  //     let result = await this.http.post(environment.endpoint+"info/sizeUsed",{
+  //       root: path,
+  //     } ).toPromise();
+  //     return { ...result };
+  //   } catch (error) {
+  //     return { status: "failed", message: error };
+  //   }
+
   // }
 
   async createFolder(name: string) { // NEW FOLDER AS DEFAUTLT
@@ -46,16 +60,7 @@ export class ApiService {
     let listofDefautName = folders.folders.filter(name => name.includes("New Folder"))
   }
 
-  async createFolderD(path:string, name: string){
-try {
-  await this.http.post(environment.endpoint+API_CREATEFOLDER,{
-    currentDirectory: path,
-    makeDirectory: name
-  } ).toPromise()
-} catch (error) {
-  console.log(error)
-}
-  }
+  
 
 
   async dowloadFile(path: string) {

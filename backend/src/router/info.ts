@@ -31,6 +31,21 @@ async function getDirectorySize(root) {
         }
     }
 }
+router.post('/sizeUsed', async (res, resp) => {
+    let  {root} = res.body;
+    try {
+        let result=parseInt((await getDirectorySize(root)).toString());
+        let num ={
+            "num": result,
+        };
+           
+        resp.send(num);
+        
+    }catch(e){
+        resp.send(e);
+    }
+
+});
 router.post('/', async (res, resp) => {
     let fileName = res.body["source"].split('/');
     let owner = fileName[2];
@@ -47,7 +62,7 @@ router.post('/', async (res, resp) => {
             size = Math.round(stat.size * 100) / 100 + ' Byte';
         }
 
-        
+
         resp.send({
             "fileName": fileName,
             "Owner": owner,

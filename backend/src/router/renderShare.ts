@@ -17,9 +17,9 @@ function isEmpty(obj) {
 router.post('/test', async (res, resp) => {
     let { receiver } = res.body;
     try {
-       
+
         let receiverExist = await fs.pathExists(evn.environment.warehouse + "/" + receiver);
-        
+
 
         if (receiverExist) {
             let listDoc = await (await admin.firestore().collection("shareUser").doc(receiver).collection("whoShare").get()).docs.map(doc => doc.id);
@@ -34,9 +34,9 @@ router.post('/test', async (res, resp) => {
             for (let j = 0; j < listDoc.length; j++) {
                 for (let i = 0; i < sharedPath[j].length; i++) {
                     let path = await admin.firestore().collection("share").doc(listDoc[j]).collection("sharable").doc(receiver).collection(sharedPath[j][i]).doc(sharedPath[j][i]).get();
-                        let test = path.data();
-                        console.log(test);
-                        doc.push(test);
+                    let test = path.data();
+                    console.log(test);
+                    doc.push(test);
                 }
             }
             console.log(doc);
@@ -61,22 +61,28 @@ router.post('/', async (req, res) => {
         // }
         let responeData = [];
         if (receiverExist) {
-            let shareFromList:Array<string> = (await admin.firestore().collection('user').doc(receiver).get()).get('shareFrom')
-            for (let shareSender of shareFromList) {
-                let shareRef = ( await admin.firestore().collection('share').doc(shareSender).collection('sharable').doc(receiver).collection('shared').get())
-                let sharedFolderFromReciver = shareRef.docs.map(doc=>{
-                    return {
-                        ...doc.data(),
-                        id:doc.id
-                    }
-                })
+            let shareFromList: Array<string> = (await admin.firestore().collection('user').doc(receiver).get()).get('shareFrom');
+            if (shareFromList!=undefined) {
+                for (let shareSender of shareFromList) {
+                    let shareRef = (await admin.firestore().collection('share').doc(shareSender).collection('sharable').doc(receiver).collection('shared').get())
+                    let sharedFolderFromReciver = shareRef.docs.map(doc => {
+                        return {
+                            ...doc.data(),
+                            id: doc.id,
+                            owner: shareSender,
+                        }
+                    })
 
-                responeData.push(...sharedFolderFromReciver)
+                    responeData.push(...sharedFolderFromReciver);
+                }
+                res.send({message:"render successful",responeData});
+            }else{
+                res.send({message:"Have not file to share"});
             }
-            
 
+        }else{
+            res.send({message:"can't render file"});
         }
-        res.send(responeData)
 
 
 

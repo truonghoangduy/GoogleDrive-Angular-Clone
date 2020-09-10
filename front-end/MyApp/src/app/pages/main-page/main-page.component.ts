@@ -4,6 +4,7 @@ import { Folder } from 'src/app/models/folder.model';
 import { BreadcrumbService } from 'src/app/services/breadcrumb/breadcrumb.service';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { ApiService } from 'src/app/services/api.service';
+import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
@@ -19,7 +20,8 @@ export class MainPageComponent implements OnInit {
   contextMenuPosition = { x: '0px', y: '0px' };
 
   constructor(public folerService: FolderService,
-    public apiServices:ApiService, 
+    public apiServices:ApiService,
+    private authServices:AuthService,
     public breadCrumbServices: BreadcrumbService) {
     this.breadCrumbServices.currentViewFolder.subscribe((data) => {
       console.log("Change"),
@@ -38,7 +40,7 @@ export class MainPageComponent implements OnInit {
   ngOnInit(): void {
     this.getScreenSize();
     this.breadCrumbServices.clearnBreadCrum();
-    this.breadCrumbServices.requestPath("duybeo") // UUID of someone
+    this.breadCrumbServices.requestPath(this.authServices.user.email) // UUID of someone
 
   }
 

@@ -2,7 +2,7 @@ import {Component, OnInit,ViewChild, Output, EventEmitter} from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { HostListener } from "@angular/core";
 import { FolderService } from 'src/app/services/folder.service';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
 import { DialogSearchComponent} from '../dialog-search/dialog-search.component';
 import { BreadcrumbService } from 'src/app/services/breadcrumb/breadcrumb.service';
@@ -40,6 +40,7 @@ export class NavBarComponent implements OnInit {
     this.dialog.open(DialogSearchComponent);
   }
   openDialog() {
+
     this.dialog.open(DialogComponent);
   }
   
