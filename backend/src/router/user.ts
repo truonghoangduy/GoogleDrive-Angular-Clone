@@ -13,7 +13,7 @@ router.post('/', async (res, reps) => {
             reps.send({
                 message: "Please fill in all the information",
             })
-        } else if (input.password == "" || input.password.length < 7) {
+        } else if (input.password == "" || input.password.length < 7 || input.password != input.retypepassword) {
             reps.send({
                 message: "Incorrect",
             })

@@ -14,31 +14,32 @@ import { HTTP_CODE } from '../models/HTTPCODE';
 router.post('/', async (res, resp) => {
     const { currentDirectory } = res.body;
     try {
-        let currentPath = await path.join(evn.environment.warehouse, currentDirectory)
-        let current = await fs.readdir(currentPath)
+
+        let pathToUser =path.join(evn.environment.warehouse,currentDirectory)
+        if (!await fs.pathExists(pathToUser)) {
+            await fs.ensureDir(pathToUser)
+        }
+        let current = await fs.readdir(evn.environment.warehouse + "/" + currentDirectory)
         let files = [];
         let folders = [];
 
-        if (currentPath) {
             for (let i = 0; i < current.length; i++) {
                 if (current[i] != '.thumbnail') {
-                    let isPath = await path.join(currentPath, current[i]);
-                    let isType = await fs.statSync(isPath);
-                    if (isType.isFile()) {
+                    let isFolderPath = await path.join(pathToUser, current[i]);
+                    let isFolder = await fs.statSync(isFolderPath);
+                    if (isFolder.isFile()) {
                         files.push(current[i]);
-                    } else if (isType.isDirectory()) {
+                    } else if (isFolder.isDirectory()) {
                         folders.push(current[i])
                     }
                 }
             }
             resp.send({
                 requestPath: currentDirectory,
-                files,
-                folders
+                files:files,
+                folders:folders
             })
-        } else {
-            resp.send("Folder/File does not exist.")
-        }
+        
     } catch (err) {
         resp.send(err);
     }
