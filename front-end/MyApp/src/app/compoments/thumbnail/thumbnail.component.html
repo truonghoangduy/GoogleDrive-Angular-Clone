@@ -1,5 +1,5 @@
 <div *ngIf="thumbnails != null" class="grid">
-    <mat-card style="padding: 0;">
+    <mat-card style="padding: 0;" style="overflow-y: hidden; overflow-x: hidden;">
         <img width="100%" [src]='this.pic' *ngIf="this.thumbnaileForShare == false">
         <img width="100%" appLazyloadthumbnail [fileLocation]='file' [src]='this.pic' *ngIf="this.thumbnaileForShare == true">
         <div class="file-content">

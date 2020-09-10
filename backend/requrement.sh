@@ -10,6 +10,9 @@ echo 'export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:$INFOPATH"' >>~/.ba
 
 source  ~/.bashrc
 
+mkdir warehouse
+mkdir recyclebin
+
 brew install imagemagick
 brew install graphicsmagick
 brew install ffmpeg

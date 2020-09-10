@@ -18,6 +18,8 @@ const API_SHARE ='share'
 const API_GET_SHARE_LIST ='renderShare'
 const API_COPY = 'copy'
 
+const API_REMOVE_FROM_BIN ="bin/removeFromBin"
+
 @Injectable({
   providedIn: 'root'
 })
@@ -77,7 +79,8 @@ export class ApiService {
   async removeFromBin(listOfVersion:Array<BinInfo>){
     // SAME AS BINPATH FOR BOTH OF FILE SYSTEM AND FIRESTORE
     let getListOfName = listOfVersion.map((version)=>version.binPath)
-    return await this.http.post(environment.endpoint+"removeFromBin",{
+    console.log(getListOfName)
+    return await this.http.post(environment.endpoint+"remove/removeFromBin",{
       owner:this.authServices.user.email,
       listOfVersion:getListOfName
     }).toPromise()

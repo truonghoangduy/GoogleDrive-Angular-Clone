@@ -8,6 +8,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogshareComponent } from '../../compoments/dialogshare/dialogshare.component';
 import { DialogrenameComponent } from 'src/app/compoments/dialogrename/dialogrename.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-main-page',
@@ -24,12 +25,12 @@ export class MainPageComponent implements OnInit {
   files: Array<String>;
   folders: Array<String>;
   contextMenuPosition = { x: '0px', y: '0px' };
-
+  subscriptionbreadCrumbServices:Subscription
   constructor(public folerService: FolderService,
     public apiServices:ApiService,
     private authServices:AuthService,
     public breadCrumbServices: BreadcrumbService,public dialog:MatDialog) {
-        this.breadCrumbServices.currentViewFolder.subscribe((data) => {
+      this.subscriptionbreadCrumbServices = this.breadCrumbServices.currentViewFolder.subscribe((data) => {
           console.log("Change"),
             console.log(data)
           this.files = [...data.files],
@@ -37,6 +38,11 @@ export class MainPageComponent implements OnInit {
         })
     
   }
+  ngOnDestroy() {
+    console.log("DROP")
+    this.subscriptionbreadCrumbServices.unsubscribe()
+  }
+  
 
   screenWidth: number;
   @HostListener('window:resize', ['$event'])

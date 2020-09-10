@@ -33,8 +33,9 @@ export class RecyclePageComponent implements OnInit {
 
   }
 
-  onRemove(listOfVersion:Array<BinInfo>){
-
+  async onRemove(listOfVersion:Array<BinInfo>){
+    await this.apiServices.removeFromBin(listOfVersion);
+    return await this.binServices.getBinList();
   }
 
 
