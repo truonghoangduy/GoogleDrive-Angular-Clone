@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterLink } from '@angular/router'
+import { Router, RouterLink } from '@angular/router';
+
+import {HttpClient} from '@angular/common/http';
 
 import { FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';

@@ -38,6 +38,7 @@ async onSummitFrom(){
 public async createuser(user:any){
   try {
    console.log(await this.http.post(environment.endpoint+'user',user).toPromise());
+   console.log(await this.http.post(environment.endpoint+'createFolder/createUserFolder',user).toPromise())
   } catch (error) {
     console.log(error)
   }

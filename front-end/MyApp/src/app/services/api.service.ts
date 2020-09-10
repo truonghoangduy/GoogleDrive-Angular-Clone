@@ -8,6 +8,7 @@ import {saveFile} from '../ults/dowload-helper';
 import { AuthService } from './auth.service';
 const API_BIN = "bin"
 const API_DOWNLOAD = "file"
+const API_COPY = 'copy'
 
 @Injectable({
   providedIn: 'root'
@@ -78,9 +79,6 @@ export class ApiService {
     } catch (error) {
 
     }
-
-
-
   }
 
   async removeFolder(path: string) {
@@ -105,6 +103,17 @@ export class ApiService {
 
     //  api brose UUID/A  => C
 
+  }
+
+  async copyFile(path: string){
+    try {
+      let res = await this.http.post(environment.endpoint + API_COPY, {
+        source: path
+      }).toPromise()
+
+    } catch (error) {
+      console.log(error)
+    }
   }
 
 }
