@@ -23,6 +23,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BreadcrumbV2Component } from './breadcrumb-v2/breadcrumb-v2.component';
 import { ContextMenuComponent } from './context-menu/context-menu.component';
+import { DialogshareComponent } from './dialogshare/dialogshare.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { ContextMenuComponent } from './context-menu/context-menu.component';
     DialogSearchComponent,
     BreadcrumbV2Component,
     ContextMenuComponent,
+    DialogshareComponent,
 
 
   ],
