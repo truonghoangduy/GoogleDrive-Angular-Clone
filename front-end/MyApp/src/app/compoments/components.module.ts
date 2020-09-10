@@ -26,6 +26,7 @@ import { ContextMenuComponent } from './context-menu/context-menu.component';
 import { LazyloadthumbnailDirective } from '../directives/lazyloadthumbnail/lazyloadthumbnail.directive';
 import { PreviewDialogComponent } from './preview-dialog/preview-dialog.component';
 import { RestoreDialogComponent } from './restore-dialog/restore-dialog.component';
+import { DialogshareComponent } from './dialogshare/dialogshare.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { RestoreDialogComponent } from './restore-dialog/restore-dialog.componen
     PreviewDialogComponent,
     // RestoreDialogComponent,
 
+    DialogshareComponent,
 
 
   ],

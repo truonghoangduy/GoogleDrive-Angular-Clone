@@ -5,6 +5,9 @@ import { BreadcrumbService } from 'src/app/services/breadcrumb/breadcrumb.servic
 import { MatMenuTrigger } from '@angular/material/menu';
 import { ApiService } from 'src/app/services/api.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogshareComponent } from '../../compoments/dialogshare/dialogshare.component';
+import { DialogComponent } from 'src/app/compoments/dialog/dialog.component';
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
@@ -24,13 +27,14 @@ export class MainPageComponent implements OnInit {
   constructor(public folerService: FolderService,
     public apiServices:ApiService,
     private authServices:AuthService,
-    public breadCrumbServices: BreadcrumbService) {
-    this.breadCrumbServices.currentViewFolder.subscribe((data) => {
-      console.log("Change"),
-        console.log(data)
-      this.files = [...data.files],
-      this.folders = [...data.folders]
-    })
+    public breadCrumbServices: BreadcrumbService,public dialog:MatDialog) {
+        this.breadCrumbServices.currentViewFolder.subscribe((data) => {
+          console.log("Change"),
+            console.log(data)
+          this.files = [...data.files],
+            this.folders = [...data.folders]
+        })
+    
   }
 
   screenWidth: number;
@@ -75,6 +79,9 @@ export class MainPageComponent implements OnInit {
     this.contextMenuCenterPaste.openMenu();
   }
 
+  onOpenDialogShare(){
+    this.dialog.open(DialogshareComponent);
+  }
 
   onFolderClick(folderName: string) {
     // console.log(this.breadCrumbServices.currentPath + folderName);
