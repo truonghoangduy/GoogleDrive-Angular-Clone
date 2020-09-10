@@ -30,5 +30,24 @@ router.post('/', async (res, resp) => {
     resp.send(path.posix.join(currentDirectory, makeDirectory));
 })
 
+router.post('/createUserFolder', async (res, resp) => {
+    const input = res.body;
+
+    try {
+        let doc =  admin.firestore().collection('user').doc(input.email);
+        if ((await (doc.get())).exists) {
+            await fs.mkdir(evn.environment.warehouse + "/" + input.email);
+        } else {
+            resp.send('Folder is already exists !!!');
+        }
+
+        // let doc = await fs.readdir(evn.environment.warehouse + "/" +"admin");
+        // let adsad = fs.readdir()
+    } catch (error) {
+        resp.send(error)
+    }
+    // resp.send(path.posix.join(currentDirectory, makeDirectory));
+})
+
 
 export = router

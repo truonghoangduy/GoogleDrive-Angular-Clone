@@ -10,10 +10,13 @@ import {BinInfo} from '../models/bin.model'
 const API_CREATEFOLDER="createFolder"
 const API_RESTORE ='restore'
 import { AuthService } from './auth.service';
+import { auth } from 'firebase';
 const API_BIN = "bin"
 const API_DOWNLOAD = "file"
 const API_SHARE ='share'
 const API_GET_SHARE_LIST ='renderShare'
+const API_COPY = 'copy'
+
 @Injectable({
   providedIn: 'root'
 })
@@ -61,8 +64,22 @@ export class ApiService {
     let listofDefautName = folders.folders.filter(name => name.includes("New Folder"))
   }
 
-  
-
+  async move(url:string,des:string){
+    return  await this.http.post(environment.endpoint+"move",{
+      "uid": this.authServices.user.email,
+    "source":url ,
+    "destination":des
+    }).toPromise();
+    
+  }
+  async copy(url:string,des:string){
+    return  await this.http.post(environment.endpoint+"copy",{
+      "uid": this.authServices.user.email,
+    "source":url ,
+    "destination":des
+    }).toPromise();
+    
+  }
 
   async dowloadFile(path: string) {
     let index = path.split('/');
@@ -82,9 +99,6 @@ export class ApiService {
     } catch (error) {
 
     }
-
-
-
   }
 
   async reStore(binUUID:string){
@@ -147,6 +161,17 @@ export class ApiService {
 
     //  api brose UUID/A  => C
 
+  }
+
+  async copyFile(path: string){
+    try {
+      let res = await this.http.post(environment.endpoint + API_COPY, {
+        source: path
+      }).toPromise()
+
+    } catch (error) {
+      console.log(error)
+    }
   }
 
 }

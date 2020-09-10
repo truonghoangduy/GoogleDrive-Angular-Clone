@@ -57,7 +57,7 @@ export class DialogComponent implements OnInit {
     close(){
       this.dialogRef.close();
     }
-    async createFolderD(folder:string){
+    async createFolderD(folder){
       try {
        console.log( await this.http.post(environment.endpoint+API_CREATEFOLDER,folder).toPromise());
       } catch (error) {
