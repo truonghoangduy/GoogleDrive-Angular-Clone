@@ -47,6 +47,21 @@ router.post('/', async (res, reps) => {
 })
 
 
+router.post('/googleUser', async (res, reps) => {
+    const input = res.body;
+    try {
+        let doc =  admin.firestore().collection('user').doc(input);
+        reps.send({
+            message: input.email + " is added."
+        });
+    } catch (e) {
+        reps.send({
+            message: input.email + " is created failed."
+        });
+    }
+})
+
+
 
 
 export = router;

@@ -8,7 +8,7 @@ import evn = require('../../environment');
 import path = require('path');
 const router = express.Router();
 
-import { ShareInfo, ShareOperation } from '../models/share.model'
+
 import { HTTP_CODE } from '../models/HTTPCODE';
 
 router.post('/', async (res, resp) => {
