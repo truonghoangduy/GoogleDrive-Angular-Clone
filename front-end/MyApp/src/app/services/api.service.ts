@@ -12,7 +12,8 @@ const API_RESTORE ='restore'
 import { AuthService } from './auth.service';
 const API_BIN = "bin"
 const API_DOWNLOAD = "file"
-
+const API_SHARE ='share'
+const API_GET_SHARE_LIST ='renderShare'
 @Injectable({
   providedIn: 'root'
 })
@@ -92,13 +93,19 @@ export class ApiService {
       let respone =  await this.http.post(environment.endpoint +API_RESTORE,
         {
         folderUUID:binUUID,
-        onwerUUID:'duybeo'
+        onwerUUID:this.authServices.user.email
       }).toPromise()
       return respone
     } catch (error) {
       return null;
     }
 
+  }
+
+  async getShareList(){
+    return await this.http.post(environment.endpoint + API_GET_SHARE_LIST,{
+      "receiver":'kien'
+    }).toPromise();
   }
 
   getBinList(){
@@ -108,7 +115,7 @@ export class ApiService {
 
         headers:new HttpHeaders({
           
-          uuid:'duybeo',
+          uuid:this.authServices.user.email,
         }),
         
       })

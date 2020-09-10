@@ -19,7 +19,7 @@ router.post('/', async (res, resp) => {
 
             await fs.mkdir(evn.environment.warehouse + "/" + currentDirectory + "/" + makeDirectory);
         } else {
-            resp.send('Folder is already exists !!!');
+            resp.send({result:'Folder is already exists !!!'});
         }
 
         // let doc = await fs.readdir(evn.environment.warehouse + "/" +"admin");

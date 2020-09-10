@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-share-page',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SharePageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private apiServices:ApiService) { }
 
   ngOnInit(): void {
+    this.apiServices.getShareList().then((value)=>{
+      console.log(value)
+    })
   }
+
 
 }

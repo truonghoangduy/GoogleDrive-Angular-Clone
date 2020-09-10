@@ -51,17 +51,28 @@ router.post('/', async (req, res) => {
 
             if (uuidExist && sourceExist) {
                 console.log(pathToBin)
+                let isFolder = false
                 let dirList = (await fs.readdir(binsourceExistPath))
+                if (dirList.includes('.thumbnail')) {
+                    isFolder = true
+                }else if(dirList.length == 1){
+                    isFolder = false
+                }else if(dirList.length >= 1){
+                    isFolder = true
+                }
+             
                 
-                let isRecoverFile = dirList.includes("./thumbnail")? false : true
 
                 // HOW THE FUCK THIS WOKR
-                if (isRecoverFile) {
+                if (!isFolder) {
+                    // FILE
                     let parrentNode = path.dirname(restoreDetail.pathToResotre);
                     let pathToBinFile = path.join(binsourceExistPath,dirList[0])
-                    await fs.copyFile(pathToBinFile, evn.environment.warehouse + "/" + restoreDetail.pathToResotre)
+                    fs.copyFile(pathToBinFile, evn.environment.warehouse + "/" + restoreDetail.pathToResotre,(err)=>{
+                        console.log(err)
+                    })
                 } else {
-                    await fs.copy(binsourceExistPath, evn.environment.warehouse + "/" + restoreDetail.pathToResotre, {
+                   fs.copySync(binsourceExistPath, evn.environment.warehouse + "/" + restoreDetail.pathToResotre, {
                         overwrite: true
                     })
                 }

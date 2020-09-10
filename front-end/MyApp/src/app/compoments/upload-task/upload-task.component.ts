@@ -49,12 +49,14 @@ export class UploadTaskComponent implements OnInit {
     let form = new FormData();
     form.append("uploadDir",this.breadcrumbservice.currentPath)
     form.append("file",file);
-    var result = new HttpRequest('POST',"http://localhost:3000/upload",form,{
-      reportProgress: true,
-    });
-    
-    return await this.http.request(result).toPromise()
-    
+    if (file != undefined) {
+      var result = new HttpRequest('POST',"http://localhost:3000/upload",form,{
+        reportProgress: true,
+      });
+      return await this.http.request(result).toPromise()
+    }else{
+      console.log("NO UPLOAD")
+    }
   }
 
   async startUpload() {

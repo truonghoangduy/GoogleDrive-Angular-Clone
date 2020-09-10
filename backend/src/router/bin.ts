@@ -104,7 +104,7 @@ router.post('/', async (res, resp) => {
                 });
 
                 console.log("REMOVE "+fileName)
-                resp.send("Folder/file " + fileName + " is move");
+                resp.send({result:"Folder/file " + fileName + " is move"});
         }
         else {
             resp.send('Folder/file is not exist !!!');

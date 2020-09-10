@@ -32,6 +32,7 @@ router.post('/', async (req, res) => {
     }
 
     res.send({
+        result:"ok"
         // payload:{
         //     uploaded:uploadedFile,
         //     uploadLocation:parrentNode
