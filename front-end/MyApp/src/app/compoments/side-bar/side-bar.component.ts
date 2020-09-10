@@ -2,6 +2,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { ApiService } from "../../services/api.service"
 import { HttpClient } from '@angular/common/http'
 import { AuthService } from 'src/app/services/auth.service';
+import {BreadcrumbService} from '../../services/breadcrumb/breadcrumb.service'
 @Component({
   selector: 'app-side-bar',
   templateUrl: './side-bar.component.html',
@@ -9,7 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class SideBarComponent implements OnInit {
 
-  constructor(public apiService: ApiService, public httpClient: HttpClient, public auth: AuthService) {
+  constructor(public apiService: ApiService, public httpClient: HttpClient, public auth: AuthService,) {
   }
   userInfo = {
     displayName: "",

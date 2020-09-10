@@ -6,6 +6,7 @@ import { ApiBrowseService } from './browse/api-browse.service';
 import { BreadcrumbService } from './breadcrumb/breadcrumb.service';
 import {saveFile} from '../ults/dowload-helper';
 import { AuthService } from './auth.service';
+import { auth } from 'firebase';
 const API_BIN = "bin"
 const API_DOWNLOAD = "file"
 
@@ -56,8 +57,22 @@ export class ApiService {
     let listofDefautName = folders.folders.filter(name => name.includes("New Folder"))
   }
 
-  
-
+  async move(url:string,des:string){
+    return  await this.http.post(environment.endpoint+"move",{
+      "uid": this.authServices.user.email,
+    "source":url ,
+    "destination":des
+    }).toPromise();
+    
+  }
+  async copy(url:string,des:string){
+    return  await this.http.post(environment.endpoint+"copy",{
+      "uid": this.authServices.user.email,
+    "source":url ,
+    "destination":des
+    }).toPromise();
+    
+  }
 
   async dowloadFile(path: string) {
     let index = path.split('/');
