@@ -13,8 +13,8 @@ router.post('/', async (res, resp) => {
     const { uid, source, delDirectory } = res.body;
 
     try {
-        let sourceExist = await fs.pathExists(evn.environment.warehouse + "/" + uid + "/" + source);
-        let delDirectoryExist = await fs.pathExists(evn.environment.warehouse + "/" + uid + "/" + source + "/" + delDirectory);
+        let sourceExist = await fs.pathExists(evn.environment.recyclebin + "/" + uid + "/" + source);
+        let delDirectoryExist = await fs.pathExists(evn.environment.recyclebin + "/" + uid + "/" + source + "/" + delDirectory);
         if (sourceExist && delDirectoryExist) {
 
             fs.rmdirSync(evn.environment.warehouse + "/" + uid + "/" + source + "/" + delDirectory, { recursive: true });
