@@ -14,7 +14,7 @@ export class AuthService {
   public idToken: string;
   public uid: string;
   public user: firebase.User = null;
-  constructor(public Auth: AngularFireAuth, public router: Router, private api: ApiService, private client: HttpClient) { }
+  constructor(public Auth: AngularFireAuth, public router: Router, private client: HttpClient) { }
 
 
 
