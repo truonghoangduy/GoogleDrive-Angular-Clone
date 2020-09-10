@@ -14,14 +14,14 @@ router.post('/', async (res, resp) => {
     let fileName = res.body["source"].split('/');
     fileName = fileName[fileName.length - 1];
     try {
-        let sourceExist = await fs.pathExists(evn.environment.warehouse + "/" + res.body["uid"] + "/" + res.body["source"]);
+        let sourceExist = await fs.pathExists(evn.environment.warehouse + "/"  + res.body["source"]);
         console.log(evn.environment.warehouse + "/" + res.body["source"]);
         if (sourceExist) {
             console.log(evn.environment.warehouse + "/" + res.body["source"], evn.environment.warehouse + "/" + res.body["destination"]);
-            await fs.copySync("./warehouse/" + res.body["uid"] + "/" + res.body["source"], "./warehouse/" + res.body["uid"] + "/" + res.body["destination"] + "/" + fileName);
-            resp.send("Folder/file " + res.body["destination"] + " is copy");
+            await fs.copySync("./warehouse/"  + res.body["source"], "./warehouse/"  + res.body["destination"] + "/" + fileName);
+            resp.send({result:"Folder/file " + res.body["destination"] + " is copy"});
         } else {
-            resp.send('Folder/file is not exist !!!');
+            resp.send({result:'Folder/file is not exist !!!'});
         }
     } catch (error) {
         resp.send(error);

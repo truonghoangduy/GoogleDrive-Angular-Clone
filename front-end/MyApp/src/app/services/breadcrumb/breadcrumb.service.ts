@@ -62,11 +62,21 @@ export class BreadcrumbService {
   }
 
   async refreshAfterAction(){
-    this.currentViewFolder.next(await this.browseApi.getFolderV2(this.currentPath))
+    console.log("CALL REFRESGGG")
+    console.log(this.currentPath)
+
+    let currentPath = await this.browseApi.getFolderV2(this.currentPath)
+    console.log({
+      currentPATHH : this.currentPath,
+      log:currentPath
+    })
+    // console.log(currentPath)
+    this.currentViewFolder.next(currentPath)
     // await this.requestPath(this.currentPath);
   }
 
   async requestPath(path:string){
+    console.log(path)
     let requestValue = await this.browseApi.getFolderV2(path);
     // console.log(this.fakeData.length)
     this.fakeData.push(requestValue)
