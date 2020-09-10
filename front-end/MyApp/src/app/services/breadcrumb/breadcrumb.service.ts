@@ -87,4 +87,8 @@ export class BreadcrumbService {
     console.log("Update LENGHT "+this.fakeData.length)
 
   }
+
+  // async requsetPathForShare(){
+
+  // }
 }

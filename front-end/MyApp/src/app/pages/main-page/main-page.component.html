@@ -15,7 +15,7 @@
     <div class="row">
         <div class="col"></div>
         <div class="col-12 col-sm-10 col-md-12">
-            <app-thumbnail *ngFor="let item of this.files" [file]='item' (contextmenu)="onContextMenu($event, item)">
+            <app-thumbnail *ngFor="let item of this.files" [file]='item' (contextmenu)="onContextMenu($event, item)" [thumbnaileForShare]='true'>
             </app-thumbnail>
             <!-- <app-thumbnail></app-thumbnail>
             <app-thumbnail></app-thumbnail>

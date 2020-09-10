@@ -11,6 +11,7 @@ export class ThumbnailComponent implements OnInit {
 
   @Input() file:string;
   @Input() numberOfModify:number;
+  @Input() thumbnaileForShare:boolean;
   constructor(private http:HttpClient) {
     console.log(this.file)
    }
@@ -25,7 +26,7 @@ export class ThumbnailComponent implements OnInit {
   }
  pic="https://i.pinimg.com/originals/d4/bc/c4/d4bcc46e371e194b20854acd1ba3a86b.jpg";
   ngOnInit(): void {
-    if(this.thumbnails.pictureURL==null)
-    this.thumbnails.pictureURL=this.pic;
+      this.thumbnails.pictureURL=this.pic;
+
   }
   }

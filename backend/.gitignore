@@ -3,6 +3,7 @@ docs/*
 warehouse/*
 temp/*
 dist/*
+recyclebin/*
 
 temp/*
 dist/*

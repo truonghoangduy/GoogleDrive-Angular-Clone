@@ -11,6 +11,7 @@ const API_CREATEFOLDER="createFolder"
 const API_RESTORE ='restore'
 import { AuthService } from './auth.service';
 import { auth } from 'firebase';
+import { ShareListModel } from '../pages/share-page/share-page.component';
 const API_BIN = "bin"
 const API_DOWNLOAD = "file"
 const API_SHARE ='share'
@@ -117,9 +118,10 @@ export class ApiService {
   }
 
   async getShareList(){
-    return await this.http.post(environment.endpoint + API_GET_SHARE_LIST,{
-      "receiver":'kien'
-    }).toPromise();
+    let respone = await this.http.post(environment.endpoint + API_GET_SHARE_LIST,{
+      "receiver":this.authServices.user.email
+    }).toPromise()
+    return (respone['responeData']);
   }
 
   getBinList(){
