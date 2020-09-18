@@ -10,12 +10,12 @@
             <!-- <app-folder *ngFor="let item of this.folerService.folderBD" [name]="item.name"></app-folder> -->
         </div>
     </div>
-    <p>File</p>
+    <p *ngIf="this.files.length != 0">File</p>
 
     <div class="row">
         <div class="col"></div>
         <div class="col-12 col-sm-10 col-md-12">
-            <app-thumbnail *ngFor="let item of this.files" [file]='item' (contextmenu)="onContextMenu($event, item)" [thumbnaileForShare]='true'>
+            <app-thumbnail *ngFor="let item of this.files" [file]='item' (contextmenu)="onContextMenu($event, item)" [thumbnaileForShare]='false'>
             </app-thumbnail>
             <!-- <app-thumbnail></app-thumbnail>
             <app-thumbnail></app-thumbnail>

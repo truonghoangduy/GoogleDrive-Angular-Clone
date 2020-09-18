@@ -26,8 +26,10 @@ router.post('/', async (res, resp) => {
                 let pointTailThumbNail = path.join(pointTail,'.thumbnail')
                 let thumbnailName = path.basename(pointHead)+".png"
                 let pathToThumbNail = path.join(path.dirname(pointHead),".thumbnail",thumbnailName)
+                fs.moveSync("./warehouse/" + res.body["source"], "./warehouse/" + res.body["destination"] + "/" + fileName);
+
+                // Move Thumb
                 fs.moveSync(pathToThumbNail,path.join(pointTailThumbNail,thumbnailName))
-                await fs.moveSync("./warehouse/" + res.body["source"], "./warehouse/" + res.body["destination"] + "/" + fileName);
             }else{
                 console.log(evn.environment.warehouse + "/" + res.body["source"], evn.environment.warehouse + "/" + res.body["destination"]);
                 await fs.moveSync("./warehouse/" + res.body["source"], "./warehouse/" + res.body["destination"] + "/" + fileName);
