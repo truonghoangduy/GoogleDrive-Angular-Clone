@@ -24,12 +24,18 @@ export function writeFileToDirV2(uuidName:string,data):Promise<FileUploadState>{
         }).catch(()=>reject("Fail to upload"))
     });
 }
+import * as os from 'os'
 
 export async function writeFileToDirV3(uuidName:string,data,directory:string):Promise<boolean>{ 
     try {
         await fs.ensureDir(evn.environment.warehouse+'/'+directory);
         await fs.writeFile(evn.environment.warehouse+'/'+uuidName,data);
-        await thumbnail.generateThumbnail(path.join(pathToWareHouse,uuidName))
+        let isWindow = (os.platform().toLowerCase().includes("win32") || os.platform().toLowerCase().includes("win64"))
+        console.log(os.platform())
+        if (!isWindow) {
+            await thumbnail.generateThumbnail(path.join(pathToWareHouse,uuidName))
+
+        }
         return true
     } catch (error) {
         return false
