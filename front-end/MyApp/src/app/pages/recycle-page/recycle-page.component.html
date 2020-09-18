@@ -39,7 +39,7 @@
             <div class="col-12 col-sm-10 col-md-12">
                 <div *ngFor="let file of this.files; let i = index" >
                     <app-thumbnail [file]='this.files[i][0].name'
-                    [thumbnaileForShare]='true'
+                    [thumbnaileForShare]='false'
                     [numberOfModify]='this.files[i].length'
                     (contextmenu)="onContextMenu($event, this.files[i])"
                     style="cursor: pointer"></app-thumbnail>
