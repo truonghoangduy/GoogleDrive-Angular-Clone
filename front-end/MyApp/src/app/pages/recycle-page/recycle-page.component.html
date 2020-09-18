@@ -1,0 +1,73 @@
+<!-- <div style="text-align: center;">
+    <img class="image" src="../../../assets/trash.svg">
+    <div style="text-align: center;font-size: 20px;">
+        <p role="heading">Không có tệp hoặc thư mục nào trong Thùng rác.</p>
+        <p class="ab-S-Sg">Chuyển những tệp bạn không còn cần nữa vào
+            <b>Thùng rác</b>. Nhấp "Dọn sạch thùng rác" từ menu Thùng rác để xóa vĩnh viễn các mục và có thêm không gian bộ nhớ.
+            <span class="Oh-Ma-A kc-A" data-target="showHelp" data-help-topic="trash_ww_new" role="link" tabindex="0">Tìm hiểu thêm</span>
+        </p>
+    </div>
+</div> -->
+
+<!-- <div *ngFor="let item of binSortedWithCommonPath; let i = index">
+    <app-folder [folders]=binList[item][0].fileName></app-folder>
+   <div *ngFor="let binObject of binList[item]">
+       ----
+       <div>{{binObject.moveFrom}} {{binObject.fileName}}</div>
+       
+   </div>
+</div> -->
+
+<div>
+    <div class="container" style="position: relative;">
+        <p *ngIf="this.folders.length != 0">Folder</p>
+        <div class="row">
+            <div class="col" *ngIf="this.folders.length > 0">
+                <div *ngFor="let folder of this.folders; let i = index" >
+                    <app-folder [folders]='this.folders[i][0].name' 
+                    [numberOfModify]='this.folders[i].length'
+                    (contextmenu)="onContextMenu($event, this.folders[i])"
+                    style="cursor: pointer"></app-folder>
+                </div>
+              
+            </div>
+        </div>
+        <p>File</p>
+    
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-12 col-sm-10 col-md-12">
+                <div *ngFor="let file of this.files; let i = index" >
+                    <app-thumbnail [file]='this.files[i][0].name'
+                    [thumbnaileForShare]='true'
+                    [numberOfModify]='this.files[i].length'
+                    (contextmenu)="onContextMenu($event, this.files[i])"
+                    style="cursor: pointer"></app-thumbnail>
+                </div>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+</div>
+
+<!-- <button mat-button (click)='breadCrumbServices.requestPath("admin/okok")'>Fake Broows</button> -->
+<!-- 
+--->
+<div style="visibility: hidden; position: fixed" [style.left]="contextMenuPosition.x" [style.top]="contextMenuPosition.y" [matMenuTriggerFor]="contextMenu">
+</div>
+
+<mat-menu #contextMenu="matMenu" #contextMenu2="matMenu">
+    <ng-template matMenuContent let-item="item">
+        <!-- <div mat-menu-item [disableRipple]='true'>{{item.name}}</div> -->
+        <div mat-menu-item (click)="recoverMenu(item['listOfVersion'])"><mat-icon>info</mat-icon>Restore Detail</div>
+        <div mat-menu-item (click)="onRemove(item['listOfVersion'])"><mat-icon>delete_forever</mat-icon>Remove</div>
+        <!-- <div mat-menu-item (click)='onDowload(item.path)'>
+            <mat-icon>get_app</mat-icon>Dowload</div>
+        <div mat-menu-item (click)="onDelete(item.path)">
+            <mat-icon>delete</mat-icon>Delete</div>
+        <div mat-menu-item>
+            <mat-icon>content_copy</mat-icon>Make a copy
+        </div>
+        <button mat-menu-item (click)="onContextMenuAction(item)">Action 1</button> -->
+    </ng-template>
+</mat-menu> 

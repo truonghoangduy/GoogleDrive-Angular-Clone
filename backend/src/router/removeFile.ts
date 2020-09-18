@@ -1,55 +1,66 @@
+// import * as expressLib from "express";
+import fs = require('fs-extra');
 import express = require('express');
 import createFile = require('../ults/generateGoblePath')
 const router = express.Router();
 import admin = require('firebase-admin');
-import { VirtualFile } from '../../models/file.model';
 const firestore = admin.firestore();
 import fakeData = require('../../fakeData/temperData')
-import { Folder } from '../../models/folder.model';
-// import uploader = require('../ults/wirteFile');
-// import expressFileupload = require('express-fileupload');
-import deleter = require('../ults/deleteFile');
-import fileExist = require('../ults/fileInfo');
-function nullChecker(key): boolean {
-    if (key == undefined) {
-        return true
-    }
-    return false;
-}
+import evn = require('../../environment')
+import path = require('path');
+const fieldValue = admin.firestore.FieldValue;
 
-// Todo JWT checker before delect
-// [1] : Check for [] of file uuid
-router.post('/', async (req, res) => {
+router.post('/', async (res, resp) => {
+    const { uid, source, delDirectory } = res.body;
 
-    let currentFolder = req.body['currentFolder'];
-    let removeFile = req.body['removeFile'] as Array<string>;
+    try {
+        let sourceExist = await fs.pathExists(evn.environment.recyclebin + "/" + uid + "/" + source);
+        let delDirectoryExist = await fs.pathExists(evn.environment.recyclebin + "/" + uid + "/" + source + "/" + delDirectory);
+        if (sourceExist && delDirectoryExist) {
 
-    if (nullChecker(removeFile)) {
-        console.log("Canot file keys");
-        res.status(501).send("Missing KEYS");
-        return;
-    }
-    if (nullChecker(currentFolder)) {
-        console.log("Canot file keys");
-        res.status(501).send("Missing KEYS");
-        return;
-    }
-    let comfromRemovedFile:Array<string> = [];
-    for (let file of removeFile) {
-         try {
-            if (await fileExist.fileExist(file)) {
-                console.log(`Dose you run : DROP ${file}`)
-                comfromRemovedFile.push(file);
-                await deleter.removeFile(file); // DEL
-            }
-        } catch (error) {
+            fs.rmdirSync(evn.environment.warehouse + "/" + uid + "/" + source + "/" + delDirectory, { recursive: true });
+        } else {
+            resp.send('Folder/file is not exist !!!');
         }
+    } catch (error) {
+        resp.send(error)
     }
-    res.send({
-        requestRemove: removeFile,
-        removed: comfromRemovedFile
-    })
+    resp.send("Folder/file " + delDirectory + " is removed");
+});
+
+router.post('/removeFromBin', async (res, resp) => {
+    const { owner, listOfVersion } = res.body;
+
+    try {
+        let fireStoreBatch = admin.firestore().batch()
+
+        for (let eachVersion  of listOfVersion) {
+            let pathToBin = path.join(evn.environment.recyclebin,owner,eachVersion)
+            if (await fs.pathExists(pathToBin)) {
+                fs.remove(pathToBin)
+                let docRefToBin = admin.firestore().collection('bin').doc(owner).collection('binList').doc(eachVersion)
+                fireStoreBatch.delete(docRefToBin)
+            }
+        }
+        await fireStoreBatch.commit()
+
+        resp.send({ message: "delete successful all" });
+
+        // if (sourceExist && delDirectoryExist) {
+
+        //     // fs.rmdirSync(evn.environment.warehouse + "/" + uid + "/" + source + "/" + delDirectory, { recursive: true });
+        // } else {
+        //     resp.send('Folder/file is not exist !!!');
+        // }
+    } catch (error) {
+        resp.send(error)
+    }
 })
+// et listBin = (await admin.firestore().collection("bin").doc(uid).collection("binList").where("path", "==", source).get()).docs.map(doc => doc.id);
+//             for (let i of listBin) {
+//                 await admin.firestore().collection("bin").doc(uid).collection("binList").doc(i).delete();
+//             }
+//             resp.send({ message: "delete successful all" });
 
 
 export = router

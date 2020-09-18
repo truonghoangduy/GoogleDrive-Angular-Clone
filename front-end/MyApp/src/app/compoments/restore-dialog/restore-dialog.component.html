@@ -1,0 +1,14 @@
+<h1 class="formtitle" mat-dialog-title>
+    Recover your version 🌁
+</h1>
+<div mat-dialog-content style="height: 50vh;min-width: 40vw;">
+    <mat-radio-group class="example-radio-group" [(ngModel)]='selectedTab'>
+        <mat-radio-button *ngFor="let item of data" [value]=item.binPath class="example-radio-button">
+            {{getTime(item.time)}}
+        </mat-radio-button>
+    </mat-radio-group>
+</div>
+<div style="display: flex; width: 100%;">
+    <button mat-button *ngIf="this.selectedTab.length >0" (click)='closeDialog(true)'>SEND</button>
+    <button mat-button (click)='closeDialog(false)' [ngStyle]="{'background-color': this.selectedTab.length >0?'rgb(95, 95, 255)':'none'}">CLOSE</button>
+</div>

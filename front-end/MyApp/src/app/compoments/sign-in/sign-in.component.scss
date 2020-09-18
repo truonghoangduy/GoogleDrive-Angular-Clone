@@ -1,0 +1,56 @@
+.sign-up {
+    margin: 30px 0;
+}
+
+p {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #394d5c;
+    margin-bottom: 3px;
+}
+
+.login {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5%;
+    margin-bottom: 7%;
+}
+
+.btnlogin {
+    background-color: #DD4B39;
+    color: white;
+    border: 0.5px solid #DD4B39;
+}
+
+.btnlogin:hover {
+    background-color: white;
+    color: #DD4B39;
+    border-color: #DD4B39;
+    border-style: solid;
+    border-width: 0.5px;
+}
+
+.btnlogin:focus {
+    background-color: white;
+    color: #DD4B39;
+    border-color: #DD4B39;
+    border-style: solid;
+    border-width: 0.5px;
+}
+
+.link {
+    color: #3B5998;
+}
+
+.link2 {
+    margin-top: 10px
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+// .icon {
+//     width: 38px;
+// }

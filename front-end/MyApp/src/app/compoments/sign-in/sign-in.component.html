@@ -1,0 +1,20 @@
+<div class="sign-up">
+    <p>Username:</p>
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="user name" aria-label="Recipient's username" aria-describedby="basic-addon2" [(ngModel)]="this.email" required>
+    </div>
+    <p>Password:</p>
+    <div class="input-group mb-3">
+        <input [type]="hide ? 'password' : 'text'" class="form-control" placeholder="password" aria-label="Recipient's username" aria-describedby="button-addon2" [(ngModel)]="this.password" >
+        <div class="input-group-append">
+            <button (click)="hide = !hide" style="border-radius:0 4px 4px 0; outline: none;" mat-stroked-button><mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon></button>
+        </div>
+    </div>
+    <div class="login">
+
+        <button style="outline:none" mat-raised-button class="btnlogin" (click)="this.onClickLoginWithEmail(this.email,this.password)">Sign in</button>
+        <button style="outline:none" mat-raised-button class="btnlogin" (click)="this.auth.loginGoogle()">Sign in with Google</button>
+    </div>
+    <a class="link" href="" style="font-size: 1rem;">Create new account</a>
+    <p class="link2"><a class="link" href="">Forgot your password</a></p>
+</div>

@@ -1,0 +1,50 @@
+/* You can add global styles to this file, and also import other style files */
+
+.dropzone {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-width: 100vw;
+    font-weight: 200;
+    width: 150%;
+    height: 100vh;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.dropzone .drag-drop {
+    color: black;
+    opacity: 0;
+    text-align: center;
+}
+
+.dropzone.hovering {
+    z-index: 5;
+    opacity: 0.7;
+    background-color: white;
+    border: 2px solid #cce8ff;
+    color: #dadada !important;
+}
+
+.dropzone.hovering .drag-drop {
+    opacity: 0.8;
+    color: black;
+}
+
+.dropzone .file-label {
+    font-size: 1.2em;
+}
+
+progress::-webkit-progress-value {
+    transition: width 0.1s ease;
+}
+
+.row {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -10px;
+}

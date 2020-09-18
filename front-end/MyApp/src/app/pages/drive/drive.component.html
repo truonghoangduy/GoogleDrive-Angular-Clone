@@ -1,0 +1,48 @@
+<!-- side-nav -->
+<mat-sidenav-container class="example-container" (backdropClick)="close('backdrop')">
+    <mat-sidenav class="side-bar" #sidenav (keydown.escape)="close('escape')" disableClose>
+        <!-- custom here -->
+        <div style="justify-content: left; padding:10px 0 ; border-bottom: 1px solid #f3efef;;" class="align">
+            <mat-icon (click)="close( 'toggle button')" style="margin:0 20px;">keyboard_arrow_left
+            </mat-icon>
+            <div class="user-icon" *ngIf="authService.user != null">
+                <img [src]="authService.user.photoURL"> {{authService.user.displayName}}
+            </div>
+        </div>
+        <!-- search -->
+        <!-- <div class="search">
+            <input class="form-control mr-sm-2 min" type="search" placeholder="Search" aria-label=" Search ">
+            <button class="btn btn-outline-success my-2 my-sm-0 " type="submit ">Search</button>
+        </div> -->
+        <!-- side-bar-items -->
+        <app-side-bar (navigateTo)="navigated($event)" (click)="close( 'toggle button');"></app-side-bar>
+        <app-side-bar-content (click)="authService.Logout()">
+            <mat-icon style="margin-right: 10px;">login</mat-icon>
+            Log out
+        </app-side-bar-content>
+        <!-- custom here -->
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <!-- PC display -->
+        <app-nav-bar (onShowMenu)="sidenav.open() "></app-nav-bar>
+        <div *ngIf="screenWidth >=768" class="container ">
+            <div class="row">
+                <div class="col-md-3 col-xl-3" style="padding:0">
+                    <app-side-bar (navigateTo)="navigated($event)"></app-side-bar>
+                </div>
+                <div class="col-md col-xl overflow">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile display -->
+        <div *ngIf="screenWidth <768" class="overflow">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+
+    <mat-sidenav position="end" [opened]=false style="width:500px" mode='over'>
+
+    </mat-sidenav>
+</mat-sidenav-container>

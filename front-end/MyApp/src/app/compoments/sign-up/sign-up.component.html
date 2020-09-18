@@ -1,0 +1,73 @@
+<!-- <div class="sign-up">
+    <p>Username:</p>
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="user name" aria-label="Recipient's username" aria-describedby="basic-addon2" [formControl]="email" required>
+    </div>
+    <p>Password:</p>
+    <div class="input-group mb-3">
+        <input type="passwor" class="form-control" placeholder="password" aria-label="Recipient's username" aria-describedby="button-addon2">
+    </div>
+    <p>Confirm password:</p>
+    <div class="input-group mb-3">
+        <input type="password" class="form-control" placeholder="password" aria-label="Recipient's username" aria-describedby="button-addon2">
+    </div>
+
+
+    <div class="algin">
+        <button mat-raised-button class="btnlogin">Sign up</button>
+    </div>
+</div> -->
+<form [formGroup]="userprofile" class="sign-up" (ngSubmit)="onSummitFrom()">
+    <div class="row">
+        <div class="col-sm-6">
+            <p>FirstName:</p>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="First Name" aria-label="Recipient's username" aria-describedby="basic-addon2" formControlName="firstName" required>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <p>LastName:</p>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Last Name" aria-label="Recipient's username" aria-describedby="basic-addon2" formControlName="lastName" required>
+            </div>
+        </div>
+    </div>
+
+    <p>Email:</p>
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Type your Email" aria-label="Recipient's username" aria-describedby="basic-addon2" formControlName="email" required>
+    </div>
+
+    <div class="input-group mb-3">
+        <input [type]="hide ? 'password' : 'text'" class="form-control" placeholder="Enter yours password" aria-label="Recipient's username" aria-describedby="button-addon2" formControlName="password" required>
+
+        <div class="input-group-append">
+            <button (click)="hide = !hide" style="border-radius:0 4px 4px 0; outline: none;" mat-stroked-button><mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon></button>
+        </div>
+
+    </div>
+    <mat-error *ngIf="userprofile.hasError('required', 'password')">
+        <h6 style="opacity: 0.6;">Pls Enteryour password</h6>
+    </mat-error>
+    <div>
+        <div class="input-group mb-3">
+            <input [type]="hide ? 'password' : 'text'" class="form-control" placeholder="Confirm your password" aria-label="Recipient's username" aria-describedby="button-addon2" formControlName="retypepassword">
+            <div>
+                <button (click)="hide = !hide" style="border-radius:0 4px 4px 0; outline: none;" mat-stroked-button>
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}
+                        
+                    </mat-icon></button>
+            </div>
+        </div>
+    </div>
+
+
+    <p>Phone:</p>
+    <div class="input-group mb-3">
+        <input type="number" class="form-control" placeholder="" aria-label="Recipient's username" aria-describedby="basic-addon2" formControlName="phonenumber" required>
+    </div>
+
+    <div class="algin">
+        <button type="submit" mat-raised-button class="btnlogin">Sign up</button>
+    </div>
+</form>

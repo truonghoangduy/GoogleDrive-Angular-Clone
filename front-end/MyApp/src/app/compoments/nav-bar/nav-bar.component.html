@@ -1,0 +1,57 @@
+<div class="nav">
+    <div class="container">
+        <div class="row" style="position:relative">
+            <div *ngIf="screenWidth<768" class="col align hamb">
+                <button mat-icon-button (click)="showMenu()" class="btn-menu">
+                <mat-icon style="color: rgb(57, 77, 92);">menu</mat-icon>
+                </button>
+
+                <div class="btn1">
+                    <button (click)="openDialog1()" mat-fab color="warn">
+                       <mat-icon  style="color:white;">search</mat-icon>
+                    </button>
+                </div>
+            </div>
+            <div style="justify-content: center;" class="align col-12 col-md-3 col-xl-3">
+                <a class="align st" href="#">
+                    <img src="../../../assets//Full-logo.png" alt="">
+                </a>
+            </div>
+            <div *ngIf="screenWidth>=768" class="align col-md-6 col-xl-5 " style="justify-content: center;">
+                <input class="form-control mr-sm-2 min search" type="search" placeholder="Search" aria-label=" Search ">
+                <button style="color: #28a745;" class="btn btn-outline-success my-2 my-sm-0 " type="submit ">Search</button>
+            </div>
+            <div style="justify-content: right;" *ngIf="screenWidth>=768" class="align col-md col-xl " style="justify-content: center;">
+                <span class="user-icon" [matMenuTriggerFor]="menu">
+                <img  [src]="authService.user.photoURL" style="margin-right: 5px;" *ngIf="authService.user != null">
+                {{authService.user.displayName}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div *ngIf="screenWidth>=768" class="col-md-3 col-xl-3 add">
+                <div class="btn2">
+                    <button mat-raised-button [matMenuTriggerFor]="menu" class="New1">
+                        <mat-icon >add</mat-icon>
+                    New</button>
+
+                    <mat-menu #menu="matMenu">
+                        <button (click)="openDialog()" style="outline: none;" mat-menu-item>Create folder</button>
+                        <button style="outline: none;" mat-menu-item>Upload file</button>
+                    </mat-menu>
+                </div>
+            </div>
+            <div class="col">
+                <!-- <app-breadcrumb></app-breadcrumb> -->
+                <app-breadcrumb-v2 [items]="breadCrumbServices.fakeData" (clickItem)="breadCrumbServices.removeAt($event)"></app-breadcrumb-v2>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<mat-menu #menu style="padding: 0;">
+    <button style="outline: none;padding-left: 5px;" mat-menu-item (click)="this.authService.Logout()">
+<mat-icon>login</mat-icon>
+<span>Logout</span>
+</button>
+</mat-menu>

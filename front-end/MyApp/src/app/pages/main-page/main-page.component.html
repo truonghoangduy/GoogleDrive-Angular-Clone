@@ -1,0 +1,87 @@
+<div class="container" style="position: relative;">
+    <uploader (contextmenu)="onContextMenuCenter($event)"></uploader>
+    <p *ngIf="this.folders.length != 0">Folder</p>
+    <div class="row">
+        <div class="col" *ngIf="this.folders.length != 0">
+
+            <app-folder *ngFor="let folder of this.folders" [folders]=folder
+                (contextmenu)="onContextMenu($event, folder)" (click)="onFolderClick(folder)" style="cursor: pointer;">
+            </app-folder>
+            <!-- <app-folder *ngFor="let item of this.folerService.folderBD" [name]="item.name"></app-folder> -->
+        </div>
+    </div>
+    <p *ngIf="this.files.length != 0">File</p>
+
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-12 col-sm-10 col-md-12">
+            <app-thumbnail *ngFor="let item of this.files" [file]='item' (contextmenu)="onContextMenu($event, item)" [thumbnaileForShare]='false'>
+            </app-thumbnail>
+            <!-- <app-thumbnail></app-thumbnail>
+            <app-thumbnail></app-thumbnail>
+            <app-thumbnail></app-thumbnail>
+            <app-thumbnail></app-thumbnail>
+            <app-thumbnail></app-thumbnail>
+            <app-thumbnail></app-thumbnail>
+            <app-thumbnail></app-thumbnail>
+            <app-thumbnail></app-thumbnail>
+            <app-thumbnail></app-thumbnail> -->
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+<!-- <button mat-button (click)='breadCrumbServices.requestPath("admin/okok")'>Fake Broows</button> -->
+
+
+<div style="visibility: hidden; position: fixed" [style.left]="contextMenuPosition.x"
+    [style.top]="contextMenuPosition.y" [matMenuTriggerFor]="contextMenu">
+</div>
+
+<div #contextMenuCenterPaste style="visibility: hidden; position: fixed" [style.left]="contextMenuPosition.x"
+    [style.top]="contextMenuPosition.y"[mat-menu-trigger-for]='contextMenu'>
+</div>
+
+
+<mat-menu #contextMenuCenter="matMenu">
+    <ng-template matMenuContent>
+        <div mat-menu-item> 
+            <mat-icon>paste</mat-icon>paste
+        </div>
+    </ng-template>
+</mat-menu>
+
+<mat-menu #contextMenu="matMenu" #contextMenu2="matMenu">
+    <ng-template matMenuContent let-item="item">
+        <div mat-menu-item [disableRipple]='true' *ngIf="item.name != null">{{item.name}}</div>
+        <div mat-menu-item (click)="onOpenDialogShare()" *ngIf="item.name != null">
+            Share
+
+        </div>
+        <div mat-menu-item (click)="onOpenDialogRename(item.path)" *ngIf="item.name != null">
+            Rename
+        </div>
+
+        <div mat-menu-item (click)='onDowload(item.path)' *ngIf="item.name != null">
+            <mat-icon>get_app</mat-icon>Dowload
+        </div>
+        <div mat-menu-item (click)="onDelete(item.path)" *ngIf="item.name != null">
+            <mat-icon>delete</mat-icon>Delete
+        </div>
+        <div mat-menu-item (click)="move(item.path)"*ngIf="item.name != null">
+            <!-- <button mat-button >
+                <mat-icon>move</mat-icon>move
+            </button> --><mat-icon>move_to_inbox</mat-icon>move
+        </div>
+        <div mat-menu-item (click)="copy(item.path)"*ngIf="item.name != null">
+            <!-- <button mat-button >
+                <mat-icon>move</mat-icon>move
+            </button> --><mat-icon>content_copy</mat-icon>copy
+        </div>
+        <div mat-menu-item *ngIf="this.clickMove" (click)="onPaste(item.path)"> 
+            <mat-icon>content_paste</mat-icon>paste
+        </div>
+        <div mat-menu-item *ngIf="this.clickCopy" (click)="onPasteCopy(item.path)"> 
+            <mat-icon>content_paste</mat-icon>paste
+        </div>
+    </ng-template>
+</mat-menu>

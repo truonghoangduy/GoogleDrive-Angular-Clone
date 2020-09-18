@@ -1,0 +1,45 @@
+<!-- <div style="text-align: center;">
+    <img class="image" src="../../../assets/share.svg">
+</div>
+<div style="text-align: center;font-size: 20px;">
+    <p role="heading">Tệp và thư mục người khác đã chia sẻ với bạn.</p>
+    <p class="ab-S-Sg">Tạm biệt các tệp đính kèm email và chào đón công tác trong thời gian thực.Kéo bất kỳ thứ gì được chia sẻ với bạn vào
+        <b>Drive của tôi</b> để truy cập dễ dàng hơn.<a href="" style="color: #0366d6;">Tìm hiểu thêm.</a>
+        <span class="Oh-Ma-A kc-A" data-target="showHelp" data-help-topic="trash_ww_new" role="link" tabindex="0">Tìm hiểu thêm</span>
+    </p>
+</div> -->
+
+<div class="container" style="position: relative;">
+    <p *ngIf="this.folders.length != 0">Folder</p>
+    <div class="row">
+        <div class="col" *ngIf="this.folders.length != 0">
+            <app-folder *ngFor="let item of this.folders" [folders]=item></app-folder>
+
+            <!-- <app-folder *ngFor="let folder of this.folders" [folders]=folder
+                (contextmenu)="onContextMenu($event, folder)" (click)="onFolderClick(folder)" style="cursor: pointer;">
+            </app-folder> -->
+            <!-- <app-folder *ngFor="let item of this.folerService.folderBD" [name]="item.name"></app-folder> -->
+        </div>
+    </div>
+    <p>File</p>
+
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-12 col-sm-10 col-md-12">
+        <app-thumbnail *ngFor="let item of this.files" [file]='item' [thumbnaileForShare]='false'>
+            </app-thumbnail>
+            <!-- <app-thumbnail *ngFor="let item of this.files" [file]='item' (contextmenu)="onContextMenu($event, item)">
+            </app-thumbnail> -->
+            <!-- <app-thumbnail></app-thumbnail>
+            <app-thumbnail></app-thumbnail>
+            <app-thumbnail></app-thumbnail>
+            <app-thumbnail></app-thumbnail>
+            <app-thumbnail></app-thumbnail>
+            <app-thumbnail></app-thumbnail>
+            <app-thumbnail></app-thumbnail>
+            <app-thumbnail></app-thumbnail>
+            <app-thumbnail></app-thumbnail> -->
+        </div>
+        <div class="col"></div>
+    </div>
+</div>

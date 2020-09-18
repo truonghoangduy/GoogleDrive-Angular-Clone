@@ -1,0 +1,16 @@
+<ul class="Crumbs">
+    <ng-container *ngFor="let item of crumbs; let i = index">
+        <li *ngIf="i !== crumbs.length - 1" class="Crumbs-Link">
+
+            <a [routerLink]="item.link">{{ item.title }}</a>
+
+        </li>
+        <li *ngIf="i !== crumbs.length - 1" class="Crumbs-Separator">
+            >
+        </li>
+
+        <li *ngIf="i === crumbs.length - 1" class="Crumbs-Link Crumbs-Link_current">
+            {{ item.title }}
+        </li>
+    </ng-container>
+</ul>

@@ -1,0 +1,14 @@
+p {
+    font-size: 20px;
+    margin: 10px 0;
+    font-weight: 600;
+}
+
+* {
+    color: rgb(57, 77, 92);
+}
+
+::ng-deep .mat-menu-content {
+    // width: 450px !important; // as you wish
+    // height: 200px !important; // as you wish 
+  }

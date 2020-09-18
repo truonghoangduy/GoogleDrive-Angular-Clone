@@ -1,0 +1,15 @@
+<upload-task></upload-task>
+<div class="row">
+    <div class="col-sm-3">
+        <div class="dropzone" dropzone (hovered)="toggleHover($event)" (dropped)="onDrop($event)" [class.hovering]="isHovering">
+            <div class="drag-drop">
+                <p>Drag and Drop Files Here</p>
+                <mat-icon>system_update_alt</mat-icon>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div *ngFor="let file of files" hidden>
+    <upload-task [file]="file"></upload-task>
+</div>
